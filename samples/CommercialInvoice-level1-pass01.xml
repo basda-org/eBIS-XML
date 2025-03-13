@@ -1,0 +1,105 @@
+<?xml version ="1.0"?>
+
+<Invoice xmlns='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01'>
+  <InvoiceHead>
+    <Schema>
+      <Version>3.00</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML_simple.xsl</StylesheetName>
+      <Version>3.00</Version>
+      <StylesheetType>xsl</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en_GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>10.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag>1</TestFlag>
+    <InvoiceType>Commercial Invoice</InvoiceType>
+    <InvoiceCurrency>
+      <Currency Code='GBP'>Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>61491</Checksum>
+  </InvoiceHead>
+  <InvoiceReferences>
+    <BuyersOrderNumber>PO1001</BuyersOrderNumber>
+    <SuppliersInvoiceNumber>INV3625</SuppliersInvoiceNumber>
+  </InvoiceReferences>
+  <InvoiceDate>2000-04-18</InvoiceDate>
+  <Supplier>
+    <Party>Solid Oak Timber Co</Party>
+    <Address>
+      <AddressLine>The Woodyard</AddressLine>
+      <Street>1 The Cut</Street>
+      <City>Reading</City>
+      <State>Berks</State>
+      <PostCode>RG1 1XX</PostCode>
+    </Address>
+  </Supplier>
+  <Buyer>
+    <Party>BASDA Ltd</Party>
+    <Address>
+      <Street>530 The Linen Hall</Street>
+      <Street>162-168 Regent Street</Street>
+      <City>London</City>
+      <PostCode>W1R 5TB</PostCode>
+    </Address>
+  </Buyer>
+  <InvoiceTo>
+    <Party>BASDA Ltd</Party>
+    <Address>
+      <Street>530 The Linen Hall</Street>
+      <Street>162-168 Regent Street</Street>
+      <City>London</City>
+      <PostCode>W1R 5TB</PostCode>
+    </Address>
+  </InvoiceTo>
+  <InvoiceLine>
+    <LineNumber>1</LineNumber>
+    <InvoiceLineReferences>
+      <OrderLineNumber>1</OrderLineNumber>
+    </InvoiceLineReferences>
+    <Product>
+      <Description>Pallets</Description>
+    </Product>
+    <Quantity>
+      <Amount>3</Amount>
+    </Quantity>
+    <Price>
+      <UnitPrice>129.99</UnitPrice>
+    </Price>
+    <LineTax>
+      <TaxRate Code='S'>17.5</TaxRate>
+      <TaxValue>68.24</TaxValue>
+    </LineTax>
+    <LineTotal>458.21</LineTotal>
+  </InvoiceLine>
+  <TaxSubTotal>
+    <TaxRate Code='S'>17.5</TaxRate>
+    <NumberOfLinesAtRate>1</NumberOfLinesAtRate>
+    <TotalValueAtRate>389.97</TotalValueAtRate>
+    <TaxableValueAtRate>389.97</TaxableValueAtRate>
+    <TaxAtRate>68.24</TaxAtRate>
+    <NetPaymentAtRate>458.21</NetPaymentAtRate>
+    <GrossPaymentAtRate>458.21</GrossPaymentAtRate>
+    <TaxCurrency>
+      <Currency Code='GBP'>Pounds Sterling</Currency>
+    </TaxCurrency>
+  </TaxSubTotal>
+  <InvoiceTotal>
+    <NumberOfLines>1</NumberOfLines>
+    <NumberOfTaxRates>1</NumberOfTaxRates>
+    <LineValueTotal>389.97</LineValueTotal>
+    <TaxableTotal>389.97</TaxableTotal>
+    <TaxTotal>68.24</TaxTotal>
+    <NetPaymentTotal>458.21</NetPaymentTotal>
+    <GrossPaymentTotal>458.21</GrossPaymentTotal>
+  </InvoiceTotal>
+</Invoice>

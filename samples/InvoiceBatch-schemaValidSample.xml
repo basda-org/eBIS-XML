@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<InvoiceBatch xmlns='http://www.ebis-xml.net/invoiceBatch-v0.1' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01 http://www.ebis-xml.net/schemas/invoice-v3.xsd http://www.ebis-xml.net/invoiceBatch-v0.1 http://www.ebis-xml.net/schemas/invoiceBatch-v0.1.xsd'>
+  <Invoice xmlns='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01'>
+    <InvoiceHead>
+      <Schema>
+        <Version>3.0</Version>
+      </Schema>
+      <Stylesheet>
+        <StylesheetOwner>BASDA</StylesheetOwner>
+        <StylesheetName>eBIS-XML_simple.xsl</StylesheetName>
+        <Version>3</Version>
+        <StylesheetType>XSL</StylesheetType>
+      </Stylesheet>
+      <Parameters>
+        <Language>en-GB</Language>
+        <DecimalSeparator>.</DecimalSeparator>
+        <Precision>20.3</Precision>
+      </Parameters>
+      <OriginatingSoftware>
+        <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+        <SoftwareProduct>eBIS-XML</SoftwareProduct>
+        <SoftwareVersion>3.0</SoftwareVersion>
+      </OriginatingSoftware>
+      <TestFlag TestReference='Complex'>1
+        <Test ExpectedReply='Fail' Mode='Manual' />
+      </TestFlag>
+      <InvoiceType Code='INV'>Commercial Invoice</InvoiceType>
+      <Function Code='PRI'>Provisional Invoice</Function>
+      <InvoiceCurrency>
+        <Currency Code='GBP'>GB Pounds Sterling</Currency>
+        <AlternateCurrency Code='USD'>US Dollar</AlternateCurrency>
+        <Rate CalculationType='M'>1.6</Rate>
+      </InvoiceCurrency>
+      <Checksum>49973</Checksum>
+    </InvoiceHead>
+    <InvoiceReferences>
+      <ContractOrderReference>Complex5</ContractOrderReference>
+      <CostCentre>Overheads</CostCentre>
+      <BuyersOrderNumber Preserve='true'>ebis5</BuyersOrderNumber>
+      <Department>Despatch</Department>
+      <GeneralLedgerCode>123-456</GeneralLedgerCode>
+      <ProjectCode Preserve='true'>EB5</ProjectCode>
+      <ProjectAnalysisCode Preserve='true'>Office</ProjectAnalysisCode>
+      <SuppliersInvoiceNumber Preserve='true'>123456/1</SuppliersInvoiceNumber>
+    </InvoiceReferences>
+    <InvoiceDate>2000-06-07</InvoiceDate>
+    <TypeOfSupply>Sale or Return</TypeOfSupply>
+    <TaxPointDate>2000-06-07</TaxPointDate>
+    <Supplier>
+      <SupplierReferences>
+        <BuyersCodeForSupplier>12345678912345</BuyersCodeForSupplier>
+        <TaxNumber>GB123456789</TaxNumber>
+        <GLN>12345678901234</GLN>
+      </SupplierReferences>
+      <Party>Solid Oak Timber Co</Party>
+      <Address>
+        <AddressLine>The Woodyard</AddressLine>
+        <Street>1 The Cut</Street>
+        <City>Reading</City>
+        <State>Berks</State>
+        <PostCode>RG1 1XX</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Fred Smith</Name>
+        <Department>Despatch</Department>
+        <InternalAddress>Back office</InternalAddress>
+        <DDI>12345678901234</DDI>
+        <Switchboard>01234566</Switchboard>
+        <Fax>01234567</Fax>
+        <Telex>3456</Telex>
+        <Email>fred@timber.co.uk</Email>
+        <Mobile>07967 123456</Mobile>
+      </Contact>
+    </Supplier>
+    <Buyer>
+      <BuyerReferences>
+        <SuppliersCodeForBuyer>BAS5</SuppliersCodeForBuyer>
+        <TaxNumber>GB987654321</TaxNumber>
+        <GLN>8765432101234</GLN>
+      </BuyerReferences>
+      <Party>BASDA Ltd</Party>
+      <Address>
+        <AddressLine>The Linen Hall</AddressLine>
+        <Street>162 - 168 Regent Street</Street>
+        <City>London</City>
+        <State>SE England</State>
+        <PostCode>W1R 5TB</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Dennis Keeling</Name>
+        <Department>Directors</Department>
+        <Section>Top-Level</Section>
+        <InternalAddress>Room 2</InternalAddress>
+        <DDI>235156</DDI>
+        <Switchboard>090</Switchboard>
+        <Fax>020 7734 7810</Fax>
+        <Telex>6789</Telex>
+        <Email>dkeeling@basda.org</Email>
+        <Mobile>07057034567</Mobile>
+      </Contact>
+    </Buyer>
+    <Delivery>
+      <DeliverTo>
+        <DeliverToReferences>
+          <BuyersCodeForDelivery Preserve='true'>BAS5.1</BuyersCodeForDelivery>
+          <BuyersCodeForLocation>Technical</BuyersCodeForLocation>
+          <GLN>12345678912345</GLN>
+        </DeliverToReferences>
+        <Party>Stephen Griffiths</Party>
+        <Address>
+          <AddressLine>Room 530</AddressLine>
+          <AddressLine>The Linen Hall</AddressLine>
+          <Street>162-168 Regent Street</Street>
+          <City>London</City>
+          <State>SE England</State>
+          <PostCode>W1R 5TB</PostCode>
+          <Country Code='GBR'>United Kingdom</Country>
+        </Address>
+        <Location>Back Room</Location>
+        <Contact>
+          <Name>Stephen Griffiths</Name>
+          <Department>Technical</Department>
+          <InternalAddress>Back Office</InternalAddress>
+          <DDI>56789</DDI>
+          <Switchboard>020 7734 7810</Switchboard>
+          <Fax>020 7734 7813</Fax>
+          <Telex>5678</Telex>
+          <Email>sgriffiths@basda.org</Email>
+          <Mobile>0796 56789</Mobile>
+        </Contact>
+      </DeliverTo>
+      <Carrier>
+        <CarrierReferences>
+          <BuyersCodeForCarrier>PE-W1</BuyersCodeForCarrier>
+          <GLN>12345678912345</GLN>
+        </CarrierReferences>
+        <Party>Pony Express</Party>
+        <Address>
+          <AddressLine>The Corral</AddressLine>
+          <Street>1 Southfork</Street>
+          <City>Dallas</City>
+          <State>Texas</State>
+          <PostCode>DA1234</PostCode>
+          <Country Code='USA'>USA</Country>
+        </Address>
+        <Contact>
+          <Name>Bobby Ewing</Name>
+          <Department>Despatch</Department>
+          <InternalAddress>EW1</InternalAddress>
+          <DDI>673456</DDI>
+          <Switchboard>+1 567 345677</Switchboard>
+          <Fax>+1 567 345678</Fax>
+          <Telex>34527</Telex>
+          <Email>bewing@pe.com</Email>
+          <Mobile>789 35589</Mobile>
+        </Contact>
+      </Carrier>
+      <EarliestAcceptableDate />
+      <LatestAcceptableDate />
+      <PreferredDate>2000-06-07</PreferredDate>
+      <SpecialInstructions>3 Ton Truck</SpecialInstructions>
+      <DeliveryInformation>After 8.00</DeliveryInformation>
+      <Narrative>Parking Problems in Regent Street after 10.00</Narrative>
+    </Delivery>
+    <InvoiceTo>
+      <InvoiceToReferences>
+        <GLN>12345678912345</GLN>
+      </InvoiceToReferences>
+      <Party>BASDA Business Services Ltd</Party>
+      <Address>
+        <AddressLine>The Linen Hall</AddressLine>
+        <Street>162-168 Regent Street</Street>
+        <City>London</City>
+        <PostCode>W1R 5TB</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Sarah Fowler</Name>
+        <Department>Admin</Department>
+        <Section>Bottom-Level</Section>
+        <InternalAddress>Side Office</InternalAddress>
+        <DDI>64729</DDI>
+        <Switchboard>020 7734 7810</Switchboard>
+        <Fax>020 7734 7813</Fax>
+        <Telex>6789</Telex>
+        <Email>sfowler@basda.org</Email>
+        <Mobile>0795 67890</Mobile>
+      </Contact>
+    </InvoiceTo>
+    <InvoiceLine Action='Add' TypeCode='GDS' TypeDescription='Goods &amp; Services'>
+      <LineNumber Preserve='true'>1</LineNumber>
+      <InvoiceLineReferences>
+        <ContractOrderReference>BAS1</ContractOrderReference>
+        <CostCentre>Overheads</CostCentre>
+        <GeneralLedgerCode>1234-5678</GeneralLedgerCode>
+        <ProjectCode Preserve='true'>ebis</ProjectCode>
+        <ProjectAnalysisCode Preserve='true'>ebis-1</ProjectAnalysisCode>
+        <BuyersOrderNumber Preserve='true'>ebis5</BuyersOrderNumber>
+        <OrderLineNumber>1</OrderLineNumber>
+        <BuyersOrderLineReference Preserve='true'>ebis5-1</BuyersOrderLineReference>
+      </InvoiceLineReferences>
+      <Product>
+        <SuppliersProductCode>12345678912345</SuppliersProductCode>
+        <BuyersProductCode>12345678912345</BuyersProductCode>
+        <TradedUnitCode>12345678912345</TradedUnitCode>
+        <ConsumerUnitCode>12345678912345</ConsumerUnitCode>
+        <Description>A beautiful oak shelf comprising horizontal mount with decorated vertical bracket attachments</Description>
+        <Properties>
+          <Length UOMCode='MTR' UOMDescription='Metre'>2</Length>
+          <Width UOMCode='CMT' UOMDescription='Centimeters'>50</Width>
+          <Depth UOMCode='MMT' UOMDescription='Millimeters'>20</Depth>
+        </Properties>
+      </Product>
+      <Quantity UOMCode='Pieces' UOMDescription='PCE'>
+        <Packsize>Pack of 10</Packsize>
+        <Amount>1</Amount>
+      </Quantity>
+      <Price UOMCode='PCE' UOMDescription='Piece'>
+        <Units>10</Units>
+        <UnitPrice>255.99</UnitPrice>
+        <SpecialPriceDescription>If purchased in May</SpecialPriceDescription>
+      </Price>
+      <LineTax>
+        <MixedRateIndicator>0</MixedRateIndicator>
+        <TaxRate Code='S'>17.5</TaxRate>
+        <TaxValue>44.80</TaxValue>
+      </LineTax>
+      <LineTotal>255.99</LineTotal>
+      <Delivery>
+        <DeliverTo>
+          <DeliverToReferences>
+            <BuyersCodeForDelivery Preserve='true'>BAS1</BuyersCodeForDelivery>
+            <BuyersCodeForLocation>Back Office</BuyersCodeForLocation>
+            <GLN>3456789</GLN>
+          </DeliverToReferences>
+          <Party>John Sheldrake</Party>
+          <Address>
+            <AddressLine>Technical Office</AddressLine>
+          </Address>
+        </DeliverTo>
+      </Delivery>
+      <InvoiceLineInformation>Colour code 12345</InvoiceLineInformation>
+      <ExtendedDescription>Light Oak with melamine finish - hardwood noses - each side - plastic covers at each end - bubble wrapped</ExtendedDescription>
+    </InvoiceLine>
+    <InvoiceLine Action='Add' TypeCode='GDS' TypeDescription='Goods &amp; Services'>
+      <LineNumber Preserve='true'>2</LineNumber>
+      <InvoiceLineReferences>
+        <ContractOrderReference>BAS1</ContractOrderReference>
+        <CostCentre>Overheads</CostCentre>
+        <GeneralLedgerCode>1234-5678</GeneralLedgerCode>
+        <ProjectCode Preserve='true'>ebis</ProjectCode>
+        <ProjectAnalysisCode Preserve='true'>ebis-2</ProjectAnalysisCode>
+        <BuyersOrderNumber Preserve='true'>ebis5</BuyersOrderNumber>
+        <OrderLineNumber>2</OrderLineNumber>
+        <BuyersOrderLineReference Preserve='true'>eBIS5-2</BuyersOrderLineReference>
+      </InvoiceLineReferences>
+      <Product>
+        <SuppliersProductCode>BKT</SuppliersProductCode>
+        <BuyersProductCode>Bracket1</BuyersProductCode>
+        <TradedUnitCode>1234567</TradedUnitCode>
+        <ConsumerUnitCode>2345678</ConsumerUnitCode>
+        <Description>Shelf Brackets</Description>
+      </Product>
+      <Quantity UOMCode='PCE' UOMDescription='Pieces'>
+        <Packsize>Pack of 5</Packsize>
+        <Amount>4</Amount>
+      </Quantity>
+      <Price UOMCode='PCE' UOMDescription='Piece'>
+        <Units>5</Units>
+        <UnitPrice>166.99</UnitPrice>
+        <SpecialPriceDescription>May purchase</SpecialPriceDescription>
+      </Price>
+      <LineTax>
+        <MixedRateIndicator>0</MixedRateIndicator>
+        <TaxRate Code='S'>17.5</TaxRate>
+        <TaxValue>116.89</TaxValue>
+      </LineTax>
+      <LineTotal>667.96</LineTotal>
+      <InvoiceLineInformation>Colour code 3456</InvoiceLineInformation>
+      <ExtendedDescription>Upright slotted brackets in Dove Grey - 20 slots per inch - recessed screw holes - edges trimmed and de-burred - bubblewrap with plastic end covers.</ExtendedDescription>
+      <Narrative>Large brackets for heavy loads</Narrative>
+    </InvoiceLine>
+    <Settlement>
+      <SettlementDiscount>
+        <AmountDiscount>
+          <Type Code='20I'>Settlement withing 20 days of invoice</Type>
+          <Amount>20.00</Amount>
+        </AmountDiscount>
+      </SettlementDiscount>
+    </Settlement>
+    <TaxSubTotal>
+      <TaxRate Code='S'>17.5</TaxRate>
+      <NumberOfLinesAtRate>2</NumberOfLinesAtRate>
+      <TotalValueAtRate>923.95</TotalValueAtRate>
+      <SettlementDiscountAtRate>20.00</SettlementDiscountAtRate>
+      <TaxableValueAtRate>903.95</TaxableValueAtRate>
+      <TaxAtRate>161.69</TaxAtRate>
+      <NetPaymentAtRate />
+      <GrossPaymentAtRate>1085.64</GrossPaymentAtRate>
+      <TaxCurrency>
+        <Currency Code='GBP'>Great Britain Pounds Sterling</Currency>
+      </TaxCurrency>
+    </TaxSubTotal>
+    <InvoiceTotal>
+      <NumberOfLines>2</NumberOfLines>
+      <NumberOfTaxRates>1</NumberOfTaxRates>
+      <LineValueTotal>923.95</LineValueTotal>
+      <SettlementDiscountTotal>20.00</SettlementDiscountTotal>
+      <TaxableTotal>903.95</TaxableTotal>
+      <TaxTotal>161.69</TaxTotal>
+      <NetPaymentTotal />
+      <GrossPaymentTotal>1085.64</GrossPaymentTotal>
+    </InvoiceTotal>
+  </Invoice>
+  <TaxBatchTrailer>
+    <SuppliersCodeForBuyer>DSL001</SuppliersCodeForBuyer>
+    <TaxRate Code='S' Codelist='BASDA'>20</TaxRate>
+    <TotalValueAtRate>50000</TotalValueAtRate>
+    <SettlementDiscountAtRate>50000</SettlementDiscountAtRate>
+    <TaxableValueAtRate>50000</TaxableValueAtRate>
+    <TaxAtRate>50000</TaxAtRate>
+    <NetPaymentAtRate>50000</NetPaymentAtRate>
+    <GrossPaymentAtRate>50000</GrossPaymentAtRate>
+    <BatchNumber>5</BatchNumber>
+    <NumberOfInvoicesAtRate>10</NumberOfInvoicesAtRate>
+    <TaxCurrency>GBP</TaxCurrency>
+  </TaxBatchTrailer>
+  <InvoiceBatchTrailer>
+    <SuppliersCodeForBuyer>DSL001</SuppliersCodeForBuyer>
+    <NumberOfInvoices>25</NumberOfInvoices>
+    <LineValueTotal>50000</LineValueTotal>
+    <SettlementDiscountTotal>50000</SettlementDiscountTotal>
+    <TaxableTotal>50000</TaxableTotal>
+    <TaxTotal>50000</TaxTotal>
+    <NetPaymentTotal>50000</NetPaymentTotal>
+    <GrossPaymentTotal>50000</GrossPaymentTotal>
+    <BatchNumber>5</BatchNumber>
+    <InvoiceCurrency>GBP</InvoiceCurrency>
+  </InvoiceBatchTrailer>
+</InvoiceBatch>

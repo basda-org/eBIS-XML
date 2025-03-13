@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+********************************************************************************
+                                  WARNING
+This is a development schema, which illustrates how the eBIS-XML v3 component
+library can be used to derive a functional subset from full eBIS-XML v3. While
+it is based on the invoice data for certification level one, it must not be
+taken as authoritative.
+********************************************************************************
+PURPOSE OF THIS SCHEMA
+This schema defines clearly the subset of eBIS-XML used for level 1
+certification.
+HOW TO READ THIS SCHEMA
+  + First, the usual schema element appears.  
+  + We then use the XML Schema redefine element to include the library while
+  allowing component redefinition. 
+  + Within the redefine element, we change the defintions of the types
+  underlying the structures we wish to alter.
+  + Following the redefine, the schema declares one global element, "Invoice",
+  which uses the (altered) library types to define the allowable content of the
+  Invoice.
+NOTES
+  + Note in particular the targetNamespace declaration. While it is broadly
+  wrong to provide different definitions for the same element in the same
+  namespace, it is an essential consequence of BASDA's backward compatibility
+  requirements. The problem is:
+    "How does the document processor know which schema applies when the
+    namespaces are the same?"
+  + This is easily fixed in the schema - we just change the target namespace -
+  but then we have created a new message, albeit with otherwise identical
+  components. If in due course BASDA produces a version 4, it can be done in
+  this way using the same library.
+  + xsd:redefine is similar to xsd:include, which logically includes the
+  content of another schema document but does not allow changes.
+  + Note that XML Schema insists that these changes are strictly either
+  extensions or restrictions. One cannot arbitrarily change the definitions.
+  + The syntax of XML Schema restrictions requires the content to be written
+  out in full. Please see the literature for details.
+  -->
+<xsd:schema version='3.09' elementFormDefault='qualified' attributeFormDefault='unqualified' id='eBIS-XML_CommercialInvoice_level1' targetNamespace='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01' xmlns='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:doc='urn:schemas-basda-org:schema-extensions:documentation'>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <doc:Metadata>
+        <doc:Title>eBIS-XML Commercial Invoice (certification level 1)</doc:Title>
+        <doc:Subject>eBIS-XML example derived document definitions: certification level 1 (Invoice)</doc:Subject>
+        <doc:Version>
+          <doc:Number>3.09</doc:Number>
+          <doc:Status>Example schema</doc:Status>
+        </doc:Version>
+        <doc:Author>S J Baker</doc:Author>
+        <doc:ModificationDate>16 Mar 04</doc:ModificationDate>
+        <doc:Note>This schema provides the minimum allowable subset of eBIS-XML for level one certification. Other eBIS-XML data items may be used. Users in any doubt on the use of this schema should see http://basda.net or email info@basda.org.</doc:Note>
+        <doc:Note>Please see the comments in the schema file for further information on deriving subsets of eBIS-XML.</doc:Note>
+        <doc:Warning>This schema illustrates how the eBIS-XML v3 component library can be used to derive a functional subset from full eBIS-XML v3. While it is based on the invoice data for certification level one, it is indicative only.</doc:Warning>
+      </doc:Metadata>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:include schemaLocation='CoreTypes-v3.xsd' />
+  <xsd:redefine schemaLocation='CoreStructures-v3.xsd'>
+    <xsd:complexType name='InvoiceHeadStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceHeadStructure'>
+          <xsd:sequence>
+            <xsd:element ref='Schema' />
+            <xsd:element ref='Stylesheet' minOccurs='0' />
+            <xsd:element ref='Parameters' />
+            <xsd:element ref='OriginatingSoftware' minOccurs='0' />
+            <xsd:element ref='TestFlag' minOccurs='0' />
+            <xsd:element ref='InvoiceType' />
+            <xsd:element ref='InvoiceCurrency' />
+            <xsd:element ref='Checksum' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='InvoiceReferencesStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceReferencesStructure'>
+          <xsd:sequence>
+            <xsd:element ref='BuyersOrderNumber' />
+            <xsd:element ref='SuppliersInvoiceNumber' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='SupplierStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='SupplierStructure'>
+          <xsd:sequence>
+            <xsd:element ref='Party' />
+            <xsd:element ref='Address' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='BuyerStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='BuyerStructure'>
+          <xsd:sequence>
+            <xsd:element ref='Party' />
+            <xsd:element ref='Address' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='InvoiceToStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceToStructure'>
+          <xsd:sequence>
+            <xsd:element ref='Party' />
+            <xsd:element ref='Address' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='InvoiceLineStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceLineStructure'>
+          <xsd:sequence>
+            <xsd:element ref='LineNumber' />
+            <xsd:element ref='InvoiceLineReferences' minOccurs='0' />
+            <xsd:choice>
+              <xsd:element ref='Extensions' minOccurs='0' />
+              <xsd:any processContents='lax' minOccurs='0' maxOccurs='unbounded' namespace='##other' />
+            </xsd:choice>
+            <xsd:element ref='Product' minOccurs='0' maxOccurs='unbounded' />
+            <xsd:element ref='Quantity' minOccurs='0' />
+            <xsd:element ref='Price' minOccurs='0' maxOccurs='unbounded' />
+            <xsd:element ref='LineTax' minOccurs='0' />
+            <xsd:element ref='LineTotal' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='InvoiceLineReferencesStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceLineReferencesStructure'>
+          <xsd:sequence>
+            <xsd:element ref='OrderLineNumber' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='ProductStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='ProductStructure'>
+          <xsd:sequence>
+            <xsd:element ref='BuyersProductCode' minOccurs='0' />
+            <xsd:element ref='Description' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='QuantityStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='QuantityStructure'>
+          <xsd:sequence>
+            <xsd:element ref='Amount' />
+          </xsd:sequence>
+          <xsd:attributeGroup ref='UOMattrGroup' />
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='PriceStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='PriceStructure'>
+          <xsd:sequence>
+            <xsd:element ref='UnitPrice' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='LineTaxStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='LineTaxStructure'>
+          <xsd:sequence>
+            <xsd:element ref='TaxRate' />
+            <xsd:element ref='TaxValue' minOccurs='0' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='TaxSubTotalStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='TaxSubTotalStructure'>
+          <xsd:sequence>
+            <xsd:element ref='TaxRate' />
+            <xsd:element ref='NumberOfLinesAtRate' />
+            <xsd:element ref='TotalValueAtRate' />
+            <xsd:element ref='TaxableValueAtRate' />
+            <xsd:element ref='TaxAtRate' />
+            <xsd:element ref='NetPaymentAtRate' />
+            <xsd:element ref='GrossPaymentAtRate' />
+            <xsd:element ref='TaxCurrency' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name='InvoiceTotalStructure'>
+      <xsd:complexContent>
+        <xsd:restriction base='InvoiceTotalStructure'>
+          <xsd:sequence>
+            <xsd:element ref='NumberOfLines' />
+            <xsd:element ref='NumberOfTaxRates' />
+            <xsd:element ref='LineValueTotal' />
+            <xsd:element ref='TaxableTotal' />
+            <xsd:element ref='TaxTotal' />
+            <xsd:element ref='NetPaymentTotal' />
+            <xsd:element ref='GrossPaymentTotal' />
+          </xsd:sequence>
+        </xsd:restriction>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:redefine>
+  <xsd:element name='Invoice'>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref='InvoiceHead' />
+        <xsd:element ref='InvoiceReferences' />
+        <xsd:choice>
+          <xsd:element ref='Extensions' minOccurs='0' />
+          <xsd:any processContents='lax' minOccurs='0' maxOccurs='unbounded' namespace='##other' />
+        </xsd:choice>
+        <xsd:element ref='InvoiceDate' />
+        <xsd:element ref='Supplier' />
+        <xsd:element ref='Buyer' minOccurs='0' />
+        <xsd:element ref='InvoiceTo' />
+        <xsd:element ref='InvoiceLine' maxOccurs='unbounded' />
+        <xsd:element ref='TaxSubTotal' maxOccurs='unbounded' />
+        <xsd:element ref='InvoiceTotal' />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

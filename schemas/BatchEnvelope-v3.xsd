@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<xsd:schema version='3.10' elementFormDefault='qualified' attributeFormDefault='unqualified' id='eBIS-XML_BatchEnvelope' targetNamespace='urn:schemas-basda-org:BatchEnvelope' xmlns='urn:schemas-basda-org:BatchEnvelope' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:doc='urn:schemas-basda-org:schema-extensions:documentation'>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <doc:Metadata>
+        <doc:Title>eBIS-XML Batch Envelope</doc:Title>
+        <doc:Subject>Batching eBIS-XML documents</doc:Subject>
+        <doc:Version>
+          <doc:Number>3.10</doc:Number>
+          <doc:Status>Production</doc:Status>
+        </doc:Version>
+        <doc:Author>Ronald Duncan</doc:Author>
+        <doc:ModificationDate>7 Apr 12</doc:ModificationDate>
+        <doc:Note>The batch envelope may be used to batch any eBIS-XML document, but users must ensure that the relevant tax information is included when invoices are batched.</doc:Note>
+      </doc:Metadata>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:include schemaLocation='CoreStructures-v3.xsd' />
+  <xsd:include schemaLocation='CoreTypes-v3.xsd' />
+  <xsd:element name='Batch'>
+    <xsd:annotation>
+      <xsd:documentation>This schema provides a document which wraps an arbitrary number of eBIS-XML documents as a batch. It allows any namespace other than that of the Batch Envelope because eBIS-XML documents do not share a single namespace.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:any processContents='lax' maxOccurs='unbounded' namespace='##other' />
+        <xsd:element ref='DocumentSignature' minOccurs='0' maxOccurs='unbounded' />
+        <xsd:element ref='TaxBatchTrailer' minOccurs='0' maxOccurs='unbounded' />
+        <xsd:element ref='BatchTrailer' />
+      </xsd:sequence>
+      <xsd:attribute name='Date' type='xsd:date' use='required' />
+      <xsd:attribute name='Number' type='xsd:integer' use='required'>
+        <xsd:annotation>
+          <xsd:documentation>All the documents in this batch must have this batch number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+      <xsd:attribute name='SupplierName' type='xsd:string' use='required' />
+      <xsd:attribute name='DocType' type='xsd:string' use='required'>
+        <xsd:annotation>
+          <xsd:documentation>The type of eBIS-XML document in this batch. Eg Order, OrderResponse, Invoice.  Could be enumerated but then a schema update would be required when new documents were added to the suite.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name='DocumentSignature'>
+    <xsd:annotation>
+      <xsd:documentation>A signature and secure hash for each of the documents in the batch, signatures and hashes need to be calculated on the correct bytes</xsd:documentation>
+      <xsd:documentation>and things like windows bom's and whitespace can cause both to fail there are often issues between say Java and dot Net implementations of algorithms</xsd:documentation>
+      <xsd:documentation>that cause different results for similar string inputs.  If the byte array is identical then all the platforms produce the same results. The issue is getting</xsd:documentation>
+      <xsd:documentation>identical byte arrays from the same strings on different platforms e.g. changes to line endings will change the byte array and thus the hash/signature.</xsd:documentation>
+      <xsd:documentation>for these reasons this is not a recommended practice and it is better to have a transmission mechanism that maintains message integrity.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref='DocumentRef' minOccurs='0' />
+        <xsd:element ref='SecureSignature' minOccurs='0' />
+        <xsd:element ref='SecureHash' minOccurs='0' />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name='TaxBatchTrailer' type='TaxBatchTrailerStructure'>
+    <xsd:annotation>
+      <xsd:documentation>For invoices, a Tax batch trailer is mandatory for a single trading partner. Repeated for each VAT rate on any invoice for this T.P. Other batched documents are not required to supply a TaxBatchTrailer.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name='TaxBatchTrailerStructure'>
+    <xsd:sequence>
+      <xsd:element ref='TaxRate' minOccurs='0' />
+      <xsd:element ref='TotalValueAtRate' minOccurs='0' />
+      <xsd:element ref='SettlementDiscountAtRate' minOccurs='0' />
+      <xsd:element ref='TaxableValueAtRate' minOccurs='0' />
+      <xsd:element ref='TaxAtRate' minOccurs='0' />
+      <xsd:element ref='NetPaymentAtRate' minOccurs='0' />
+      <xsd:element ref='GrossPaymentAtRate' minOccurs='0' />
+      <xsd:element ref='NumberOfItemsAtRate' />
+      <xsd:element ref='TaxCurrency' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name='BatchTrailer'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the accumulated totals for all items for this trading partner.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref='SuppliersCodeForBuyer' minOccurs='0' />
+        <xsd:element ref='TotalNumberOfItems' minOccurs='0' />
+        <xsd:element ref='TotalValue' minOccurs='0' />
+        <xsd:element ref='SettlementDiscountTotal' minOccurs='0' />
+        <xsd:element ref='TaxableTotal' minOccurs='0' />
+        <xsd:element ref='TaxTotal' minOccurs='0' />
+        <xsd:element ref='NetPaymentTotal' minOccurs='0' />
+        <xsd:element ref='GrossPaymentTotal' minOccurs='0' />
+        <xsd:element ref='ItemCurrency' />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name='DocumentRef' type='xsd:string' />
+  <xsd:element name='SecureSignature'>
+    <xsd:annotation>
+      <xsd:documentation>The signature is in two parts algorithm signature and any </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name='SignatureAlgorithm'>
+	  <xsd:annotation>
+	    <xsd:documentation>either PKCS#7 with certificates or sha1hmac96 with shared secrets</xsd:documentation>
+	  </xsd:annotation>
+	</xsd:element>
+        <xsd:element name='SignatureRef'>
+	  <xsd:annotation>
+		  <xsd:documentation>E.g. Shared Secret or http://server.domain.com</xsd:documentation>
+	  </xsd:annotation>
+	</xsd:element>
+	<xsd:element name='SignatureValue' type='xsd:string'>
+	  <xsd:annotation>
+	    <xsd:documentation>BASE 64 encoded signature</xsd:documentation>
+	  </xsd:annotation>
+	</xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name='SecureHash'>
+    <xsd:annotation>
+      <xsd:documentation>A signature and secure hash for each of the documents in the batch</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name='HashAlgorithm'>
+	  <xsd:annotation>
+	    <xsd:documentation>Only sha-1 initially</xsd:documentation>
+	  </xsd:annotation>
+	</xsd:element>
+	<xsd:element name='HashValue' type='xsd:string'>
+	  <xsd:annotation>
+	    <xsd:documentation>BASE 64 encoded hash</xsd:documentation>
+	  </xsd:annotation>
+	</xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

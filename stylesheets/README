@@ -1,0 +1,15 @@
+eBIS-XML Stylesheets
+^^^^^^^^^^^^^^^^^^^^
+
+These stylesheets are alpha quality and they require refactoring to:
+
+  - Take advantage of the eBIS-XML Component Library
+  - Use a library of stylesheet components
+
+These stylesheets are provided as-is in the hope that they may be useful, but
+developers are advised to create stylesheets which match the look and feel of
+their products.
+
+S J Baker
+BASDA
+2004-03-17

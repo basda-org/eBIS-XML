@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="urn:schemas-basda-org:2000:salesInvoice:xdr:3.01" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:doc="urn:schemas-basda-org:schema-extensions:documentation" targetNamespace="urn:schemas-basda-org:2000:salesInvoice:xdr:3.01" elementFormDefault="qualified" attributeFormDefault="unqualified" version="3.10" id="eBIS-XML_Invoice">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<doc:Metadata>
+				<doc:Title>eBIS-XML Invoice</doc:Title>
+				<doc:Subject>eBIS-XML Invoice superset</doc:Subject>
+				<doc:Version>
+					<doc:Number>3.10</doc:Number>
+					<doc:Status>Production</doc:Status>
+				</doc:Version>
+				<doc:Author>R J Duncan</doc:Author>
+				<doc:ModificationDate>7 Apr 12</doc:ModificationDate>
+				<doc:Note>This is the eBIS-XML superset Invoice, based on the eBIS-XML component library.</doc:Note>
+				<doc:Note>Invoices conformant to eBIS-XML v3.09 will conform to this definition.</doc:Note>
+			</doc:Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:include schemaLocation="CoreTypes-v3.xsd"/>
+	<xsd:include schemaLocation="CoreStructures-v3.xsd"/>
+	<xsd:element name="Invoice">
+		<xsd:annotation>
+			<xsd:documentation>
+				<p>
+					<tt>Settlement/SettlementDiscount</tt>,
+          <tt>TaxSubTotal/SettlementDiscountAtRate</tt> and
+          <tt>InvoiceTotal/SettlementDiscountTotal</tt> must either all be present, or none may be present.  
+        </p>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="InvoiceHead"/>
+				<xsd:element ref="InvoiceReferences"/>
+				<xsd:choice>
+					<xsd:element ref="Extensions" minOccurs="0"/>
+					<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:choice>
+				<xsd:element ref="InvoiceDate"/>
+				<xsd:element ref="OriginalOrderDate" minOccurs="0"/>
+				<xsd:element ref="OrderFunction" minOccurs="0"/>
+				<xsd:element ref="OrderGloballyUniqueID" minOccurs="0"/>
+				<xsd:element ref="TypeOfSupply" minOccurs="0"/>
+				<xsd:element ref="TaxPointDate" minOccurs="0"/>
+				<xsd:element ref="Supplier"/>
+				<xsd:element ref="Buyer" minOccurs="0"/>
+				<xsd:element ref="Delivery" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="InvoiceTo"/>
+				<xsd:element ref="InvoiceLine" maxOccurs="unbounded"/>
+				<xsd:element ref="PercentDiscount" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="AmountDiscount" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SpecialInstructions" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Narrative" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Settlement" minOccurs="0"/>
+				<xsd:element ref="TaxSubTotal" maxOccurs="unbounded"/>
+				<xsd:element ref="InvoiceTotal"/>
+				<xsd:element ref="Attachment" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,4865 @@
+<?xml version='1.0'?>
+<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:doc='urn:schemas-basda-org:schema-extensions:documentation' elementFormDefault='qualified' attributeFormDefault='unqualified' version='3.10' id='eBIS-XML_CoreStructures'>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <doc:Metadata>
+        <doc:Title>eBIS-XML Core Structures</doc:Title>
+        <doc:Subject>eBIS-XML Component Library (structures)</doc:Subject>
+        <doc:Version>
+          <doc:Number>3.10</doc:Number>
+          <doc:Status>Production</doc:Status>
+        </doc:Version>
+        <doc:Author>R J Duncan</doc:Author>
+        <doc:ModificationDate>7 Apr 12</doc:ModificationDate>
+        <doc:Note>This is the eBIS-XML Component Library of structures. The schema is not valid on its own; it must be used in conjunction with the eBIS-XML Component Library of types.</doc:Note>
+        <doc:Note>Messages conformant to eBIS-XML v3.08 will conform to the superset definitions based on these libraries.</doc:Note>
+        <doc:Note>This schema provides attributes, elements, groups of attributes and structures composed of those items.</doc:Note>
+        <doc:Note>Message definitions can be derived from these components by referencing them and using XML Schema redefine where necessary. Please see the literature and http://basda.net for further information.</doc:Note>
+      </doc:Metadata>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:attributeGroup name='CardTypeAttrGroup'>
+    <xsd:attribute name='CardType' type='CardTypeAttrType' use='required'>
+      <xsd:annotation>
+        <xsd:documentation>
+      When specifying a Debit card, then it is required to specify an IssueNumber.
+      </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='CodeRequiredAttrGroup'>
+    <xsd:attribute name='Code' type='CodeType' use='required'/>
+    <xsd:attribute name='Codelist' type='CodelistType' use='optional'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='CodelistAttrGroup'>
+    <xsd:attribute name='Code' type='CodeType' use='optional'/>
+    <xsd:attribute name='Codelist' type='CodelistType' use='optional'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='DescriptionAttrGroup'>
+    <xsd:attribute name='Description' type='DescriptionType' use='optional'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='DescriptionRequiredAttrGroup'>
+    <xsd:attribute name='Description' type='DescriptionType' use='required'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='LineAttrGroup'>
+    <xsd:attribute name='Action' type='ActionAttrType' use='optional'/>
+    <xsd:attribute name='TypeCode' type='TypeCodeType' use='optional'/>
+    <xsd:attribute name='TypeDescription' type='TypeDescriptionType' use='optional'/>
+    <xsd:attribute name='TypeCodelist' type='TypeCodelistType' use='optional'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='PreserveAttrGroup'>
+    <xsd:attribute name='Preserve' type='PreserveType' use='optional'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='QualifierAttrGroup'>
+    <xsd:attribute name='Qualifier' type='QualifierType' use='required'/>
+  </xsd:attributeGroup>
+  <xsd:attributeGroup name='UOMattrGroup'>
+    <xsd:attribute name='UOMCode' type='UOMCodeType' use='optional'>
+      <xsd:annotation>
+        <xsd:documentation>Code representing the Unit of Measure used for defining 'Units'</xsd:documentation>
+        <xsd:documentation>
+          <h2>UOM numeric codes</h2>
+          <p>Numeric codes must be one of:</p>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Meaning</b>
+              </td>
+            </tr>
+            <tr>
+              <td>PCE</td>
+              <td>Piece</td>
+            </tr>
+            <tr>
+              <td>NMB</td>
+              <td>Number</td>
+            </tr>
+            <tr>
+              <td>CEN</td>
+              <td>Hundred</td>
+            </tr>
+            <tr>
+              <td>MIL</td>
+              <td>Thousand</td>
+            </tr>
+            <tr>
+              <td>MIO</td>
+              <td>Million</td>
+            </tr>
+            <tr>
+              <td>MLD</td>
+              <td>Billion - US</td>
+            </tr>
+            <tr>
+              <td>BIL</td>
+              <td>Billion - EUR</td>
+            </tr>
+            <tr>
+              <td>BIL</td>
+              <td>Trillion - US</td>
+            </tr>
+            <tr>
+              <td>TRL</td>
+              <td>Trillion - EUR</td>
+            </tr>
+            <tr>
+              <td>DZN</td>
+              <td>Dozen</td>
+            </tr>
+            <tr>
+              <td>SCO</td>
+              <td>Score</td>
+            </tr>
+            <tr>
+              <td>GRO</td>
+              <td>Gross</td>
+            </tr>
+          </table>
+        </xsd:documentation>
+        <xsd:documentation>
+          <h2>UOM length codes </h2>
+          <p>Length codes must be one of:</p>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Meaning</b>
+              </td>
+            </tr>
+            <tr>
+              <td>MMT</td>
+              <td>Millimetre</td>
+            </tr>
+            <tr>
+              <td>CMT</td>
+              <td>Centimetre</td>
+            </tr>
+            <tr>
+              <td>DMT</td>
+              <td>Decimetre</td>
+            </tr>
+            <tr>
+              <td>MTR</td>
+              <td>Metre</td>
+            </tr>
+            <tr>
+              <td>HMT</td>
+              <td>Hectometre</td>
+            </tr>
+            <tr>
+              <td>KMT</td>
+              <td>Kilometre</td>
+            </tr>
+            <tr>
+              <td>MAM</td>
+              <td>Mega meter</td>
+            </tr>
+            <tr>
+              <td>INH</td>
+              <td>Inch</td>
+            </tr>
+            <tr>
+              <td>FOT</td>
+              <td>Foot</td>
+            </tr>
+            <tr>
+              <td>YRD</td>
+              <td>Yard</td>
+            </tr>
+            <tr>
+              <td>SMI</td>
+              <td>Statute Mile</td>
+            </tr>
+          </table>
+        </xsd:documentation>
+        <xsd:documentation>
+          <h2>UOM weight codes </h2>
+          <p>Weight codes must be one of:</p>
+          <table>
+            <tr>
+              <td>
+                <b>Code</b>
+              </td>
+              <td>
+                <b>Meaning</b>
+              </td>
+            </tr>
+            <tr>
+              <td>MGM</td>
+              <td>Milligram</td>
+            </tr>
+            <tr>
+              <td>GRM</td>
+              <td>Gram</td>
+            </tr>
+            <tr>
+              <td>HGM</td>
+              <td>Hectogram</td>
+            </tr>
+            <tr>
+              <td>KGM</td>
+              <td>Kilogram</td>
+            </tr>
+            <tr>
+              <td>DTN</td>
+              <td>Decitonne</td>
+            </tr>
+            <tr>
+              <td>TNE</td>
+              <td>Metric ton</td>
+            </tr>
+            <tr>
+              <td>TNE</td>
+              <td>Tonne</td>
+            </tr>
+            <tr>
+              <td>KTN</td>
+              <td>Kilotonne</td>
+            </tr>
+            <tr>
+              <td>LBR</td>
+              <td>Pound</td>
+            </tr>
+            <tr>
+              <td>ONZ</td>
+              <td>Ounce</td>
+            </tr>
+            <tr>
+              <td>DRI</td>
+              <td>Dram</td>
+            </tr>
+            <tr>
+              <td>GRN</td>
+              <td>Grain</td>
+            </tr>
+            <tr>
+              <td>STI</td>
+              <td>Stone</td>
+            </tr>
+            <tr>
+              <td>QTR</td>
+              <td>Quarter</td>
+            </tr>
+            <tr>
+              <td>CNT</td>
+              <td>Central</td>
+            </tr>
+            <tr>
+              <td>CWA</td>
+              <td>Hundredweight - US</td>
+            </tr>
+            <tr>
+              <td>CWI</td>
+              <td>Hundredweight - UK</td>
+            </tr>
+            <tr>
+              <td>STN</td>
+              <td>Short ton</td>
+            </tr>
+            <tr>
+              <td>LTN</td>
+              <td>Long ton</td>
+            </tr>
+          </table>
+        </xsd:documentation>
+        <xsd:documentation>
+          <h2>UOM volume codes </h2>
+          <p>Volume codes must be one of:</p>
+          <table>
+            <tr>
+              <td>MMQ</td>
+              <td>Cubic millimetre</td>
+            </tr>
+            <tr>
+              <td>CMQ</td>
+              <td>Cubic centimetre</td>
+            </tr>
+            <tr>
+              <td>DMQ</td>
+              <td>Cubic decimetre</td>
+            </tr>
+            <tr>
+              <td>MTQ</td>
+              <td>Cubic metre</td>
+            </tr>
+            <tr>
+              <td>HMQ</td>
+              <td>Million cubic metres</td>
+            </tr>
+            <tr>
+              <td>MLT</td>
+              <td>Millilitre</td>
+            </tr>
+            <tr>
+              <td>CLT</td>
+              <td>Centilitre</td>
+            </tr>
+            <tr>
+              <td>DLT</td>
+              <td>Decilitre</td>
+            </tr>
+            <tr>
+              <td>LTR</td>
+              <td>Litre</td>
+            </tr>
+            <tr>
+              <td>HLT</td>
+              <td>Hectolitre</td>
+            </tr>
+            <tr>
+              <td>MAL</td>
+              <td>Mega litre</td>
+            </tr>
+            <tr>
+              <td>INQ</td>
+              <td>Cubic inch</td>
+            </tr>
+            <tr>
+              <td>FTQ</td>
+              <td>Cubic foot</td>
+            </tr>
+            <tr>
+              <td>YDQ</td>
+              <td>Cubic yard</td>
+            </tr>
+          </table>
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name='UOMDescription' type='UOMDescriptionType' use='optional'>
+      <xsd:annotation>
+        <xsd:documentation>Human readable descriptions of the Unit of Measure.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name='UOMCodelist' type='UOMCodelistType' use='optional'>
+      <xsd:annotation>
+        <xsd:documentation>Codelist from which the UOMCode is taken</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:complexType name='AddressStructure'>
+    <xsd:sequence>
+      <xsd:element ref='AddressLine' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Street' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='City' minOccurs='0'/>
+      <xsd:element ref='State' minOccurs='0'/>
+      <xsd:element ref='PostCode' minOccurs='0'/>
+      <xsd:element ref='Country' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='AlternateCurrencyStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='AlternateCurrencyType'>
+        <xsd:attributeGroup ref='CodeRequiredAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='AmountDiscountStructure'>
+    <xsd:sequence>
+      <xsd:element ref='QualifyingTerms' minOccurs='0'/>
+      <xsd:element ref='Type' minOccurs='0'/>
+      <xsd:element ref='Amount'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='AttachmentStructure'>
+    <xsd:sequence>
+      <xsd:element ref='FileName'/>
+      <xsd:element ref='Description' minOccurs='0'/>
+      <xsd:element ref='AttachmentData'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='BankDetailsStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BankCode'/>
+      <xsd:element ref='BankReference'/>
+      <xsd:element ref='BankName' minOccurs='0'/>
+      <xsd:element ref='AccountName' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='BuyerReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SuppliersCodeForBuyer' minOccurs='0'/>
+      <xsd:element ref='BuyersCodeForBuyer' minOccurs='0'/>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='Organisation' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='BuyerStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BuyerReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='BuyersCodeForDeliveryStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='BuyersCodeForDeliveryType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='BuyersOrderLineReferenceStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='BuyersOrderLineReferenceType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='BuyersOrderNumberStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='BuyersOrderNumberType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='CardDetailsStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+For card dates, ValidFrom and ExpiresEnd are the preferred pair of data items.
+The pair IssueDate and ExpiryDate is deprecated. The choice structure used here
+was selected because a choice between two sequences is not well supported at
+the time of creation.
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref='Issuer'/>
+      <xsd:element ref='Party'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:choice>
+        <xsd:element ref='ValidFrom' minOccurs='0'/>
+        <xsd:element ref='IssueDate' minOccurs='0'/>
+      </xsd:choice>
+      <xsd:choice>
+        <xsd:element ref='ExpiresEnd'/>
+        <xsd:element ref='ExpiryDate'/>
+      </xsd:choice>
+      <xsd:element ref='IssueNumber' minOccurs='0'/>
+      <xsd:element ref='CardNumber'/>
+      <xsd:element ref='AuthorisationCode' minOccurs='0'/>
+      <xsd:element ref='SecurityCode' minOccurs='0'/>
+      <xsd:element ref='CRI' minOccurs='0'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='CardTypeAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='CarrierReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BuyersCodeForCarrier' minOccurs='0'/>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='CarrierStructure'>
+    <xsd:sequence>
+      <xsd:element ref='CarrierReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='ColorStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='ColorType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='ContactStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Name' minOccurs='0'/>
+      <xsd:element ref='Department' minOccurs='0'/>
+      <xsd:element ref='Section' minOccurs='0'/>
+      <xsd:element ref='UserID' minOccurs='0'/>
+      <xsd:element ref='InternalAddress' minOccurs='0'/>
+      <xsd:element ref='DDI' minOccurs='0'/>
+      <xsd:element ref='Switchboard' minOccurs='0'/>
+      <xsd:element ref='Fax' minOccurs='0'/>
+      <xsd:element ref='Telex' minOccurs='0'/>
+      <xsd:element ref='Email' minOccurs='0'/>
+      <xsd:element ref='Mobile' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='CountryOfDestinationStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='CountryType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='CountryStructure'>
+    <xsd:annotation>
+      <xsd:documentation>Code attribute represents country code according to ISO 3166 3 letter codes (e.g. GBR,FRA, USA.). Country element may contain the full name of the country.</xsd:documentation>
+      <xsd:documentation>
+        <h2>eBIS-XML-UKGov Country codes: Codelist UKGov-CountryCode</h2>
+        <p>Country codes enable collection of management data on source of imports and exports. The value of the Codelist attribute is to be 'UKGov-CountryCode' and the Code attribute is to take one of the following values:</p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>AF</td>
+            <td>AFGHANISTAN</td>
+          </tr>
+          <tr>
+            <td>AL</td>
+            <td>ALBANIA</td>
+          </tr>
+          <tr>
+            <td>DZ</td>
+            <td>ALGERIA</td>
+          </tr>
+          <tr>
+            <td>AS</td>
+            <td>AMERICAN SAMOA</td>
+          </tr>
+          <tr>
+            <td>AD</td>
+            <td>ANDORRA</td>
+          </tr>
+          <tr>
+            <td>AO</td>
+            <td>ANGOLA</td>
+          </tr>
+          <tr>
+            <td>AI</td>
+            <td>ANGUILLA</td>
+          </tr>
+          <tr>
+            <td>AQ</td>
+            <td>ANTARCTICA</td>
+          </tr>
+          <tr>
+            <td>AG</td>
+            <td>ANTIGUA AND BARBUDA</td>
+          </tr>
+          <tr>
+            <td>AR</td>
+            <td>ARGENTINA</td>
+          </tr>
+          <tr>
+            <td>AM</td>
+            <td>ARMENIA</td>
+          </tr>
+          <tr>
+            <td>AW</td>
+            <td>ARUBA</td>
+          </tr>
+          <tr>
+            <td>AU</td>
+            <td>AUSTRALIA</td>
+          </tr>
+          <tr>
+            <td>AT</td>
+            <td>AUSTRIA</td>
+          </tr>
+          <tr>
+            <td>AZ</td>
+            <td>AZERBAIJAN</td>
+          </tr>
+          <tr>
+            <td>BS</td>
+            <td>BAHAMAS</td>
+          </tr>
+          <tr>
+            <td>BH</td>
+            <td>BAHRAIN</td>
+          </tr>
+          <tr>
+            <td>BD</td>
+            <td>BANGLADESH</td>
+          </tr>
+          <tr>
+            <td>BB</td>
+            <td>BARBADOS</td>
+          </tr>
+          <tr>
+            <td>BY</td>
+            <td>BELARUS</td>
+          </tr>
+          <tr>
+            <td>BE</td>
+            <td>BELGIUM</td>
+          </tr>
+          <tr>
+            <td>BZ</td>
+            <td>BELIZE</td>
+          </tr>
+          <tr>
+            <td>BJ</td>
+            <td>BENIN</td>
+          </tr>
+          <tr>
+            <td>BM</td>
+            <td>BERMUDA</td>
+          </tr>
+          <tr>
+            <td>BT</td>
+            <td>BHUTAN</td>
+          </tr>
+          <tr>
+            <td>BO</td>
+            <td>BOLIVIA</td>
+          </tr>
+          <tr>
+            <td>BA</td>
+            <td>BOSNIA AND HERZEGOVINA</td>
+          </tr>
+          <tr>
+            <td>BW</td>
+            <td>BOTSWANA</td>
+          </tr>
+          <tr>
+            <td>BV</td>
+            <td>BOUVET ISLAND</td>
+          </tr>
+          <tr>
+            <td>BR</td>
+            <td>BRAZIL</td>
+          </tr>
+          <tr>
+            <td>IO</td>
+            <td>BRITISH INDIAN OCEAN TERRITORY</td>
+          </tr>
+          <tr>
+            <td>BN</td>
+            <td>BRUNEI DARUSSALAM</td>
+          </tr>
+          <tr>
+            <td>BG</td>
+            <td>BULGARIA</td>
+          </tr>
+          <tr>
+            <td>BF</td>
+            <td>BURKINA FASO</td>
+          </tr>
+          <tr>
+            <td>BI</td>
+            <td>BURUNDI</td>
+          </tr>
+          <tr>
+            <td>KH</td>
+            <td>CAMBODIA</td>
+          </tr>
+          <tr>
+            <td>CM</td>
+            <td>CAMEROON</td>
+          </tr>
+          <tr>
+            <td>CA</td>
+            <td>CANADA</td>
+          </tr>
+          <tr>
+            <td>CV</td>
+            <td>CAPE VERDE</td>
+          </tr>
+          <tr>
+            <td>KY</td>
+            <td>CAYMAN ISLANDS</td>
+          </tr>
+          <tr>
+            <td>CF</td>
+            <td>CENTRAL AFRICAN REPUBLIC</td>
+          </tr>
+          <tr>
+            <td>TD</td>
+            <td>CHAD</td>
+          </tr>
+          <tr>
+            <td>CL</td>
+            <td>CHILE</td>
+          </tr>
+          <tr>
+            <td>CN</td>
+            <td>CHINA</td>
+          </tr>
+          <tr>
+            <td>CX</td>
+            <td>CHRISTMAS ISLAND</td>
+          </tr>
+          <tr>
+            <td>CC</td>
+            <td>COCOS (KEELING) ISLANDS</td>
+          </tr>
+          <tr>
+            <td>CO</td>
+            <td>COLOMBIA</td>
+          </tr>
+          <tr>
+            <td>KM</td>
+            <td>COMOROS</td>
+          </tr>
+          <tr>
+            <td>CG</td>
+            <td>CONGO</td>
+          </tr>
+          <tr>
+            <td>CD</td>
+            <td>CONGO, THE DEMOCRATIC REPUBLIC OF THE</td>
+          </tr>
+          <tr>
+            <td>CK</td>
+            <td>COOK ISLANDS</td>
+          </tr>
+          <tr>
+            <td>CR</td>
+            <td>COSTA RICA</td>
+          </tr>
+          <tr>
+            <td>CI</td>
+            <td>COTE D'IVOIRE</td>
+          </tr>
+          <tr>
+            <td>HR</td>
+            <td>CROATIA</td>
+          </tr>
+          <tr>
+            <td>CU</td>
+            <td>CUBA</td>
+          </tr>
+          <tr>
+            <td>CY</td>
+            <td>CYPRUS</td>
+          </tr>
+          <tr>
+            <td>CZ</td>
+            <td>CZECH REPUBLIC</td>
+          </tr>
+          <tr>
+            <td>DK</td>
+            <td>DENMARK</td>
+          </tr>
+          <tr>
+            <td>DJ</td>
+            <td>DJIBOUTI</td>
+          </tr>
+          <tr>
+            <td>DM</td>
+            <td>DOMINICA</td>
+          </tr>
+          <tr>
+            <td>DO</td>
+            <td>DOMINICAN REPUBLIC</td>
+          </tr>
+          <tr>
+            <td>TP</td>
+            <td>EAST TIMOR</td>
+          </tr>
+          <tr>
+            <td>EC</td>
+            <td>ECUADOR</td>
+          </tr>
+          <tr>
+            <td>EG</td>
+            <td>EGYPT</td>
+          </tr>
+          <tr>
+            <td>SV</td>
+            <td>EL SALVADOR</td>
+          </tr>
+          <tr>
+            <td>GQ</td>
+            <td>EQUATORIAL GUINEA</td>
+          </tr>
+          <tr>
+            <td>ER</td>
+            <td>ERITREA</td>
+          </tr>
+          <tr>
+            <td>EE</td>
+            <td>ESTONIA</td>
+          </tr>
+          <tr>
+            <td>ET</td>
+            <td>ETHIOPIA</td>
+          </tr>
+          <tr>
+            <td>FK</td>
+            <td>FALKLAND ISLANDS (MALVINAS)</td>
+          </tr>
+          <tr>
+            <td>FO</td>
+            <td>FAROE ISLANDS</td>
+          </tr>
+          <tr>
+            <td>FJ</td>
+            <td>FIJI</td>
+          </tr>
+          <tr>
+            <td>FI</td>
+            <td>FINLAND</td>
+          </tr>
+          <tr>
+            <td>FR</td>
+            <td>FRANCE</td>
+          </tr>
+          <tr>
+            <td>GF</td>
+            <td>FRENCH GUIANA</td>
+          </tr>
+          <tr>
+            <td>PF</td>
+            <td>FRENCH POLYNESIA</td>
+          </tr>
+          <tr>
+            <td>TF</td>
+            <td>FRENCH SOUTHERN TERRITORIES</td>
+          </tr>
+          <tr>
+            <td>GA</td>
+            <td>GABON</td>
+          </tr>
+          <tr>
+            <td>GM</td>
+            <td>GAMBIA</td>
+          </tr>
+          <tr>
+            <td>GE</td>
+            <td>GEORGIA</td>
+          </tr>
+          <tr>
+            <td>DE</td>
+            <td>GERMANY</td>
+          </tr>
+          <tr>
+            <td>GH</td>
+            <td>GHANA</td>
+          </tr>
+          <tr>
+            <td>GI</td>
+            <td>GIBRALTAR</td>
+          </tr>
+          <tr>
+            <td>GR</td>
+            <td>GREECE</td>
+          </tr>
+          <tr>
+            <td>GL</td>
+            <td>GREENLAND</td>
+          </tr>
+          <tr>
+            <td>GD</td>
+            <td>GRENADA</td>
+          </tr>
+          <tr>
+            <td>GP</td>
+            <td>GUADELOUPE</td>
+          </tr>
+          <tr>
+            <td>GU</td>
+            <td>GUAM</td>
+          </tr>
+          <tr>
+            <td>GT</td>
+            <td>GUATEMALA</td>
+          </tr>
+          <tr>
+            <td>GN</td>
+            <td>GUINEA</td>
+          </tr>
+          <tr>
+            <td>GW</td>
+            <td>GUINEA-BISSAU</td>
+          </tr>
+          <tr>
+            <td>GY</td>
+            <td>GUYANA</td>
+          </tr>
+          <tr>
+            <td>HT</td>
+            <td>HAITI</td>
+          </tr>
+          <tr>
+            <td>HM</td>
+            <td>HEARD ISLAND AND MCDONALD ISLANDS</td>
+          </tr>
+          <tr>
+            <td>VA</td>
+            <td>HOLY SEE (VATICAN CITY STATE)</td>
+          </tr>
+          <tr>
+            <td>HN</td>
+            <td>HONDURAS</td>
+          </tr>
+          <tr>
+            <td>HK</td>
+            <td>HONG KONG</td>
+          </tr>
+          <tr>
+            <td>HU</td>
+            <td>HUNGARY</td>
+          </tr>
+          <tr>
+            <td>IS</td>
+            <td>ICELAND</td>
+          </tr>
+          <tr>
+            <td>IN</td>
+            <td>INDIA</td>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td>INDONESIA</td>
+          </tr>
+          <tr>
+            <td>IR</td>
+            <td>IRAN, ISLAMIC REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>IQ</td>
+            <td>IRAQ</td>
+          </tr>
+          <tr>
+            <td>IE</td>
+            <td>IRELAND</td>
+          </tr>
+          <tr>
+            <td>IL</td>
+            <td>ISRAEL</td>
+          </tr>
+          <tr>
+            <td>IT</td>
+            <td>ITALY</td>
+          </tr>
+          <tr>
+            <td>JM</td>
+            <td>JAMAICA</td>
+          </tr>
+          <tr>
+            <td>JP</td>
+            <td>JAPAN</td>
+          </tr>
+          <tr>
+            <td>JO</td>
+            <td>JORDAN</td>
+          </tr>
+          <tr>
+            <td>KZ</td>
+            <td>KAZAKSTAN</td>
+          </tr>
+          <tr>
+            <td>KE</td>
+            <td>KENYA</td>
+          </tr>
+          <tr>
+            <td>KI</td>
+            <td>KIRIBATI</td>
+          </tr>
+          <tr>
+            <td>KP</td>
+            <td>KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>KR</td>
+            <td>KOREA, REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>KW</td>
+            <td>KUWAIT</td>
+          </tr>
+          <tr>
+            <td>KG</td>
+            <td>KYRGYZSTAN</td>
+          </tr>
+          <tr>
+            <td>LA</td>
+            <td>LAO PEOPLE'S DEMOCRATIC REPUBLIC</td>
+          </tr>
+          <tr>
+            <td>LV</td>
+            <td>LATVIA</td>
+          </tr>
+          <tr>
+            <td>LB</td>
+            <td>LEBANON</td>
+          </tr>
+          <tr>
+            <td>LS</td>
+            <td>LESOTHO</td>
+          </tr>
+          <tr>
+            <td>LR</td>
+            <td>LIBERIA</td>
+          </tr>
+          <tr>
+            <td>LY</td>
+            <td>LIBYAN ARAB JAMAHIRIYA</td>
+          </tr>
+          <tr>
+            <td>LI</td>
+            <td>LIECHTENSTEIN</td>
+          </tr>
+          <tr>
+            <td>LT</td>
+            <td>LITHUANIA</td>
+          </tr>
+          <tr>
+            <td>LU</td>
+            <td>LUXEMBOURG</td>
+          </tr>
+          <tr>
+            <td>MO</td>
+            <td>MACAU</td>
+          </tr>
+          <tr>
+            <td>MK</td>
+            <td>MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>MG</td>
+            <td>MADAGASCAR</td>
+          </tr>
+          <tr>
+            <td>MW</td>
+            <td>MALAWI</td>
+          </tr>
+          <tr>
+            <td>MY</td>
+            <td>MALAYSIA</td>
+          </tr>
+          <tr>
+            <td>MV</td>
+            <td>MALDIVES</td>
+          </tr>
+          <tr>
+            <td>ML</td>
+            <td>MALI</td>
+          </tr>
+          <tr>
+            <td>MT</td>
+            <td>MALTA</td>
+          </tr>
+          <tr>
+            <td>MH</td>
+            <td>MARSHALL ISLANDS</td>
+          </tr>
+          <tr>
+            <td>MQ</td>
+            <td>MARTINIQUE</td>
+          </tr>
+          <tr>
+            <td>MR</td>
+            <td>MAURITANIA</td>
+          </tr>
+          <tr>
+            <td>MU</td>
+            <td>MAURITIUS</td>
+          </tr>
+          <tr>
+            <td>YT</td>
+            <td>MAYOTTE</td>
+          </tr>
+          <tr>
+            <td>MX</td>
+            <td>MEXICO</td>
+          </tr>
+          <tr>
+            <td>FM</td>
+            <td>MICRONESIA, FEDERATED STATES OF</td>
+          </tr>
+          <tr>
+            <td>MD</td>
+            <td>MOLDOVA, REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>MC</td>
+            <td>MONACO</td>
+          </tr>
+          <tr>
+            <td>MN</td>
+            <td>MONGOLIA</td>
+          </tr>
+          <tr>
+            <td>MS</td>
+            <td>MONTSERRAT</td>
+          </tr>
+          <tr>
+            <td>MA</td>
+            <td>MOROCCO</td>
+          </tr>
+          <tr>
+            <td>MZ</td>
+            <td>MOZAMBIQUE</td>
+          </tr>
+          <tr>
+            <td>MM</td>
+            <td>MYANMAR</td>
+          </tr>
+          <tr>
+            <td>NA</td>
+            <td>NAMIBIA</td>
+          </tr>
+          <tr>
+            <td>NR</td>
+            <td>NAURU</td>
+          </tr>
+          <tr>
+            <td>NP</td>
+            <td>NEPAL</td>
+          </tr>
+          <tr>
+            <td>NL</td>
+            <td>NETHERLANDS</td>
+          </tr>
+          <tr>
+            <td>AN</td>
+            <td>NETHERLANDS ANTILLES</td>
+          </tr>
+          <tr>
+            <td>NC</td>
+            <td>NEW CALEDONIA</td>
+          </tr>
+          <tr>
+            <td>NZ</td>
+            <td>NEW ZEALAND</td>
+          </tr>
+          <tr>
+            <td>NI</td>
+            <td>NICARAGUA</td>
+          </tr>
+          <tr>
+            <td>NE</td>
+            <td>NIGER</td>
+          </tr>
+          <tr>
+            <td>NG</td>
+            <td>NIGERIA</td>
+          </tr>
+          <tr>
+            <td>NU</td>
+            <td>NIUE</td>
+          </tr>
+          <tr>
+            <td>NF</td>
+            <td>NORFOLK ISLAND</td>
+          </tr>
+          <tr>
+            <td>MP</td>
+            <td>NORTHERN MARIANA ISLANDS</td>
+          </tr>
+          <tr>
+            <td>NO</td>
+            <td>NORWAY</td>
+          </tr>
+          <tr>
+            <td>OM</td>
+            <td>OMAN</td>
+          </tr>
+          <tr>
+            <td>PK</td>
+            <td>PAKISTAN</td>
+          </tr>
+          <tr>
+            <td>PW</td>
+            <td>PALAU</td>
+          </tr>
+          <tr>
+            <td>PS</td>
+            <td>PALESTINIAN TERRITORY, OCCUPIED</td>
+          </tr>
+          <tr>
+            <td>PA</td>
+            <td>PANAMA</td>
+          </tr>
+          <tr>
+            <td>PG</td>
+            <td>PAPUA NEW GUINEA</td>
+          </tr>
+          <tr>
+            <td>PY</td>
+            <td>PARAGUAY</td>
+          </tr>
+          <tr>
+            <td>PE</td>
+            <td>PERU</td>
+          </tr>
+          <tr>
+            <td>PH</td>
+            <td>PHILIPPINES</td>
+          </tr>
+          <tr>
+            <td>PN</td>
+            <td>PITCAIRN</td>
+          </tr>
+          <tr>
+            <td>PL</td>
+            <td>POLAND</td>
+          </tr>
+          <tr>
+            <td>PT</td>
+            <td>PORTUGAL</td>
+          </tr>
+          <tr>
+            <td>PR</td>
+            <td>PUERTO RICO</td>
+          </tr>
+          <tr>
+            <td>QA</td>
+            <td>QATAR</td>
+          </tr>
+          <tr>
+            <td>RE</td>
+            <td>REUNION</td>
+          </tr>
+          <tr>
+            <td>RO</td>
+            <td>ROMANIA</td>
+          </tr>
+          <tr>
+            <td>RU</td>
+            <td>RUSSIAN FEDERATION</td>
+          </tr>
+          <tr>
+            <td>RW</td>
+            <td>RWANDA</td>
+          </tr>
+          <tr>
+            <td>SH</td>
+            <td>SAINT HELENA</td>
+          </tr>
+          <tr>
+            <td>KN</td>
+            <td>SAINT KITTS AND NEVIS</td>
+          </tr>
+          <tr>
+            <td>LC</td>
+            <td>SAINT LUCIA</td>
+          </tr>
+          <tr>
+            <td>PM</td>
+            <td>SAINT PIERRE AND MIQUELON</td>
+          </tr>
+          <tr>
+            <td>VC</td>
+            <td>SAINT VINCENT AND THE GRENADINES</td>
+          </tr>
+          <tr>
+            <td>WS</td>
+            <td>SAMOA</td>
+          </tr>
+          <tr>
+            <td>SM</td>
+            <td>SAN MARINO</td>
+          </tr>
+          <tr>
+            <td>ST</td>
+            <td>SAO TOME AND PRINCIPE</td>
+          </tr>
+          <tr>
+            <td>SA</td>
+            <td>SAUDI ARABIA</td>
+          </tr>
+          <tr>
+            <td>SN</td>
+            <td>SENEGAL</td>
+          </tr>
+          <tr>
+            <td>SC</td>
+            <td>SEYCHELLES</td>
+          </tr>
+          <tr>
+            <td>SL</td>
+            <td>SIERRA LEONE</td>
+          </tr>
+          <tr>
+            <td>SG</td>
+            <td>SINGAPORE</td>
+          </tr>
+          <tr>
+            <td>SK</td>
+            <td>SLOVAKIA</td>
+          </tr>
+          <tr>
+            <td>SI</td>
+            <td>SLOVENIA</td>
+          </tr>
+          <tr>
+            <td>SB</td>
+            <td>SOLOMON ISLANDS</td>
+          </tr>
+          <tr>
+            <td>SO</td>
+            <td>SOMALIA</td>
+          </tr>
+          <tr>
+            <td>ZA</td>
+            <td>SOUTH AFRICA</td>
+          </tr>
+          <tr>
+            <td>GS</td>
+            <td>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</td>
+          </tr>
+          <tr>
+            <td>ES</td>
+            <td>SPAIN</td>
+          </tr>
+          <tr>
+            <td>LK</td>
+            <td>SRI LANKA</td>
+          </tr>
+          <tr>
+            <td>SD</td>
+            <td>SUDAN</td>
+          </tr>
+          <tr>
+            <td>SR</td>
+            <td>SURINAME</td>
+          </tr>
+          <tr>
+            <td>SJ</td>
+            <td>SVALBARD AND JAN MAYEN</td>
+          </tr>
+          <tr>
+            <td>SZ</td>
+            <td>SWAZILAND</td>
+          </tr>
+          <tr>
+            <td>SE</td>
+            <td>SWEDEN</td>
+          </tr>
+          <tr>
+            <td>CH</td>
+            <td>SWITZERLAND</td>
+          </tr>
+          <tr>
+            <td>SY</td>
+            <td>SYRIAN ARAB REPUBLIC</td>
+          </tr>
+          <tr>
+            <td>TW</td>
+            <td>TAIWAN, PROVINCE OF CHINA</td>
+          </tr>
+          <tr>
+            <td>TJ</td>
+            <td>TAJIKISTAN</td>
+          </tr>
+          <tr>
+            <td>TZ</td>
+            <td>TANZANIA, UNITED REPUBLIC OF</td>
+          </tr>
+          <tr>
+            <td>TH</td>
+            <td>THAILAND</td>
+          </tr>
+          <tr>
+            <td>TG</td>
+            <td>TOGO</td>
+          </tr>
+          <tr>
+            <td>TK</td>
+            <td>TOKELAU</td>
+          </tr>
+          <tr>
+            <td>TO</td>
+            <td>TONGA</td>
+          </tr>
+          <tr>
+            <td>TT</td>
+            <td>TRINIDAD AND TOBAGO</td>
+          </tr>
+          <tr>
+            <td>TN</td>
+            <td>TUNISIA</td>
+          </tr>
+          <tr>
+            <td>TR</td>
+            <td>TURKEY</td>
+          </tr>
+          <tr>
+            <td>TM</td>
+            <td>TURKMENISTAN</td>
+          </tr>
+          <tr>
+            <td>TC</td>
+            <td>TURKS AND CAICOS ISLANDS</td>
+          </tr>
+          <tr>
+            <td>TV</td>
+            <td>TUVALU</td>
+          </tr>
+          <tr>
+            <td>UG</td>
+            <td>UGANDA</td>
+          </tr>
+          <tr>
+            <td>UA</td>
+            <td>UKRAINE</td>
+          </tr>
+          <tr>
+            <td>AE</td>
+            <td>UNITED ARAB EMIRATES</td>
+          </tr>
+          <tr>
+            <td>GB</td>
+            <td>UNITED KINGDOM</td>
+          </tr>
+          <tr>
+            <td>US</td>
+            <td>UNITED STATES</td>
+          </tr>
+          <tr>
+            <td>UM</td>
+            <td>UNITED STATES MINOR OUTLYING ISLANDS</td>
+          </tr>
+          <tr>
+            <td>UY</td>
+            <td>URUGUAY</td>
+          </tr>
+          <tr>
+            <td>UZ</td>
+            <td>UZBEKISTAN</td>
+          </tr>
+          <tr>
+            <td>VU</td>
+            <td>VANUATU</td>
+          </tr>
+          <tr>
+            <td>VE</td>
+            <td>VENEZUELA</td>
+          </tr>
+          <tr>
+            <td>VN</td>
+            <td>VIET NAM</td>
+          </tr>
+          <tr>
+            <td>VG</td>
+            <td>VIRGIN ISLANDS, BRITISH</td>
+          </tr>
+          <tr>
+            <td>VI</td>
+            <td>VIRGIN ISLANDS, U.S.</td>
+          </tr>
+          <tr>
+            <td>WF</td>
+            <td>WALLIS AND FUTUNA</td>
+          </tr>
+          <tr>
+            <td>EH</td>
+            <td>WESTERN SAHARA</td>
+          </tr>
+          <tr>
+            <td>YE</td>
+            <td>YEMEN</td>
+          </tr>
+          <tr>
+            <td>YU</td>
+            <td>YUGOSLAVIA</td>
+          </tr>
+          <tr>
+            <td>ZM</td>
+            <td>ZAMBIA</td>
+          </tr>
+          <tr>
+            <td>ZW</td>
+            <td>ZIMBABWE</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base='CountryType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='CurrencyElementStructure'>
+    <xsd:annotation>
+      <xsd:documentation>The Code attribute of this element represents the UN 3 character currency code (e.g. GBP, EUR, USD etc.)</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Use 'UKGov-CurrencyCode' as the value of the Codelist attribute.</xsd:documentation>
+      <xsd:documentation>
+        <h2>Country codes for UKGov use: UKGov-CurrencyCode</h2>
+        <p>
+          <tt>@Code</tt> must be one of the following ISO4217 values:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>AFA</td>
+            <td>Afghani</td>
+          </tr>
+          <tr>
+            <td>ALL</td>
+            <td>Leck</td>
+          </tr>
+          <tr>
+            <td>DZD</td>
+            <td>Algerian Dinar</td>
+          </tr>
+          <tr>
+            <td>ADP</td>
+            <td>Andorran Peseta</td>
+          </tr>
+          <tr>
+            <td>AOA</td>
+            <td>Kwanza</td>
+          </tr>
+          <tr>
+            <td>ARS</td>
+            <td>Argentine Peso</td>
+          </tr>
+          <tr>
+            <td>AMD</td>
+            <td>Armenian Dram</td>
+          </tr>
+          <tr>
+            <td>AWG</td>
+            <td>Aruban Guilder</td>
+          </tr>
+          <tr>
+            <td>AZM</td>
+            <td>Azerbaijanian Manat</td>
+          </tr>
+          <tr>
+            <td>BSD</td>
+            <td>Bahamian Dollar</td>
+          </tr>
+          <tr>
+            <td>BHD</td>
+            <td>Bahraini Dinar</td>
+          </tr>
+          <tr>
+            <td>BDT</td>
+            <td>Taka</td>
+          </tr>
+          <tr>
+            <td>BBD</td>
+            <td>Barbados Dollar</td>
+          </tr>
+          <tr>
+            <td>BYR</td>
+            <td>Belarussian Ruble</td>
+          </tr>
+          <tr>
+            <td>BZD</td>
+            <td>Belize Dollar</td>
+          </tr>
+          <tr>
+            <td>BMD</td>
+            <td>Bermudian Dollar</td>
+          </tr>
+          <tr>
+            <td>BTN</td>
+            <td>Ngultrum</td>
+          </tr>
+          <tr>
+            <td>INR</td>
+            <td>Indian Rupee</td>
+          </tr>
+          <tr>
+            <td>BOV</td>
+            <td>Mvdol</td>
+          </tr>
+          <tr>
+            <td>BOB</td>
+            <td>Boliviano</td>
+          </tr>
+          <tr>
+            <td>BAM</td>
+            <td>Convertible Marks</td>
+          </tr>
+          <tr>
+            <td>BWP</td>
+            <td>Pula</td>
+          </tr>
+          <tr>
+            <td>BRL</td>
+            <td>Brazilian Real</td>
+          </tr>
+          <tr>
+            <td>BND</td>
+            <td>Brunei Dollar</td>
+          </tr>
+          <tr>
+            <td>BGL</td>
+            <td>Lev</td>
+          </tr>
+          <tr>
+            <td>BGN</td>
+            <td>Bulgarian Lev</td>
+          </tr>
+          <tr>
+            <td>BIF</td>
+            <td>Burundi Franc</td>
+          </tr>
+          <tr>
+            <td>KHR</td>
+            <td>Riel</td>
+          </tr>
+          <tr>
+            <td>CAD</td>
+            <td>Canadian Dollar</td>
+          </tr>
+          <tr>
+            <td>CVE</td>
+            <td>Cape Verde Escudo</td>
+          </tr>
+          <tr>
+            <td>KYD</td>
+            <td>Cayman Islands Dollar</td>
+          </tr>
+          <tr>
+            <td>XAF</td>
+            <td>CFA Franc BEAC</td>
+          </tr>
+          <tr>
+            <td>CLF</td>
+            <td>Unidades de fomento</td>
+          </tr>
+          <tr>
+            <td>CLP</td>
+            <td>Chilean Peso</td>
+          </tr>
+          <tr>
+            <td>CNY</td>
+            <td>Yuan Renminbi</td>
+          </tr>
+          <tr>
+            <td>COP</td>
+            <td>Colombian Peso</td>
+          </tr>
+          <tr>
+            <td>KMF</td>
+            <td>Comoro Franc</td>
+          </tr>
+          <tr>
+            <td>CDF</td>
+            <td>Franc Congolais</td>
+          </tr>
+          <tr>
+            <td>CRC</td>
+            <td>Costa Rican Colon</td>
+          </tr>
+          <tr>
+            <td>HRK</td>
+            <td>Croatian kuna</td>
+          </tr>
+          <tr>
+            <td>CUP</td>
+            <td>Cuban Peso</td>
+          </tr>
+          <tr>
+            <td>CYP</td>
+            <td>Cyprus Pound</td>
+          </tr>
+          <tr>
+            <td>CZK</td>
+            <td>Czech Koruna</td>
+          </tr>
+          <tr>
+            <td>DKK</td>
+            <td>Danish Krone</td>
+          </tr>
+          <tr>
+            <td>DJF</td>
+            <td>Djibouti Franc</td>
+          </tr>
+          <tr>
+            <td>DOP</td>
+            <td>Dominican Peso</td>
+          </tr>
+          <tr>
+            <td>TPE</td>
+            <td>Timor Escudo</td>
+          </tr>
+          <tr>
+            <td>ECV</td>
+            <td>Unidad de Valor Constante (UVC)</td>
+          </tr>
+          <tr>
+            <td>ECS</td>
+            <td>Sucre</td>
+          </tr>
+          <tr>
+            <td>EGP</td>
+            <td>Egyptian Pound</td>
+          </tr>
+          <tr>
+            <td>SVC</td>
+            <td>El Salvador Colon</td>
+          </tr>
+          <tr>
+            <td>ERN</td>
+            <td>Nakfa</td>
+          </tr>
+          <tr>
+            <td>EEK</td>
+            <td>Kroon</td>
+          </tr>
+          <tr>
+            <td>ETB</td>
+            <td>Ethiopian Birr</td>
+          </tr>
+          <tr>
+            <td>FKP</td>
+            <td>Falkland Islands Pound</td>
+          </tr>
+          <tr>
+            <td>FJD</td>
+            <td>Fiji Dollar</td>
+          </tr>
+          <tr>
+            <td>GMD</td>
+            <td>Dalasi</td>
+          </tr>
+          <tr>
+            <td>GEL</td>
+            <td>Lari</td>
+          </tr>
+          <tr>
+            <td>GHC</td>
+            <td>Cedi</td>
+          </tr>
+          <tr>
+            <td>GIP</td>
+            <td>Gibraltar Pound</td>
+          </tr>
+          <tr>
+            <td>GTQ</td>
+            <td>Quetzal</td>
+          </tr>
+          <tr>
+            <td>GNF</td>
+            <td>Guinea Franc</td>
+          </tr>
+          <tr>
+            <td>GWP</td>
+            <td>Guinea-Bissau Peso</td>
+          </tr>
+          <tr>
+            <td>GYD</td>
+            <td>Guyana Dollar</td>
+          </tr>
+          <tr>
+            <td>HTG</td>
+            <td>Gourde</td>
+          </tr>
+          <tr>
+            <td>HNL</td>
+            <td>Lempira</td>
+          </tr>
+          <tr>
+            <td>HKD</td>
+            <td>Hong Kong Dollar</td>
+          </tr>
+          <tr>
+            <td>HUF</td>
+            <td>Forint</td>
+          </tr>
+          <tr>
+            <td>ISK</td>
+            <td>Iceland Krona</td>
+          </tr>
+          <tr>
+            <td>IDR</td>
+            <td>Rupiah</td>
+          </tr>
+          <tr>
+            <td>IRR</td>
+            <td>Iranian Rial</td>
+          </tr>
+          <tr>
+            <td>IQD</td>
+            <td>Iraqi Dinar</td>
+          </tr>
+          <tr>
+            <td>ILS</td>
+            <td>New Israeli Sheqel</td>
+          </tr>
+          <tr>
+            <td>JMD</td>
+            <td>Jamaican Dollar</td>
+          </tr>
+          <tr>
+            <td>JPY</td>
+            <td>Yen</td>
+          </tr>
+          <tr>
+            <td>JOD</td>
+            <td>Jordanian Dinar</td>
+          </tr>
+          <tr>
+            <td>KZT</td>
+            <td>Tenge</td>
+          </tr>
+          <tr>
+            <td>KES</td>
+            <td>Kenyan Shilling</td>
+          </tr>
+          <tr>
+            <td>AUD</td>
+            <td>Australian Dollar</td>
+          </tr>
+          <tr>
+            <td>KPW</td>
+            <td>North Korean Won</td>
+          </tr>
+          <tr>
+            <td>KRW</td>
+            <td>Won</td>
+          </tr>
+          <tr>
+            <td>KWD</td>
+            <td>Kuwaiti Dinar</td>
+          </tr>
+          <tr>
+            <td>KGS</td>
+            <td>Som</td>
+          </tr>
+          <tr>
+            <td>LAK</td>
+            <td>Kip</td>
+          </tr>
+          <tr>
+            <td>LVL</td>
+            <td>Latvian Lats</td>
+          </tr>
+          <tr>
+            <td>LBP</td>
+            <td>Lebanese Pound</td>
+          </tr>
+          <tr>
+            <td>LSL</td>
+            <td>Loti</td>
+          </tr>
+          <tr>
+            <td>LRD</td>
+            <td>Liberian Dollar</td>
+          </tr>
+          <tr>
+            <td>LYD</td>
+            <td>Lybian Dinar</td>
+          </tr>
+          <tr>
+            <td>CHF</td>
+            <td>Swiss Franc</td>
+          </tr>
+          <tr>
+            <td>LTL</td>
+            <td>Lithuanian Litus</td>
+          </tr>
+          <tr>
+            <td>MOP</td>
+            <td>Pataca</td>
+          </tr>
+          <tr>
+            <td>MKD</td>
+            <td>Denar</td>
+          </tr>
+          <tr>
+            <td>MGF</td>
+            <td>Malagasy Franc</td>
+          </tr>
+          <tr>
+            <td>MWK</td>
+            <td>Kwacha</td>
+          </tr>
+          <tr>
+            <td>MYR</td>
+            <td>Malaysian Ringgit</td>
+          </tr>
+          <tr>
+            <td>MVR</td>
+            <td>Rufiyaa</td>
+          </tr>
+          <tr>
+            <td>MTL</td>
+            <td>Maltese Lira</td>
+          </tr>
+          <tr>
+            <td>EUR</td>
+            <td>Euro</td>
+          </tr>
+          <tr>
+            <td>MRO</td>
+            <td>Ouguiya</td>
+          </tr>
+          <tr>
+            <td>MUR</td>
+            <td>Mauritius Rupee</td>
+          </tr>
+          <tr>
+            <td>MXN</td>
+            <td>Mexican Peso</td>
+          </tr>
+          <tr>
+            <td>MXV</td>
+            <td>Mexican Unidad de Inversion (UDI)</td>
+          </tr>
+          <tr>
+            <td>MDL</td>
+            <td>Moldovan Leu</td>
+          </tr>
+          <tr>
+            <td>MNT</td>
+            <td>Tugrik</td>
+          </tr>
+          <tr>
+            <td>XCD</td>
+            <td>East Caribbean Dollar</td>
+          </tr>
+          <tr>
+            <td>MZM</td>
+            <td>Metical</td>
+          </tr>
+          <tr>
+            <td>MMK</td>
+            <td>Kyat</td>
+          </tr>
+          <tr>
+            <td>ZAR</td>
+            <td>Rand</td>
+          </tr>
+          <tr>
+            <td>NAD</td>
+            <td>Namibia Dollar</td>
+          </tr>
+          <tr>
+            <td>NPR</td>
+            <td>Nepalese Rupee</td>
+          </tr>
+          <tr>
+            <td>ANG</td>
+            <td>Netherlands Antillan Guilder</td>
+          </tr>
+          <tr>
+            <td>XPF</td>
+            <td>CFP Franc</td>
+          </tr>
+          <tr>
+            <td>NZD</td>
+            <td>New Zealand Dollar</td>
+          </tr>
+          <tr>
+            <td>NIO</td>
+            <td>Cordoba Oro</td>
+          </tr>
+          <tr>
+            <td>NGN</td>
+            <td>Naira</td>
+          </tr>
+          <tr>
+            <td>NOK</td>
+            <td>Norwegian Krone</td>
+          </tr>
+          <tr>
+            <td>OMR</td>
+            <td>Rial Omani</td>
+          </tr>
+          <tr>
+            <td>PKR</td>
+            <td>Pakistan Rupee</td>
+          </tr>
+          <tr>
+            <td>PAB</td>
+            <td>Balboa</td>
+          </tr>
+          <tr>
+            <td>PGK</td>
+            <td>Kina</td>
+          </tr>
+          <tr>
+            <td>PYG</td>
+            <td>Guarani</td>
+          </tr>
+          <tr>
+            <td>PEN</td>
+            <td>Nuevo Sol</td>
+          </tr>
+          <tr>
+            <td>PHP</td>
+            <td>Philippine Peso</td>
+          </tr>
+          <tr>
+            <td>PLN</td>
+            <td>Zloty</td>
+          </tr>
+          <tr>
+            <td>USD</td>
+            <td>US Dollar</td>
+          </tr>
+          <tr>
+            <td>QAR</td>
+            <td>Qatari Rial</td>
+          </tr>
+          <tr>
+            <td>ROL</td>
+            <td>Leu</td>
+          </tr>
+          <tr>
+            <td>RUB</td>
+            <td>Russian Ruble</td>
+          </tr>
+          <tr>
+            <td>RUR</td>
+            <td>Russian Ruble</td>
+          </tr>
+          <tr>
+            <td>RWF</td>
+            <td>Rwanda Franc</td>
+          </tr>
+          <tr>
+            <td>SHP</td>
+            <td>Saint Helena Pound</td>
+          </tr>
+          <tr>
+            <td>WST</td>
+            <td>Tala</td>
+          </tr>
+          <tr>
+            <td>STD</td>
+            <td>Dobra</td>
+          </tr>
+          <tr>
+            <td>SAR</td>
+            <td>Saudi Riyal</td>
+          </tr>
+          <tr>
+            <td>SCR</td>
+            <td>Seychelles Rupee</td>
+          </tr>
+          <tr>
+            <td>SLL</td>
+            <td>Leone</td>
+          </tr>
+          <tr>
+            <td>SGD</td>
+            <td>Singapore Dollar</td>
+          </tr>
+          <tr>
+            <td>SKK</td>
+            <td>Slovak Koruna</td>
+          </tr>
+          <tr>
+            <td>SIT</td>
+            <td>Tolar</td>
+          </tr>
+          <tr>
+            <td>SBD</td>
+            <td>Solomon Islands Dollar</td>
+          </tr>
+          <tr>
+            <td>SOS</td>
+            <td>Somali Shilling</td>
+          </tr>
+          <tr>
+            <td>LKR</td>
+            <td>Sri Lanka Rupee</td>
+          </tr>
+          <tr>
+            <td>SDD</td>
+            <td>Sudanese Dinar</td>
+          </tr>
+          <tr>
+            <td>SRG</td>
+            <td>Suriname Guilder</td>
+          </tr>
+          <tr>
+            <td>SZL</td>
+            <td>Lilangeni</td>
+          </tr>
+          <tr>
+            <td>SEK</td>
+            <td>Swedish Krona</td>
+          </tr>
+          <tr>
+            <td>SYP</td>
+            <td>Syrian Pound</td>
+          </tr>
+          <tr>
+            <td>TWD</td>
+            <td>New Taiwan Dollar</td>
+          </tr>
+          <tr>
+            <td>TJS</td>
+            <td>Somoni</td>
+          </tr>
+          <tr>
+            <td>TZS</td>
+            <td>Tanzanian Shilling</td>
+          </tr>
+          <tr>
+            <td>THB</td>
+            <td>Baht</td>
+          </tr>
+          <tr>
+            <td>XOF</td>
+            <td>CFA Franc BCEAO</td>
+          </tr>
+          <tr>
+            <td>NZD</td>
+            <td>New Zealand Dollar</td>
+          </tr>
+          <tr>
+            <td>TOP</td>
+            <td>Pa`anga</td>
+          </tr>
+          <tr>
+            <td>TTD</td>
+            <td>Trinidad and Tobago Dollar</td>
+          </tr>
+          <tr>
+            <td>TND</td>
+            <td>Tunisian Dinar</td>
+          </tr>
+          <tr>
+            <td>TRL</td>
+            <td>Turkish Lira</td>
+          </tr>
+          <tr>
+            <td>TMM</td>
+            <td>Manat</td>
+          </tr>
+          <tr>
+            <td>UGX</td>
+            <td>Uganda Shilling</td>
+          </tr>
+          <tr>
+            <td>UAH</td>
+            <td>Hryvnia</td>
+          </tr>
+          <tr>
+            <td>AED</td>
+            <td>UAE Dirham</td>
+          </tr>
+          <tr>
+            <td>GBP</td>
+            <td>Pound Sterling</td>
+          </tr>
+          <tr>
+            <td>USS</td>
+            <td>US Dollar (Same day)</td>
+          </tr>
+          <tr>
+            <td>USN</td>
+            <td>US Dollar (Next day)</td>
+          </tr>
+          <tr>
+            <td>UYU</td>
+            <td>Peso Uruguayo</td>
+          </tr>
+          <tr>
+            <td>UZS</td>
+            <td>Uzbekistan Sum</td>
+          </tr>
+          <tr>
+            <td>VUV</td>
+            <td>Vatu</td>
+          </tr>
+          <tr>
+            <td>VEB</td>
+            <td>Bolivar</td>
+          </tr>
+          <tr>
+            <td>VND</td>
+            <td>Dong</td>
+          </tr>
+          <tr>
+            <td>MAD</td>
+            <td>Moroccan Dirham</td>
+          </tr>
+          <tr>
+            <td>YER</td>
+            <td>Yemeni Rial</td>
+          </tr>
+          <tr>
+            <td>YUM</td>
+            <td>Yugoslavian Dinar</td>
+          </tr>
+          <tr>
+            <td>ZMK</td>
+            <td>Kwacha</td>
+          </tr>
+          <tr>
+            <td>ZWD</td>
+            <td>Zimbabwe Dollar</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:simpleContent>
+      <xsd:extension base='CurrencyType'>
+        <xsd:attributeGroup ref='CodeRequiredAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='CurrencyStructure'>
+    <xsd:annotation>
+      <xsd:documentation>AlternateCurrency and Rate must either both exist or both not exist.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref='Currency'/>
+      <xsd:element ref='AlternateCurrency' minOccurs='0'/>
+      <xsd:element ref='Rate' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DeliverFromReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SuppliersCodeForLocation' minOccurs='0'/>
+      <xsd:element ref='BuyersCodeForLocation' minOccurs='0'/>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DeliverFromStructure'>
+    <xsd:sequence>
+      <xsd:element ref='DeliverFromReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Location' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DeliverToReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BuyersCodeForDelivery' minOccurs='0'/>
+      <xsd:element ref='BuyersCodeForLocation' minOccurs='0'/>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DeliverToStructure'>
+    <xsd:sequence>
+      <xsd:element ref='DeliverToReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Location' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DeliveryStructure'>
+    <xsd:sequence>
+      <xsd:element ref='DeliverTo' minOccurs='0'/>
+      <xsd:element ref='DeliverFrom' minOccurs='0'/>
+      <xsd:element ref='Carrier' minOccurs='0'/>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='EarliestAcceptableDate' minOccurs='0'/>
+      <xsd:element ref='LatestAcceptableDate' minOccurs='0'/>
+      <xsd:element ref='PreferredDate' minOccurs='0'/>
+      <xsd:element ref='ActualDeliveryDate' minOccurs='0'/>
+      <xsd:element ref='ExpectedDeliveryDate' minOccurs='0'/>
+      <xsd:element ref='SpecialInstructions' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='DeliveryInformation' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='DeliveryTerms' minOccurs='0'/>
+      <xsd:element ref='Narrative' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='DepthStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='DepthType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='ExtensionsStructure'>
+    <xsd:sequence>
+      <xsd:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded'>
+        <xsd:annotation>
+          <xsd:documentation>This node allows extension of the eBIS XML specification.  Project specific data from other namespaces may be inserted at this point</xsd:documentation>
+        </xsd:annotation>
+      </xsd:any>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='FunctionStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='FunctionType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='GUIDStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='GUIDType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='HeightStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='HeightType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='IntrastatStructure'>
+    <xsd:sequence>
+      <xsd:element ref='CommodityCode' minOccurs='0'/>
+      <xsd:element ref='CommodityDescription' minOccurs='0'/>
+      <xsd:element ref='NatureOfTransaction' minOccurs='0'/>
+      <xsd:element ref='SupplementaryUnits' minOccurs='0'/>
+      <xsd:element ref='CountryOfDestination' minOccurs='0'/>
+      <xsd:element ref='ModeOfTransport' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceHeadStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Schema'/>
+      <xsd:element ref='Stylesheet' minOccurs='0'/>
+      <xsd:element ref='Parameters'/>
+      <xsd:element ref='OriginatingSoftware' minOccurs='0'/>
+      <xsd:element ref='TestFlag' minOccurs='0'/>
+      <xsd:element ref='InvoiceType'/>
+      <xsd:element ref='Function' minOccurs='0'/>
+      <xsd:element ref='InvoiceCurrency'/>
+      <xsd:element ref='Intrastat' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceLineReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderNumber' minOccurs='0'/>
+      <xsd:element ref='OriginalOrderDate' minOccurs='0'/>
+      <xsd:element ref='OrderLineNumber' minOccurs='0'/>
+      <xsd:element ref='OrderFunction' minOccurs='0'/>
+      <xsd:element ref='OrderGloballyUniqueID' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderLineReference' minOccurs='0'/>
+      <xsd:element ref='DeliveryNoteNumber' minOccurs='0'/>
+      <xsd:element ref='DeliveryNoteLineNumber' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceLineStructure'>
+    <xsd:sequence>
+      <xsd:element ref='LineNumber'/>
+      <xsd:element ref='InvoiceLineReferences' minOccurs='0'/>
+      <xsd:choice>
+        <xsd:element ref='Extensions' minOccurs='0'/>
+        <xsd:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded'>
+          <xsd:annotation>
+            <xsd:documentation>Used by Green and Utilties XML along with other extensions. </xsd:documentation>
+          </xsd:annotation>
+        </xsd:any>
+      </xsd:choice>
+      <xsd:element ref='Product' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='Price' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='PercentDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='AmountDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='LineTax' minOccurs='0'>
+        <xsd:annotation>
+          <xsd:documentation>eBIS-XML-UKGov: Line Tax is the tax applied to a Line.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref='NetLineTotal' minOccurs='0'/>
+      <xsd:element ref='GrossLineTotal' minOccurs='0'/>
+      <xsd:element ref='LineTotal' minOccurs='0'/>
+      <xsd:element ref='Delivery' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='InvoiceLineInformation' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='ExtendedDescription' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='LotSerial' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Intrastat' minOccurs='0'/>
+      <xsd:element ref='Attachment' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='LineAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderNumber' minOccurs='0'/>
+      <xsd:element ref='Department' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+      <xsd:element ref='TermsConditions' minOccurs='0'/>
+      <xsd:element ref='SuppliersInvoiceNumber'/>
+      <xsd:element ref='DeliveryNoteNumber' minOccurs='0'/>
+      <xsd:element ref='SuppliersOrderReference' minOccurs='0'/>
+      <xsd:element ref='ResponseTo' minOccurs='0'/>
+      <xsd:element ref='BatchNumber' minOccurs='0'/>
+      <xsd:element ref='GloballyUniqueID' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceToReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+      <xsd:element ref='SuppliersCodeForInvoiceTo' minOccurs='0'/>
+      <xsd:element ref='BuyersCodeForInvoiceTo' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceToStructure'>
+    <xsd:sequence>
+      <xsd:element ref='InvoiceToReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceTotalStructure'>
+    <xsd:sequence>
+      <xsd:element ref='NumberOfLines'/>
+      <xsd:element ref='NumberOfTaxRates'/>
+      <xsd:element ref='LineValueTotal'/>
+      <xsd:element ref='FreightCharges' minOccurs='0'/>
+      <xsd:element ref='MiscCharges' minOccurs='0'/>
+      <xsd:element ref='SettlementDiscountTotal' minOccurs='0'/>
+      <xsd:element ref='TaxableTotal'/>
+      <xsd:element ref='TaxTotal'/>
+      <xsd:element ref='NetPaymentTotal'/>
+      <xsd:element ref='GrossPaymentTotal'/>
+      <xsd:element ref='AmountPaid' minOccurs='0'/>
+      <xsd:element ref='AmountOutstanding' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='InvoiceTypeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='InvoiceTypeType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='LengthStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='LengthType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='LineNumberStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='LineNumberType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='LineTaxStructure'>
+    <xsd:sequence>
+      <xsd:element ref='MixedRateIndicator' minOccurs='0'/>
+      <xsd:element ref='TaxRate'/>
+      <xsd:element ref='TaxValue' minOccurs='0'/>
+      <xsd:element ref='TaxRef' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='LotSerialDatesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BestBeforeDate' minOccurs='0'/>
+      <xsd:element ref='DeliveryDate' minOccurs='0'/>
+      <xsd:element ref='DespatchDate' minOccurs='0'/>
+      <xsd:element ref='OnSaleByDate' minOccurs='0'/>
+      <xsd:element ref='SellByDate' minOccurs='0'/>
+      <xsd:element ref='ShelfLifeDate' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='LotSerialStructure'>
+    <xsd:sequence>
+      <xsd:element ref='LotSerialType'/>
+      <xsd:element ref='LotSerialNumber'/>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='LotSerialDates' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='LotSerialTypeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='LotSerialTypeType'>
+        <xsd:attributeGroup ref='CodeRequiredAttrGroup'/>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='ModeOfTransportStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='ModeOfTransportType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='NatureOfTransactionStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='NatureOfTransactionType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='OrderDateStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='OrderDateType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='OrderHeadStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Schema'/>
+      <xsd:element ref='Stylesheet' minOccurs='0'/>
+      <xsd:element ref='Parameters'/>
+      <xsd:element ref='OriginatingSoftware' minOccurs='0'/>
+      <xsd:element ref='TestFlag' minOccurs='0'/>
+      <xsd:element ref='OrderType'/>
+      <xsd:element ref='Function' minOccurs='0'/>
+      <xsd:element ref='OrderCurrency'/>
+      <xsd:element ref='InvoiceCurrency' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderLineReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderLineReference' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderLineStructure'>
+    <xsd:sequence>
+      <xsd:element ref='LineNumber'/>
+      <xsd:element ref='OrderLineReferences' minOccurs='0'/>
+      <xsd:element ref='Originator' minOccurs='0'/>
+      <xsd:choice>
+        <xsd:element ref='Extensions' minOccurs='0'/>
+        <xsd:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded'>
+          <xsd:annotation>
+            <xsd:documentation>Deprecated. New implementations using eBIS-XML should place extensions within the Extensions element which follows.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:any>
+      </xsd:choice>
+      <xsd:element ref='Product' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='Price' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='PercentDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='AmountDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='LineTax' minOccurs='0'/>
+      <xsd:element ref='NetLineTotal' minOccurs='0'/>
+      <xsd:element ref='GrossLineTotal' minOccurs='0'/>
+      <xsd:element ref='LineTotal' minOccurs='0'/>
+      <xsd:element ref='Delivery' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='OrderLineInformation' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='ExtendedDescription' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Attachment' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='LineAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='OrderReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='TermsConditions' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderNumber' minOccurs='0'/>
+      <xsd:element ref='Department' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+      <xsd:element ref='SuppliersOrderReference' minOccurs='0'/>
+      <xsd:element ref='CrossReference' minOccurs='0'/>
+      <xsd:element ref='ResponseTo' minOccurs='0'/>
+      <xsd:element ref='BatchNumber' minOccurs='0'/>
+      <xsd:element ref='GloballyUniqueID' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseHeadStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Schema'/>
+      <xsd:element ref='Stylesheet' minOccurs='0'/>
+      <xsd:element ref='Parameters'/>
+      <xsd:element ref='OriginatingSoftware' minOccurs='0'/>
+      <xsd:element ref='TestFlag' minOccurs='0'/>
+      <xsd:element ref='OrderResponseType'/>
+      <xsd:element ref='Function' minOccurs='0'/>
+      <xsd:element ref='OrderCurrency'/>
+      <xsd:element ref='InvoiceCurrency' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseLineReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderLineReference' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseLineStructure'>
+    <xsd:sequence>
+      <xsd:element ref='LineNumber'/>
+      <xsd:element ref='OriginalLineNumber' minOccurs='0'/>
+      <xsd:element ref='Status' minOccurs='0'/>
+      <xsd:element ref='OrderResponseLineReferences' minOccurs='0'/>
+      <xsd:element ref='Originator' minOccurs='0'/>
+      <xsd:choice>
+        <xsd:element ref='Extensions' minOccurs='0'/>
+        <xsd:any namespace='##other' processContents='lax' minOccurs='0' maxOccurs='unbounded'>
+          <xsd:annotation>
+            <xsd:documentation>Deprecated. New implementations using eBIS-XML should place extensions within the Extensions element which follows.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:any>
+      </xsd:choice>
+      <xsd:element ref='Product' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='OriginalQuantity' minOccurs='0'/>
+      <xsd:element ref='Price' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='OriginalPrice' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='PercentDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='AmountDiscount' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='LineTax' minOccurs='0'/>
+      <xsd:element ref='NetLineTotal' minOccurs='0'/>
+      <xsd:element ref='GrossLineTotal' minOccurs='0'/>
+      <xsd:element ref='LineTotal' minOccurs='0'/>
+      <xsd:element ref='Delivery' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='OrderLineInformation' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='ExtendedDescription' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Attachment' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='LineAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='OrderResponseNumber' minOccurs='0'/>
+      <xsd:element ref='ContractOrderReference' minOccurs='0'/>
+      <xsd:element ref='CostCentre' minOccurs='0'/>
+      <xsd:element ref='TermsConditions' minOccurs='0'/>
+      <xsd:element ref='BuyersOrderNumber' minOccurs='0'/>
+      <xsd:element ref='Department' minOccurs='0'/>
+      <xsd:element ref='GeneralLedgerCode' minOccurs='0'/>
+      <xsd:element ref='ProjectCode' minOccurs='0'/>
+      <xsd:element ref='ProjectAnalysisCode' minOccurs='0'/>
+      <xsd:element ref='SuppliersOrderReference' minOccurs='0'/>
+      <xsd:element ref='CrossReference' minOccurs='0'/>
+      <xsd:element ref='ResponseTo' minOccurs='0'/>
+      <xsd:element ref='BatchNumber' minOccurs='0'/>
+      <xsd:element ref='GloballyUniqueID' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseTotalStructure'>
+    <xsd:sequence>
+      <xsd:element ref='GoodsValue' minOccurs='0'/>
+      <xsd:element ref='FreightCharges' minOccurs='0'/>
+      <xsd:element ref='MiscCharges' minOccurs='0'/>
+      <xsd:element ref='TaxTotal' minOccurs='0'/>
+      <xsd:element ref='GrossValue' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderResponseTypeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='OrderResponseTypeType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='OrderTotalStructure'>
+    <xsd:sequence>
+      <xsd:element ref='GoodsValue' minOccurs='0'/>
+      <xsd:element ref='FreightCharges' minOccurs='0'/>
+      <xsd:element ref='MiscCharges' minOccurs='0'/>
+      <xsd:element ref='TaxTotal' minOccurs='0'/>
+      <xsd:element ref='GrossValue' minOccurs='0'/>
+      <xsd:element ref='AmountPaid' minOccurs='0'/>
+      <xsd:element ref='AmountOutstanding' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OrderTypeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='OrderTypeType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='OriginatingSoftwareStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SoftwareManufacturer'/>
+      <xsd:element ref='SoftwareProduct'/>
+      <xsd:element ref='SoftwareVersion'/>
+      <xsd:element ref='SoftwareSystemID' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='OtherProductCodeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='OtherProductCodeType'>
+        <xsd:attributeGroup ref='QualifierAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='OtherUOMStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='OtherUOMType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+        <xsd:attributeGroup ref='DescriptionRequiredAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='ParametersStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Language'/>
+      <xsd:element ref='DecimalSeparator'/>
+      <xsd:element ref='Precision'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='PercentDiscountStructure'>
+    <xsd:sequence>
+      <xsd:element ref='QualifyingTerms' minOccurs='0'/>
+      <xsd:element ref='Type' minOccurs='0'/>
+      <xsd:element ref='Percentage'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='PriceStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Units' minOccurs='0'/>
+      <xsd:element ref='UnitPrice'/>
+      <xsd:element ref='SpecialPriceDescription' minOccurs='0'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='UOMattrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='ProductStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SuppliersProductCode' minOccurs='0'/>
+      <xsd:element ref='BuyersProductCode' minOccurs='0'/>
+      <xsd:element ref='GTIN' minOccurs='0'/>
+      <xsd:element ref='OtherProductCode' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='TradedUnitCode' minOccurs='0'/>
+      <xsd:element ref='ConsumerUnitCode' minOccurs='0'/>
+      <xsd:element ref='Description' minOccurs='0'/>
+      <xsd:element ref='Properties' minOccurs='0'/>
+      <xsd:element ref='CommodityClass' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='ProjectAnalysisCodeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='ProjectAnalysisCodeType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='ProjectCodeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='ProjectCodeType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='PropertiesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Quantity' minOccurs='0'/>
+      <xsd:element ref='Length' minOccurs='0'/>
+      <xsd:element ref='Width' minOccurs='0'/>
+      <xsd:element ref='Depth' minOccurs='0'/>
+      <xsd:element ref='Weight' minOccurs='0'/>
+      <xsd:element ref='Volume' minOccurs='0'/>
+      <xsd:element ref='Height' minOccurs='0'/>
+      <xsd:element ref='Size' minOccurs='0'/>
+      <xsd:element ref='Color' minOccurs='0'/>
+      <xsd:element ref='Other' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='QualifyingTermsStructure'>
+    <xsd:sequence>
+      <xsd:element ref='PayByDate'/>
+      <xsd:element ref='DaysFromInvoice' minOccurs='0'/>
+      <xsd:element ref='DaysFromMonthEnd' minOccurs='0'/>
+      <xsd:element ref='DaysFromDelivery' minOccurs='0'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='CodelistAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='QuantityStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Packsize' minOccurs='0'/>
+      <xsd:element ref='Amount'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='UOMattrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='RateType'>
+    <xsd:simpleContent>
+      <xsd:extension base='xsd:decimal'>
+        <xsd:attribute name='CalculationType' use='required'>
+          <xsd:simpleType>
+            <xsd:restriction base='xsd:string'>
+              <xsd:enumeration value='D'/>
+              <xsd:enumeration value='M'/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='SchemaStructure'>
+    <xsd:sequence>
+      <xsd:element ref='Version'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementByReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementByStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SettlementByReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementDiscountStructure'>
+    <xsd:sequence>
+      <xsd:element ref='PercentDiscount' minOccurs='0'/>
+      <xsd:element ref='AmountDiscount'/>
+    </xsd:sequence>
+    <xsd:attributeGroup ref='CodelistAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementMethodStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='SettlementMethodType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SettlementTerms' minOccurs='0'/>
+      <xsd:element ref='SettlementMethod' minOccurs='0'/>
+      <xsd:element ref='BankDetails' minOccurs='0'/>
+      <xsd:element ref='CardDetails' minOccurs='0'/>
+      <xsd:element ref='SettlementBy' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='SettlementDiscount' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SettlementTermsStructure'>
+    <xsd:choice>
+      <xsd:element ref='PayByDate' minOccurs='0'/>
+      <xsd:element ref='DaysFromInvoice' minOccurs='0'/>
+      <xsd:element ref='DaysFromMonthEnd' minOccurs='0'/>
+      <xsd:element ref='DaysFromDelivery' minOccurs='0'/>
+      <xsd:element ref='PaidDate' minOccurs='0'/>
+      <xsd:element ref='Description' minOccurs='0'>
+        <xsd:annotation>
+          <xsd:documentation>eBIS-XML-UKGov: Represents the terms set by the sender of the document for the payment of the Invoice. This string may include details of the trigger event,the period between trigger event and payment and any agreed settlement terms.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+    <xsd:attributeGroup ref='CodelistAttrGroup'/>
+  </xsd:complexType>
+  <xsd:complexType name='SizeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='SizeType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='StylesheetStructure'>
+    <xsd:sequence>
+      <xsd:element ref='StylesheetOwner'/>
+      <xsd:element ref='StylesheetName'/>
+      <xsd:element ref='Version'/>
+      <xsd:element ref='StylesheetType'/>
+      <xsd:element ref='LogoURL' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SupplierReferencesStructure'>
+    <xsd:sequence>
+      <xsd:element ref='BuyersCodeForSupplier' minOccurs='0'>
+        <xsd:annotation>
+          <xsd:documentation>Represents the buyer reference for the seller organisation.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element ref='TaxNumber' minOccurs='0'/>
+      <xsd:element ref='GLN' minOccurs='0'/>
+      <xsd:element ref='DUNS' minOccurs='0'/>
+      <xsd:element ref='RegistrationNumber' minOccurs='0'/>
+      <xsd:element ref='RegisteredIn' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SupplierStructure'>
+    <xsd:sequence>
+      <xsd:element ref='SupplierReferences' minOccurs='0'/>
+      <xsd:element ref='Party' maxOccurs='unbounded'/>
+      <xsd:element ref='Address' minOccurs='0'/>
+      <xsd:element ref='Contact' minOccurs='0' maxOccurs='unbounded'/>
+      <xsd:element ref='Narrative' minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SuppliersInvoiceNumberStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='SuppliersInvoiceNumberType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='SuppliersOrderReferenceStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='SuppliersOrderReferenceType'>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='TaxRateStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='TaxRateType'>
+        <xsd:attributeGroup ref='CodeRequiredAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='TaxRefStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='TaxRefType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+        <xsd:attributeGroup ref='PreserveAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='TaxSubTotalStructure'>
+    <xsd:sequence>
+      <xsd:element ref='TaxRate' minOccurs='0'/>
+      <xsd:element ref='NumberOfLinesAtRate'/>
+      <xsd:element ref='TotalValueAtRate'/>
+      <xsd:element ref='SettlementDiscountAtRate' minOccurs='0'/>
+      <xsd:element ref='TaxableValueAtRate'/>
+      <xsd:element ref='TaxAtRate'/>
+      <xsd:element ref='NetPaymentAtRate'/>
+      <xsd:element ref='GrossPaymentAtRate'/>
+      <xsd:element ref='TaxCurrency'/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='TestFlagStructure' mixed='true'>
+    <xsd:sequence>
+      <xsd:element ref='Test' minOccurs='0' maxOccurs='unbounded'/>
+    </xsd:sequence>
+    <xsd:attribute name='TestReference' type='TestReferenceType' use='optional'>
+      <xsd:annotation>
+        <xsd:documentation>This is the developer's reference, which will be returned in the test response.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name='TestStructure'>
+    <xsd:attribute name='ExpectedReply' type='ExpectedReplyType' use='optional'/>
+    <xsd:attribute name='Mode' type='ModeType' use='required'>
+      <xsd:annotation>
+        <xsd:documentation> Test status is a boolean. If value is true, the document is intended for test purposes only (i.e. not to constitute a contractural commitment).  </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name='TypeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='TypeType'>
+        <xsd:attributeGroup ref='CodelistAttrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='VolumeStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='VolumeType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='WeightStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='WeightType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name='WidthStructure'>
+    <xsd:simpleContent>
+      <xsd:extension base='WidthType'>
+        <xsd:attributeGroup ref='UOMattrGroup'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:element name='AccountName' type='AccountNameType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the name of the bank account</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ActualDeliveryDate' type='ActualDeliveryDateType'/>
+  <xsd:element name='Address' type='AddressStructure'/>
+  <xsd:element name='AddressLine' type='AddressLineType'>
+    <xsd:annotation>
+      <xsd:documentation>Free format address lines may be used instead of (or in addition to) specific Street etc elements.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='AlternateCurrency' type='AlternateCurrencyStructure'/>
+  <xsd:element name='Amount' type='AmountType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the number of item units (specified with unit of measure) specified on a line (ie number ordered).</xsd:documentation>
+      <xsd:documentation>
+        <h2>eBIS-XML-UKGov Unit of Measure codes</h2>
+        <p>For eBIS-XML-UKGov, unit of measure (the attribute UOMCode) is a mandatory code describing the quantity in which goods and services are priced and ordered using a sub-set of UN recommendation No 20. The code is 2 or 3 characters. The acceptable codes are given below. EA (each) is to be used by default. Note that the schema does not specify a default.</p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>5I</td>
+            <td>standard cubic foot</td>
+          </tr>
+          <tr>
+            <td>ACR</td>
+            <td>acre</td>
+          </tr>
+          <tr>
+            <td>ANN</td>
+            <td>year</td>
+          </tr>
+          <tr>
+            <td>CLT</td>
+            <td>centilitre</td>
+          </tr>
+          <tr>
+            <td>CMK</td>
+            <td>square centimetre</td>
+          </tr>
+          <tr>
+            <td>CMQ</td>
+            <td>cubic centimetre</td>
+          </tr>
+          <tr>
+            <td>CMT</td>
+            <td>centimetre</td>
+          </tr>
+          <tr>
+            <td>D61</td>
+            <td>minute</td>
+          </tr>
+          <tr>
+            <td>D62</td>
+            <td>second</td>
+          </tr>
+          <tr>
+            <td>DAY</td>
+            <td>day</td>
+          </tr>
+          <tr>
+            <td>FOT</td>
+            <td>foot</td>
+          </tr>
+          <tr>
+            <td>FTK</td>
+            <td>square foot</td>
+          </tr>
+          <tr>
+            <td>FTQ</td>
+            <td>cubic foot</td>
+          </tr>
+          <tr>
+            <td>GLI</td>
+            <td>gallon (UK)</td>
+          </tr>
+          <tr>
+            <td>HUR</td>
+            <td>hour</td>
+          </tr>
+          <tr>
+            <td>INH</td>
+            <td>inch</td>
+          </tr>
+          <tr>
+            <td>INK</td>
+            <td>square inch</td>
+          </tr>
+          <tr>
+            <td>INQ</td>
+            <td>cubic inch</td>
+          </tr>
+          <tr>
+            <td>K6</td>
+            <td>kilolitre</td>
+          </tr>
+          <tr>
+            <td>KTM</td>
+            <td>kilometre</td>
+          </tr>
+          <tr>
+            <td>LTR</td>
+            <td>litre</td>
+          </tr>
+          <tr>
+            <td>MIN</td>
+            <td>minute</td>
+          </tr>
+          <tr>
+            <td>MLT</td>
+            <td>millilitre</td>
+          </tr>
+          <tr>
+            <td>MMT</td>
+            <td>millimetre</td>
+          </tr>
+          <tr>
+            <td>MON</td>
+            <td>month</td>
+          </tr>
+          <tr>
+            <td>MTK</td>
+            <td>square metre</td>
+          </tr>
+          <tr>
+            <td>MTQ</td>
+            <td>cubic metre</td>
+          </tr>
+          <tr>
+            <td>MTR</td>
+            <td>metre</td>
+          </tr>
+          <tr>
+            <td>OZI</td>
+            <td>fluid ounce (UK)</td>
+          </tr>
+          <tr>
+            <td>PTI</td>
+            <td>pint (UK)</td>
+          </tr>
+          <tr>
+            <td>SEC</td>
+            <td>second</td>
+          </tr>
+          <tr>
+            <td>SMI</td>
+            <td>mile (statute mile)</td>
+          </tr>
+          <tr>
+            <td>WEE</td>
+            <td>week</td>
+          </tr>
+          <tr>
+            <td>YDK</td>
+            <td>square yard</td>
+          </tr>
+          <tr>
+            <td>YDQ</td>
+            <td>cubic yard</td>
+          </tr>
+          <tr>
+            <td>YRD</td>
+            <td>yard</td>
+          </tr>
+          <tr>
+            <td>CWI</td>
+            <td>hundred weight (UK)</td>
+          </tr>
+          <tr>
+            <td>GRM</td>
+            <td>gram</td>
+          </tr>
+          <tr>
+            <td>KGM</td>
+            <td>kilogram</td>
+          </tr>
+          <tr>
+            <td>KWH</td>
+            <td>kilowatt hour</td>
+          </tr>
+          <tr>
+            <td>KWT</td>
+            <td>kilowatt</td>
+          </tr>
+          <tr>
+            <td>LBR</td>
+            <td>pound</td>
+          </tr>
+          <tr>
+            <td>LTN</td>
+            <td>ton (UK) or long ton (US)</td>
+          </tr>
+          <tr>
+            <td>ONZ</td>
+            <td>ounce</td>
+          </tr>
+          <tr>
+            <td>STI</td>
+            <td>stone (UK)</td>
+          </tr>
+          <tr>
+            <td>TNE</td>
+            <td>tonne (metric ton)</td>
+          </tr>
+          <tr>
+            <td>EA</td>
+            <td>each</td>
+          </tr>
+          <tr>
+            <td>KT</td>
+            <td>kit</td>
+          </tr>
+          <tr>
+            <td>SET</td>
+            <td>set</td>
+          </tr>
+          <tr>
+            <td>BG</td>
+            <td>bag</td>
+          </tr>
+          <tr>
+            <td>BO</td>
+            <td>bottle</td>
+          </tr>
+          <tr>
+            <td>BX</td>
+            <td>box</td>
+          </tr>
+          <tr>
+            <td>CA</td>
+            <td>can</td>
+          </tr>
+          <tr>
+            <td>CR</td>
+            <td>crate</td>
+          </tr>
+          <tr>
+            <td>CS</td>
+            <td>case</td>
+          </tr>
+          <tr>
+            <td>CT</td>
+            <td>carton</td>
+          </tr>
+          <tr>
+            <td>CY</td>
+            <td>cylinder</td>
+          </tr>
+          <tr>
+            <td>DR</td>
+            <td>drum</td>
+          </tr>
+          <tr>
+            <td>PA</td>
+            <td>packet</td>
+          </tr>
+          <tr>
+            <td>PF</td>
+            <td>pallet (lift)</td>
+          </tr>
+          <tr>
+            <td>PK</td>
+            <td>pack</td>
+          </tr>
+          <tr>
+            <td>RO</td>
+            <td>roll</td>
+          </tr>
+          <tr>
+            <td>SA</td>
+            <td>sack</td>
+          </tr>
+          <tr>
+            <td>TU</td>
+            <td>tube</td>
+          </tr>
+          <tr>
+            <td>CEN</td>
+            <td>hundred</td>
+          </tr>
+          <tr>
+            <td>DZN</td>
+            <td>dozen</td>
+          </tr>
+          <tr>
+            <td>MIL</td>
+            <td>thousand</td>
+          </tr>
+          <tr>
+            <td>PR</td>
+            <td>pair</td>
+          </tr>
+          <tr>
+            <td>5B</td>
+            <td>batch</td>
+          </tr>
+          <tr>
+            <td>IE</td>
+            <td>person</td>
+          </tr>
+          <tr>
+            <td>U1</td>
+            <td>treatment</td>
+          </tr>
+          <tr>
+            <td>VS</td>
+            <td>visit</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='AmountDiscount' type='AmountDiscountStructure'/>
+  <xsd:element name='Attachment' type='AttachmentStructure'/>
+  <xsd:element name='AttachmentData' type='AttachmentDataType'/>
+  <xsd:element name='AmountOutstanding' type='AmountOutstandingType'/>
+  <xsd:element name='AmountPaid' type='AmountPaidType'/>
+  <xsd:element name='AuthorisationCode' type='AuthorisationCodeType'/>
+  <xsd:element name='BankCode' type='BankCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the code used for the bank branch at which the account is held. In the UK this is known as the Sort Code. It is mandatory to have a branch ID or a SWIFT code or both.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BankDetails' type='BankDetailsStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Electronic Funds Transfer (EFT) Address contains the information needed about the bank and the bank account primarily to transfer funds using BACS (Bankers Auotmated Clearing System) or SWIFT (Society of Worldwide Interbank Financial Telecommunications). It is a specialisation of Party in the OGC data model. EFT Address includes the account number and sort code, and may include account name and the SWIFT code of the bank.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BankName' type='BankNameType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents thename of the bank.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BankReference' type='BankReferenceType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the account number</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BatchNumber' type='BatchNumberType'/>
+  <xsd:element name='BestBeforeDate' type='BestBeforeDateType'/>
+  <xsd:element name='Buyer' type='BuyerStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Known as Order Point in the data model, Buyer creates the Purchase Order.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BuyerReferences' type='BuyerReferencesStructure'/>
+  <xsd:element name='BuyersCodeForBuyer' type='BuyersCodeForBuyerType'/>
+  <xsd:element name='BuyersCodeForCarrier' type='BuyersCodeForCarrierType'/>
+  <xsd:element name='BuyersCodeForDelivery' type='BuyersCodeForDeliveryStructure'/>
+  <xsd:element name='BuyersCodeForInvoiceTo' type='BuyersCodeForInvoiceToType'/>
+  <xsd:element name='BuyersCodeForLocation' type='BuyersCodeForLocationType'/>
+  <xsd:element name='BuyersCodeForSupplier' type='BuyersCodeForSupplierType'/>
+  <xsd:element name='BuyersOrderLineReference' type='BuyersOrderLineReferenceStructure'/>
+  <xsd:element name='BuyersOrderNumber' type='BuyersOrderNumberStructure'>
+    <xsd:annotation>
+      <xsd:documentation>This field must be included in either the InvoiceReferences or InvoiceLineReferences</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the document identifier within the sender's system.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='BuyersProductCode' type='BuyersProductCodeType'/>
+  <xsd:element name='CRI' type='CRItype'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the customer reference indicator (CRI), which is used to enable transmission of customer specific information with the card transaction. CRI is used in VISA level 2 and 3.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='CardDetails' type='CardDetailsStructure'/>
+  <xsd:element name='CardNumber' type='CardNumberType'>
+    <xsd:annotation>
+      <xsd:documentation>Card number.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Carrier' type='CarrierStructure'/>
+  <xsd:element name='CarrierReferences' type='CarrierReferencesStructure'/>
+  <xsd:element name='City' type='CityType'/>
+  <xsd:element name='Color' type='ColorStructure'/>
+  <xsd:element name='CommodityClass' type='CommodityClassType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the commodity class for the item (using UNSPSC - United Nations Standard Product and Services Classification, or anotherclassification agreed with the HM Treasury Office of Government Commerce). This is needed for management information. The format is four pairs of characters with space separator (2..8). The first two pairs ofdigits (levels 1 and 2) are mandatory; the next two pairs (levels 3 and 4) are to be used if pertinent.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='CommodityCode' type='CommodityCodeType'/>
+  <xsd:element name='CommodityDescription' type='CommodityDescriptionType'/>
+  <xsd:element name='ConsumerUnitCode' type='ConsumerUnitCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>EAN-13 barcode number.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Contact' type='ContactStructure'/>
+  <xsd:element name='ContractOrderReference' type='ContractOrderReferenceType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents a reference to a framework agreement or contract that governs this transaction. This information is Required if it is known to the sender.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='CostCentre' type='CostCentreType'/>
+  <xsd:element name='Country' type='CountryStructure'/>
+  <xsd:element name='CountryOfDestination' type='CountryOfDestinationStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Country of Destination codelist</h2>
+        <p>If
+          <tt>@Codelist</tt> is 'BASDA' or not present then
+          <tt>@Code</tt>, if used, must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>AT</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>BL</td>
+            <td>Belgium or Luxembourg</td>
+          </tr>
+          <tr>
+            <td>DE</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>DK</td>
+            <td>Denmark</td>
+          </tr>
+          <tr>
+            <td>ES</td>
+            <td>Spain</td>
+          </tr>
+          <tr>
+            <td>FI</td>
+            <td>Finland</td>
+          </tr>
+          <tr>
+            <td>FR</td>
+            <td>France</td>
+          </tr>
+          <tr>
+            <td>GB</td>
+            <td>Great Britain</td>
+          </tr>
+          <tr>
+            <td>GR</td>
+            <td>Greece</td>
+          </tr>
+          <tr>
+            <td>IE</td>
+            <td>Ireland</td>
+          </tr>
+          <tr>
+            <td>IT</td>
+            <td>Italy</td>
+          </tr>
+          <tr>
+            <td>NL</td>
+            <td>Netherlands</td>
+          </tr>
+          <tr>
+            <td>PT</td>
+            <td>Portugal</td>
+          </tr>
+          <tr>
+            <td>SE</td>
+            <td>Sweden</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='CrossReference' type='CrossReferenceType'>
+    <xsd:annotation>
+      <xsd:documentation>The order may be cross referenced. Typically a reference to a blanket order would be placed here.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Currency' type='CurrencyElementStructure'/>
+  <xsd:element name='DDI' type='DDIType'>
+    <xsd:annotation>
+      <xsd:documentation>'Direct Dial Inwards' telephone number</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='DUNS' type='DUNStype'>
+    <xsd:annotation>
+      <xsd:documentation>Globally unique identifier issued by Dun &amp; Bradstreet.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='DaysFromDelivery' type='DaysFromDeliveryType'/>
+  <xsd:element name='DaysFromInvoice' type='DaysFromInvoiceType'/>
+  <xsd:element name='DaysFromMonthEnd' type='DaysFromMonthEndType'/>
+  <xsd:element name='DecimalSeparator' type='DecimalSeparatorType'>
+    <xsd:annotation>
+      <xsd:documentation>The separator between the integer and decimal part of a number. '.' or ','</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: constrained to allow '.' only.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='DeliverFrom' type='DeliverFromStructure'/>
+  <xsd:element name='DeliverFromReferences' type='DeliverFromReferencesStructure'/>
+  <xsd:element name='DeliverTo' type='DeliverToStructure'/>
+  <xsd:element name='DeliverToReferences' type='DeliverToReferencesStructure'/>
+  <xsd:element name='Delivery' type='DeliveryStructure'/>
+  <xsd:element name='DeliveryDate' type='DeliveryDateType'/>
+  <xsd:element name='DeliveryInformation' type='DeliveryInformationType'/>
+  <xsd:element name='DeliveryNoteLineNumber' type='DeliveryNoteLineNumberType'/>
+  <xsd:element name='DeliveryNoteNumber' type='DeliveryNoteNumberType'/>
+  <xsd:element name='DeliveryTerms' type='DeliveryTermsType'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>eBIS-XML-UKGov DeliveryTerms</h2>
+        <p>Represents the buyer's terms for delivery using an INCOTERM code e.g. exWorks (buyer's responsibility from point of origin), FOB (free on board - carrier's responsibility to destination, CIF (carriage insured freight - supplier to insure to destination). The allowable values are enumerated for eBIS-XML-UKGov.</p>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Department' type='DepartmentType'/>
+  <xsd:element name='Depth' type='DepthStructure'/>
+  <xsd:element name='Description' type='DescriptionType'/>
+  <xsd:element name='DespatchDate' type='DespatchDateType'/>
+  <xsd:element name='EarliestAcceptableDate' type='EarliestAcceptableDateType'/>
+  <xsd:element name='Email' type='EmailType'>
+    <xsd:annotation>
+      <xsd:documentation>An email address as specified by RFC 2822. For brevity, a complete regular expression is omitted from the schema.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ExpectedDeliveryDate' type='ExpectedDeliveryDateType'/>
+  <xsd:element name='ExpiresEnd' type='IssueDateType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the last month that the card is valid.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ExpiryDate' type='ExpiryDateType'>
+    <xsd:annotation>
+      <xsd:documentation>Deprecated in favour of the ExpiresEnd element as issue dates are not in xsd:date format.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ExtendedDescription' type='ExtendedDescriptionType'/>
+  <xsd:element name='Extensions' type='ExtensionsStructure'/>
+  <xsd:element name='Fax' type='FaxType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents an organisation's main fax switchboard number.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='FileName' type='FileNameType'/>
+  <xsd:element name='FreightCharges' type='FreightChargesType'>
+    <xsd:annotation>
+      <xsd:documentation>Only for use in jurisdictions where such charges are non-taxable.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Function' type='FunctionStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Order and Order Response function codelist</h2>
+        <p>If Codelist is 'BASDA' or not present then Code must be one of:</p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>FIO</td>
+            <td>Firm Order</td>
+          </tr>
+          <tr>
+            <td>PRO</td>
+            <td>(16) Proposed Order</td>
+          </tr>
+          <tr>
+            <td>PVO</td>
+            <td>(46) Provisional Order</td>
+          </tr>
+          <tr>
+            <td>AMO</td>
+            <td>Amendment to existing order - not supported in this version</td>
+          </tr>
+          <tr>
+            <td>CAO</td>
+            <td>Cancellation of existing Order</td>
+          </tr>
+          <tr>
+            <td>TEO</td>
+            <td>Test Order</td>
+          </tr>
+          <tr>
+            <td>COO</td>
+            <td>Copy order</td>
+          </tr>
+          <tr>
+            <td>RPO</td>
+            <td>Replacement Order</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+      <xsd:documentation>
+        <h2>Invoice function codelist</h2>
+        <p>If Codelist is 'BASDA' or not present then Code must be one of:</p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>FII</td>
+            <td>Firm Invoice</td>
+          </tr>
+          <tr>
+            <td>PRI</td>
+            <td>(16) Proposed Invoice</td>
+          </tr>
+          <tr>
+            <td>PVI</td>
+            <td>(46) Provisional Invoice</td>
+          </tr>
+          <tr>
+            <td>AMI</td>
+            <td>Amendment to existing invoice</td>
+          </tr>
+          <tr>
+            <td>CAI</td>
+            <td>Cancellation of existing invoice</td>
+          </tr>
+          <tr>
+            <td>TEI</td>
+            <td>Test Invoice</td>
+          </tr>
+          <tr>
+            <td>COI</td>
+            <td>Copy Invoice</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GLN' type='GLNType'>
+    <xsd:annotation>
+      <xsd:documentation>Number conformant to UCC.EAN specification for Global Location Numbers.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GTIN' type='GTINType'>
+    <xsd:annotation>
+      <xsd:documentation>Global Trade Indentification Number: a possibly zero-padded number of up to 14 digits.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GeneralLedgerCode' type='GeneralLedgerCodeType'/>
+  <xsd:element name='GloballyUniqueID' type='GUIDStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: This is a computer generated unique identifier for the document, which is guaranteed to be unique. Microsoft and other suppliers provide tools which generate GUIDs. This is the simplest way at machine level to ensure exact matching of document identity. However it is not suited to visual matching which is why we also need the existing document ID data.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GoodsValue' type='GoodsValueType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents document subtotal, which is the sum of extended net line values (unit price x quantity), excluding tax, charges and discounts.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GrossLineTotal' type='GrossLineTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>
+      GrossLineTotal is quantity x price - discount - settlement discount + LineTax
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GrossPaymentAtRate' type='GrossPaymentAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Value before settlement discount. GrossPaymentAtRate should equal the sum of TotalValueAtRate and TaxAtRate.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GrossPaymentTotal' type='GrossPaymentTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Total invoice value before settlement discount. GrossPaymentTotal must be the sum of LineValueTotal and TaxTotal.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='GrossValue' type='GrossValueType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the document grand total, including charges and discounts (and tax if appropriate).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Height' type='HeightStructure'/>
+  <xsd:element name='InternalAddress' type='InternalAddressType'/>
+  <xsd:element name='Intrastat' type='IntrastatStructure'/>
+  <xsd:element name='InvoiceCurrency' type='CurrencyStructure'/>
+  <xsd:element name='InvoiceDate' type='InvoiceDateType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the date or date/time assigned to this instance of document by the sender (using W3C recommended structure for ISO 8601 format, CCYY-MM-DDThh:mm:ss, to the nearest second). Note that for a copy or cancellation, the document date is the date of this document, not the original.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='InvoiceFunction' type='FunctionStructure'/>
+  <xsd:element name='InvoiceHead' type='InvoiceHeadStructure'/>
+  <xsd:element name='InvoiceLine' type='InvoiceLineStructure'/>
+  <xsd:element name='InvoiceLineInformation' type='InvoiceLineInformationType'/>
+  <xsd:element name='InvoiceLineReferences' type='InvoiceLineReferencesStructure'/>
+  <xsd:element name='InvoiceReferences' type='InvoiceReferencesStructure'/>
+  <xsd:element name='InvoiceTo' type='InvoiceToStructure'>
+    <xsd:annotation>
+      <xsd:documentation>InvoiceTo is the buyer Party responsible for payment-related issues.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='InvoiceToReferences' type='InvoiceToReferencesStructure'/>
+  <xsd:element name='InvoiceTotal' type='InvoiceTotalStructure'/>
+  <xsd:element name='InvoiceType' type='InvoiceTypeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Invoice classification Description</h2>
+        <p>if
+          <tt>InvoiceType/@Codelist</tt> is 'BASDA' or not given,
+          <tt>InvoiceType/@Code</tt> must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>INV</td>
+            <td>Commercial Invoice - Document/message claiming payment for goods or services supplied under conditions agreed between seller and buyer</td>
+          </tr>
+          <tr>
+            <td>CRN</td>
+            <td>Credit Note - Document / message for providing credit information to the relevant party</td>
+          </tr>
+          <tr>
+            <td>CMN</td>
+            <td>Commission - Document / message in which a seller specifies the amount of commission, the percentage of the invoice amount, or some other basis for the calculation of the commission to which a sales agent is entitled.</td>
+          </tr>
+          <tr>
+            <td>DEN</td>
+            <td>Debit Note - Document / message for providing debit information to the relevant party</td>
+          </tr>
+          <tr>
+            <td>CRI</td>
+            <td>Corrected Invoice - Commercial Invoice that includes revised information differing from an earlier submission of the same invoice.</td>
+          </tr>
+          <tr>
+            <td>CSI</td>
+            <td>Consolidated Invoice - Commercial Invoice that covers multiple transactions involving more than one vendor.</td>
+          </tr>
+          <tr>
+            <td>PPI</td>
+            <td>Prepayment Invoice - An Invoice to pay amounts for goods and services in advance: these amounts will be subtracted from the final invoice</td>
+          </tr>
+          <tr>
+            <td>PFI</td>
+            <td>Pro-Forma Invoice - A Pro-Forma Invoice to provide quotation for future goods and services supply as a means of securing payment - to be replaced by the actual invoice after supply.</td>
+          </tr>
+          <tr>
+            <td>HII</td>
+            <td>Hire Invoice - Document / message for invoicing and hiring of human resources or the renting of goods and equipment</td>
+          </tr>
+          <tr>
+            <td>TXI</td>
+            <td>Tax Invoice - An invoice for tax purposes</td>
+          </tr>
+          <tr>
+            <td>SBI</td>
+            <td>Self-billed Invoice - An invoice the invoicee is producing instead of the seller.</td>
+          </tr>
+          <tr>
+            <td>DCI</td>
+            <td>Delcredere Invoice - An invoice sent to the party paying for a number of buyers</td>
+          </tr>
+          <tr>
+            <td>FCI</td>
+            <td>Factored Invoice - Invoice assigned to a third party for collection</td>
+          </tr>
+          <tr>
+            <td>LEI</td>
+            <td>Lease Invoice - Usage of INVOICmessage for goods in leasing contracts</td>
+          </tr>
+          <tr>
+            <td>CGI</td>
+            <td>Consignment Invoice - Commercial invoice that covers a transaction other than one involving a sale.</td>
+          </tr>
+          <tr>
+            <td>FCN</td>
+            <td>Factored Credit Note - Credit note related to an assigned invoice</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='IssueDate' type='IssueDateElementType'>
+    <xsd:annotation>
+      <xsd:documentation>Deprecated in favour of the ValidFrom element as issue dates are not in xsd:date format.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='IssueNumber' type='IssueNumberType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the issue number of the card (used by Switch).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Issuer' type='IssuerType'/>
+  <xsd:element name='ItemCurrency' type='CurrencyStructure'>
+    <xsd:annotation>
+      <xsd:documentation>Currency of items in this batch. All invoices in batch to be same currency. ISO 3Char - default: GBP</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Language' type='LanguageCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>This is a two character lower case ISO 639 code, optionally followed by a dash and two character upper case ISO 3166 country code. e.g. 'en' or 'en-US'. For brevity, an enumerated codelist is not supplied.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='LatestAcceptableDate' type='LatestAcceptableDateType'/>
+  <xsd:element name='Length' type='LengthStructure'/>
+  <xsd:element name='LineNumber' type='LineNumberStructure'>
+    <xsd:annotation>
+      <xsd:documentation>The line number must be included as a reference in documents relating to this transaction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='LineTax' type='LineTaxStructure'/>
+  <xsd:element name='LineTotal' type='LineTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Core eBIS-XML: Deprecated in favour of NetLineTotal and GrossLineTotal from eBIS-XML 3.09. Whether LineTotal includes tax varies between implementations and tax jurisdictions: this change is a clarification.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the monetary value applied to the line, inclusive of line tax and any charges and discounts. (Note that charges and discounts are not enumerated separately at line level in the vanilla purchase order and invoice). This field is optional in the OGC model but must remain mandatory for the message to comply with core eBIS-XML.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='LineValueTotal' type='LineValueTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Value A in calculations</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents document subtotal, which is the sum of extended net line values (NetLineTotal), excluding tax, charges and discounts.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Location' type='LocationType'>
+    <xsd:annotation>
+      <xsd:documentation>Location within address.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='LogoURL' type='LogoURLType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the URI at which a logo can be found for insertion into a rendered document.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='LotSerial' type='LotSerialStructure'/>
+  <xsd:element name='LotSerialDates' type='LotSerialDatesStructure'/>
+  <xsd:element name='LotSerialNumber' type='LotSerialNumberType'/>
+  <xsd:element name='LotSerialType' type='LotSerialTypeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Country of Destination codelist</h2>
+        <p>If
+          <tt>@Codelist</tt> is 'BASDA' or not present then
+          <tt>@Code</tt> must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>LOT</td>
+            <td>Lot number </td>
+          </tr>
+          <tr>
+            <td>SER</td>
+            <td>Serial Number </td>
+          </tr>
+          <tr>
+            <td>BCH</td>
+            <td>Batch Number
+</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='MiscCharges' type='MiscChargesType'>
+    <xsd:annotation>
+      <xsd:documentation>Only for use in jurisdictions where such charges are non-taxable.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the total value of all charges in the pricing currency for purchase order or invoice currency for invoice.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='MixedRateIndicator' type='MixedRateIndicatorType'>
+    <xsd:annotation>
+      <xsd:documentation>Mixed rate VAT / Tax indicator</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Mobile' type='MobileType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents an individual's mobile telephone number.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ModeOfTransport' type='ModeOfTransportStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Mode of Transport codelist</h2>
+        <p>If
+          <tt>@Codelist</tt> is 'BASDA' or not present then
+          <tt>@Code</tt>, if used, must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Sea</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Rail</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Road</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Air</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Post</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Not allocated</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Fixed installations</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Inland waterway</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Own propulsion
+</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Name' type='NameType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the name of an individual within an organisation. </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Narrative' type='NarrativeType'>
+    <xsd:annotation>
+      <xsd:documentation>Use for any general narrative comments or free text notes.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NatureOfTransaction' type='NatureOfTransactionStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Nature of Transaction codelist</h2>
+        <p>If
+          <tt>@Codelist</tt> is 'BASDA' or not present then
+          <tt>@Code</tt>, if used, must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Credit notes</td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Transaction included on supplementary declarations but not shown in boxes 8 or 9 of the VAT returns for the equivalent period</td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Transactions included in boxes 8 or 9 of the VAT return but not required on supplementary declarations</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Returned goods and replaced goods where 26, 27 or 28 do not apply</td>
+          </tr>
+          <tr>
+            <td>26,27,28</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Free of charge transactions involving permanent change of ownership where 36, 37 or 38 do not apply</td>
+          </tr>
+          <tr>
+            <td>36,37,38</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>40</td>
+            <td>Goods for processing or repair other than those involved in joint inter-governmental production/defence programmes and where 46, 47 or 48 do not apply</td>
+          </tr>
+          <tr>
+            <td>46,47,48</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>50</td>
+            <td>Goods returned following processing or repair other than those involved in joint intergovernmental production/defence programmes and where 56, 57 or 58 do not apply</td>
+          </tr>
+          <tr>
+            <td>56,57,58</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>60</td>
+            <td>Movement of goods without transfer of ownership for hire, operational leasing and temporary use, except process repair where 66, 67 or 68 do not apply</td>
+          </tr>
+          <tr>
+            <td>66,67,68</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>70</td>
+            <td>Joint inter-governmental production/defence programmes where 76, 77 or 78 do not apply</td>
+          </tr>
+          <tr>
+            <td>76,77,78</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>80</td>
+            <td>Supply of building materials and equipment as part of a general construction or engineering project where 86, 87 or 88 do not apply</td>
+          </tr>
+          <tr>
+            <td>86,87,88</td>
+            <td>As for 16,17,18</td>
+          </tr>
+          <tr>
+            <td>90</td>
+            <td>Other transactions where 96, 97 or 98 do not apply</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NetLineTotal' type='NetLineTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>
+      NetLineTotal is quantity x price - discount - settlement discount  (but
+excluding LineTax)
+      </xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents unit price x line quantity.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NetPaymentAtRate' type='NetPaymentAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Value less settlement discount. NetPaymentAtRate must equal the sum of TaxableValueAtRate and TaxAtRate.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NetPaymentTotal' type='NetPaymentTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Total payment with settlement discount. NetPaymentTotal must equal the sum of TaxableTotal and TaxTotal.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NumberOfItemsAtRate' type='NumberOfItemsAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Nx rate. Number of Invoices with lines at this tax rate.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='NumberOfLines' type='NumberOfLinesType'/>
+  <xsd:element name='NumberOfLinesAtRate' type='NumberOfLinesAtRateType'/>
+  <xsd:element name='NumberOfTaxRates' type='NumberOfTaxRatesType'/>
+  <xsd:element name='OnSaleByDate' type='OnSaleByDateType'/>
+  <xsd:element name='OrderCurrency' type='CurrencyStructure'/>
+  <xsd:element name='OrderDate' type='OrderDateStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the date or date/time assigned to this instance of document by the sender (using W3C recommended structure for ISO 8601 format CCYY-MM-DDThh:mm:ss, to the nearest second). Note that for a copy or cancellation, the document date is the date of this document, not the original.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='OrderFunction' type='FunctionStructure'/>
+  <xsd:element name='OrderGloballyUniqueID' type='GUIDStructure'/>
+  <xsd:element name='OrderHead' type='OrderHeadStructure'/>
+  <xsd:element name='OrderLine' type='OrderLineStructure'/>
+  <xsd:element name='OrderLineInformation' type='OrderLineInformationType'/>
+  <xsd:element name='OrderLineNumber' type='OrderLineNumberType'>
+    <xsd:annotation>
+      <xsd:documentation>Should be a line number, should not be blank.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents an integer in the range 1..9999. The line number must be included as a reference in documents relating to this transaction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='OrderLineReferences' type='OrderLineReferencesStructure'/>
+  <xsd:element name='OrderReferences' type='OrderReferencesStructure'/>
+  <xsd:element name='OrderResponseDate' type='OrderResponseDateType'/>
+  <xsd:element name='OrderResponseHead' type='OrderResponseHeadStructure'/>
+  <xsd:element name='OrderResponseLine' type='OrderResponseLineStructure'/>
+  <xsd:element name='OrderResponseLineReferences' type='OrderResponseLineReferencesStructure'/>
+  <xsd:element name='OrderResponseNumber' type='OrderResponseNumberType'/>
+  <xsd:element name='OrderResponseReferences' type='OrderResponseReferencesStructure'/>
+  <xsd:element name='OrderResponseTotal' type='OrderResponseTotalStructure'/>
+  <xsd:element name='OrderResponseType' type='OrderResponseTypeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Order response classification Description</h2>
+        <p>if
+          <tt>OrderResponseType/@Codelist</tt> is 'BASDA' or not given,
+          <tt>OrderResponseType/@Code</tt> must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td/>
+          </tr>
+          <tr>
+            <td>PUO</td>
+            <td>Purchase Order - Document/message by means of which a buyer initiates a transaction with a seller involving the supply of goods or services as specified, according to conditions set out in an offer, or otherwise known to the buyer.</td>
+          </tr>
+          <tr>
+            <td>BLO</td>
+            <td>Blanket order - Usage of document/message for general order purposes with later split into quantities and delivery dates and maybe delivery locations.</td>
+          </tr>
+          <tr>
+            <td>SPO</td>
+            <td>Spot order - Document/message ordering the remainder of a production's batch.</td>
+          </tr>
+          <tr>
+            <td>LEO</td>
+            <td>Lease order - Document/message for goods in leasing contracts.</td>
+          </tr>
+          <tr>
+            <td>RUO</td>
+            <td>Rush order - Document/message for urgent ordering.</td>
+          </tr>
+          <tr>
+            <td>REO</td>
+            <td>Repair order - Document/message to order repair of goods.</td>
+          </tr>
+          <tr>
+            <td>CAO</td>
+            <td>Call off order - Document/message to provide split quantities and delivery dates referring to a previous blanket order.</td>
+          </tr>
+          <tr>
+            <td>COO</td>
+            <td>Consignment order - Order to deliver goods into stock with agreement on payment when goods are sold out of this stock.</td>
+          </tr>
+          <tr>
+            <td>SAO</td>
+            <td>Sample order - Document/message to order samples.</td>
+          </tr>
+          <tr>
+            <td>SWO</td>
+            <td>Swap order - Document/message informing buyer or seller of the replacement of goods previously ordered.</td>
+          </tr>
+          <tr>
+            <td>PCR</td>
+            <td>Purchase order change request - Change to an purchase order already sent.</td>
+          </tr>
+          <tr>
+            <td>POR</td>
+            <td>Purchase order response - Response to a purchase order already received.</td>
+          </tr>
+          <tr>
+            <td>HIO</td>
+            <td>Hire order - Document/message for hiring human resources or renting goods or equipment.</td>
+          </tr>
+          <tr>
+            <td>SPO</td>
+            <td>Spare parts order - Document/message to order spare parts.</td>
+          </tr>
+          <tr>
+            <td>SLR</td>
+            <td>Sales Order - Sales Order</td>
+          </tr>
+          <tr>
+            <td>WEO</td>
+            <td>Web order - Order placed by customer through web interface</td>
+          </tr>
+          <tr>
+            <td>RFQ</td>
+            <td>Request for quotation - Used with a template order that you wish the quoting party to populate</td>
+          </tr>
+          <tr>
+            <td>RRQ</td>
+            <td>Response to an</td>
+          </tr>
+          <tr>
+            <td>RFQ</td>
+            <td>- The populated order to be used as the suppliers quotation</td>
+          </tr>
+          <tr>
+            <td>CTO</td>
+            <td>Content Order</td>
+          </tr>
+          <tr>
+            <td>QTN</td>
+            <td>Quotation</td>
+          </tr>
+          <tr>
+            <td>MO</td>
+            <td>Master Order</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='OrderTotal' type='OrderTotalStructure'/>
+  <xsd:element name='OrderType' type='OrderTypeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Order classification Description</h2>
+        <p>if
+          <tt>OrderType/@Codelist</tt> is 'BASDA' or not given,
+          <tt>OrderType/@Code</tt> must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td/>
+          </tr>
+          <tr>
+            <td>PUO</td>
+            <td>Purchase Order - Document/message by means of which a buyer initiates a transaction with a seller involving the supply of goods or services as specified, according to conditions set out in an offer, or otherwise known to the buyer.</td>
+          </tr>
+          <tr>
+            <td>BLO</td>
+            <td>Blanket order - Usage of document/message for general order purposes with later split into quantities and delivery dates and maybe delivery locations.</td>
+          </tr>
+          <tr>
+            <td>SPO</td>
+            <td>Spot order - Document/message ordering the remainder of a production's batch.</td>
+          </tr>
+          <tr>
+            <td>LEO</td>
+            <td>Lease order - Document/message for goods in leasing contracts.</td>
+          </tr>
+          <tr>
+            <td>RUO</td>
+            <td>Rush order - Document/message for urgent ordering.</td>
+          </tr>
+          <tr>
+            <td>REO</td>
+            <td>Repair order - Document/message to order repair of goods.</td>
+          </tr>
+          <tr>
+            <td>CAO</td>
+            <td>Call off order - Document/message to provide split quantities and delivery dates referring to a previous blanket order.</td>
+          </tr>
+          <tr>
+            <td>COO</td>
+            <td>Consignment order - Order to deliver goods into stock with agreement on payment when goods are sold out of this stock.</td>
+          </tr>
+          <tr>
+            <td>SAO</td>
+            <td>Sample order - Document/message to order samples.</td>
+          </tr>
+          <tr>
+            <td>SWO</td>
+            <td>Swap order - Document/message informing buyer or seller of the replacement of goods previously ordered.</td>
+          </tr>
+          <tr>
+            <td>PCR</td>
+            <td>Purchase order change request - Change to an purchase order already sent.</td>
+          </tr>
+          <tr>
+            <td>POR</td>
+            <td>Purchase order response - Response to a purchase order already received.</td>
+          </tr>
+          <tr>
+            <td>HIO</td>
+            <td>Hire order - Document/message for hiring human resources or renting goods or equipment.</td>
+          </tr>
+          <tr>
+            <td>SPO</td>
+            <td>Spare parts order - Document/message to order spare parts.</td>
+          </tr>
+          <tr>
+            <td>SLR</td>
+            <td>Sales Order - Sales Order</td>
+          </tr>
+          <tr>
+            <td>WEO</td>
+            <td>Web order - Order placed by customer through web interface</td>
+          </tr>
+          <tr>
+            <td>RFQ</td>
+            <td>Request for quotation - Used with a template order that you wish the quoting party to populate</td>
+          </tr>
+          <tr>
+            <td>RRQ</td>
+            <td>Response to an</td>
+          </tr>
+          <tr>
+            <td>RFQ</td>
+            <td>- The populated order to be used as the suppliers quotation</td>
+          </tr>
+          <tr>
+            <td>CTO</td>
+            <td>Content Order</td>
+          </tr>
+          <tr>
+            <td>QTN</td>
+            <td>Quotation</td>
+          </tr>
+          <tr>
+            <td>MO</td>
+            <td>Master Order</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Organisation' type='OrganisationType'/>
+  <xsd:element name='OriginalLineNumber' type='OriginalLineNumberType'/>
+  <xsd:element name='OriginalOrderDate' type='OriginalOrderDateType'/>
+  <xsd:element name='OriginalOrderFunction' type='FunctionStructure'/>
+  <xsd:element name='OriginalOrderGloballyUniqueID' type='GUIDStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: This is a computer generated unique identifier for the document, which is guaranteed to be unique. Microsoft and other suppliers provide tools which generate GUIDs. This is the simplest way at machine level to ensure exact matching of document identity. However, it is not suited to visual matching which is why we also need the existing documentID data.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='OriginalPrice' type='PriceStructure'/>
+  <xsd:element name='OriginalQuantity' type='QuantityStructure'/>
+  <xsd:element name='OriginatingSoftware' type='OriginatingSoftwareStructure'/>
+  <xsd:element name='Originator' type='BuyerStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Originator is the party that has the original demand for each item ofgoods and/or services. The Originator is the person to contact in event of queries about what is ordered. Originator is a line level item on orders to allow one order to cover items required by different originators.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Other' type='OtherUOMStructure'>
+    <xsd:annotation>
+      <xsd:documentation>Other properties (such as 'Fitting') added by the user.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='OtherProductCode' type='OtherProductCodeStructure'/>
+  <xsd:element name='Packsize' type='PacksizeType'/>
+  <xsd:element name='PaidDate' type='PaidDateType'/>
+  <xsd:element name='Parameters' type='ParametersStructure'/>
+  <xsd:element name='Party' type='PartyType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the name of the organisation sending, receiving or referenced in any document. It is the name by which an organisation wishes to be known or the official name given to an organisation.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='PayByDate' type='PayByDateType'/>
+  <xsd:element name='PercentDiscount' type='PercentDiscountStructure'/>
+  <xsd:element name='Percentage' type='PercentageType'/>
+  <xsd:element name='PostCode' type='PostCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>Post/ZIP code</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Precision' type='PrecisionType'>
+    <xsd:annotation>
+      <xsd:documentation>The precision of decimal values as provided by the implementation. e.g. 8.3 indicates up to 8 digits before the decimal separator and up to three after.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='PreferredDate' type='PreferredDateType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the date or date/time (ISO 8601) that the goods or services are required by. This is a mandatory field (needed to measure supplier performance). ASAP is not permitted.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Price' type='PriceStructure'/>
+  <xsd:element name='Product' type='ProductStructure'/>
+  <xsd:element name='ProjectAnalysisCode' type='ProjectAnalysisCodeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>This value should be included as a reference in documents relating to this transaction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ProjectCode' type='ProjectCodeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>This value should be included as a reference in documents relating to this transaction.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents a shared reference to a project.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Properties' type='PropertiesStructure'/>
+  <xsd:element name='QualifyingTerms' type='QualifyingTermsStructure'>
+    <xsd:annotation>
+      <xsd:documentation>If a codelist is to be used then the code defines an elapsed time from invoice or delivery, the child element Description should be used to describe this. If the code value is 'Date', the element PayByDate should be used in the same format as other date fields</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Quantity' type='QuantityStructure'/>
+  <xsd:element name='Rate' type='RateType'>
+    <xsd:annotation>
+      <xsd:documentation>If the CalculationType is 'M' then AltInvoiceCurrency = Currency x Rate. If it is 'D' then divide instead.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='RegisteredIn' type='RegisteredInType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the place where the organisation is registered.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='RegistrationNumber' type='RegistrationNumberType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the organisation's registration number. For companies registered in England and Wales, this is the company registration number issued by Companies House, Cardiff.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ResponseTo' type='ResponseToType'/>
+  <xsd:element name='Schema' type='SchemaStructure'/>
+  <xsd:element name='Section' type='SectionType'/>
+  <xsd:element name='SecurityCode' type='SecurityCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the 3 or 4 (Amex) digit number suffixing the card number on the card signature strip. Note: card verification value is normally given by the card holder in response to a challenge from the supplier's point of sale application at the time of the transaction in order to determine that the card is real (not invented by a fraudster).</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SellByDate' type='SellByDateType'/>
+  <xsd:element name='Settlement' type='SettlementStructure'/>
+  <xsd:element name='SettlementBy' type='SettlementByStructure'/>
+  <xsd:element name='SettlementByReferences' type='SettlementByReferencesStructure'/>
+  <xsd:element name='SettlementDiscount' type='SettlementDiscountStructure'>
+    <xsd:annotation>
+      <xsd:documentation>If the code defines an elapsed time from invoice, delivery or month end, the element text describes this. If the code value is 'Date', the element text is the date in the same format as other date fields.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SettlementDiscountAtRate' type='SettlementDiscountAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Value of settlement discount associated with the TotalValueAtRate. Value B in tax calculations.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SettlementDiscountTotal' type='SettlementDiscountTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Value B in calculations</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SettlementMethod' type='SettlementMethodStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Settlement method codes</h2>
+        <p>If
+          <tt>@CodeList</tt> is not present or is 'BASDA' then
+          <tt>@Code</tt> must contain an allowed value from the following list:
+        </p>
+        <table>
+          <tr>
+            <td>CHQ</td>
+            <td>Cheque</td>
+          </tr>
+          <tr>
+            <td>DD</td>
+            <td>Direct debit</td>
+          </tr>
+          <tr>
+            <td>SO</td>
+            <td>Standing Order</td>
+          </tr>
+          <tr>
+            <td>BCS</td>
+            <td>BACS</td>
+          </tr>
+          <tr>
+            <td>GRO</td>
+            <td>GIRO</td>
+          </tr>
+          <tr>
+            <td>PRN</td>
+            <td>Promissory Note LEC Letter of Credit</td>
+          </tr>
+          <tr>
+            <td>CSH</td>
+            <td>Cash</td>
+          </tr>
+          <tr>
+            <td>COD</td>
+            <td>Cash on delivery</td>
+          </tr>
+          <tr>
+            <td>COP</td>
+            <td>Commercial paper</td>
+          </tr>
+          <tr>
+            <td>CRC</td>
+            <td>Credit card</td>
+          </tr>
+          <tr>
+            <td>SFT</td>
+            <td>SWIFT</td>
+          </tr>
+          <tr>
+            <td>CHP</td>
+            <td>CHAPS</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SettlementTerms' type='SettlementTermsStructure'>
+    <xsd:annotation>
+      <xsd:documentation>If a codelist is to be used then the code defines an elapsed time from invoice or delivery, the child element Description should be used to describe this. If the code value is 'Date', the element PayByDate should be used in the same format as other date fields.</xsd:documentation>
+      <xsd:documentation>
+        <h2>Settlement terms codes</h2>
+        <p>If
+          <tt>@CodeList</tt> is not present or is 'BASDA' then, if used,
+          <tt>@Code</tt> must contain an allowed value from the following list:
+        </p>
+        <table>
+          <tr>
+            <td>10I</td>
+            <td>10 days from date of invoice</td>
+          </tr>
+          <tr>
+            <td>20I</td>
+            <td>20 days from date of invoice</td>
+          </tr>
+          <tr>
+            <td>XXI</td>
+            <td>XX days from date of invoice</td>
+          </tr>
+          <tr>
+            <td>10D</td>
+            <td>10 days from date of deliver</td>
+          </tr>
+          <tr>
+            <td>XXD</td>
+            <td>XX days from date of delivery</td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>Fixed settlement date</td>
+          </tr>
+          <tr>
+            <td>PAD</td>
+            <td>Paid</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='ShelfLifeDate' type='ShelfLifeDateType'/>
+  <xsd:element name='Size' type='SizeStructure'/>
+  <xsd:element name='SoftwareManufacturer' type='SoftwareManufacturerType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the URI of the manufacturer of the application software that sends the document. URI is used to ensure unique naming.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SoftwareProduct' type='SoftwareProductType'>
+    <xsd:annotation>
+      <xsd:documentation>The name of the sender software as allocated by its manufacturer</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SoftwareSystemID' type='SoftwareSystemIDType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents an identifier of the particular system that sends the message. This identifier is optional, but is recommended to be sent. The format may be manufacturer specific, but could be a GUID.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SoftwareVersion' type='SoftwareVersionType'>
+    <xsd:annotation>
+      <xsd:documentation>The version identifier of the sender software as allocated by itsmanufacturer.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SpecialInstructions' type='SpecialInstructionsType'/>
+  <xsd:element name='SpecialPriceDescription' type='SpecialPriceDescriptionType'/>
+  <xsd:element name='State' type='StateType'>
+    <xsd:annotation>
+      <xsd:documentation>State/County/Province</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Status' type='StatusType'/>
+  <xsd:element name='Street' type='StreetType'/>
+  <xsd:element name='Stylesheet' type='StylesheetStructure'/>
+  <xsd:element name='StylesheetName' type='StylesheetNameType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the URI at which a suitable style sheet may be found for rendering the document.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='StylesheetOwner' type='StylesheetOwnerType'/>
+  <xsd:element name='StylesheetType' type='StylesheetTypeType'/>
+  <xsd:element name='SupplementaryUnits' type='SupplementaryUnitsType'/>
+  <xsd:element name='Supplier' type='SupplierStructure'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Known as Sales Point and Accounts Receivable in the OGC data model, Supplier is the party responsible for purchasing issues prior to fulfillment of Purchase Order and payment-related issues.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SupplierReferences' type='SupplierReferencesStructure'/>
+  <xsd:element name='SuppliersCodeForBuyer' type='SuppliersCodeForBuyerType'>
+    <xsd:annotation>
+      <xsd:documentation>For batches of invoices: a common reference code to ensure that all invoices in a batch are for the same customer (Trading Partner internal id).</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the seller's reference for the buyer organisation. This element is not specified by OGC for the Originator party and if it is provided, it may be ignored.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SuppliersCodeForInvoiceTo' type='SuppliersCodeForInvoiceToType'/>
+  <xsd:element name='SuppliersCodeForLocation' type='SuppliersCodeForLocationType'/>
+  <xsd:element name='SuppliersInvoiceNumber' type='SuppliersInvoiceNumberStructure'/>
+  <xsd:element name='SuppliersOrderReference' type='SuppliersOrderReferenceStructure'>
+    <xsd:annotation>
+      <xsd:documentation>This value should be included as a reference in documents relating to this transaction.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='SuppliersProductCode' type='SuppliersProductCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the identifier of the Item in the form used by the seller.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Switchboard' type='SwitchboardType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents an organisation's main telephone switchboard number.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxAtRate' type='TaxAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Tax based on the taxable value with or without settlement discount according to the tax treatment of settlement discounts.  D = A*V/100 or D = C*V/100 according to the tax treatment of settlement discounts.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxCurrency' type='CurrencyStructure'>
+    <xsd:annotation>
+      <xsd:documentation>Currency of tax shown in this batch trailer. Defaults to invoice currency. ISO 3 Char - default: GBP. This reflects the TaxCurrency type in the invoice</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxNumber' type='TaxNumberType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the tax identifier (e.g. VAT number) assigned to an organisation registered for tax by the relevant national authority, such as Customs and Excise in the UK.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxPointDate' type='TaxPointDateType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the date when tax applies.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxRate' type='TaxRateStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>BASDA Tax rate codes for Orders</h2>
+        <p>If
+          <tt>TaxRate/@Codelist</tt> is 'BASDA' or not present,
+          <tt>TaxRate/@Code</tt> must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>Exempt</td>
+          </tr>
+          <tr>
+            <td>H</td>
+            <td>Higher rate</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>Lower rate</td>
+          </tr>
+          <tr>
+            <td>N</td>
+            <td>Other</td>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>Standard</td>
+          </tr>
+          <tr>
+            <td>Z</td>
+            <td>Zero</td>
+          </tr>
+          <tr>
+            <td>X</td>
+            <td>Out of scope (
+              <strong>UK Orders only</strong>) 
+            </td>
+          </tr>
+        </table>
+      </xsd:documentation>
+      <xsd:documentation>
+        <h2>eBIS-XML-UKGov TaxRate codes: codelist UKGov-VAT.</h2>
+        <p>For eBIS-XML-UKGov, The content of the TaxRate element represents the
+      applicable percentage rate of tax (e.g. 17.5). The Codelist attribute is
+      to have the value 'UKGov-VAT'. The Code attribute represents the tax
+      band, if applicable (e.g.  standard,zero-rated, exempt, reduced). This
+      attribute is not mandatory in the OGC model but is required for eBIS-XML.
+      The allowable values of the Code attribute are as follows:</p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+          </tr>
+          <tr>
+            <td>standard</td>
+          </tr>
+          <tr>
+            <td>reduced</td>
+          </tr>
+          <tr>
+            <td>zero-rated</td>
+          </tr>
+          <tr>
+            <td>exempt</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxRef' type='TaxRefStructure'/>
+  <xsd:element name='TaxSubTotal' type='TaxSubTotalStructure'>
+    <xsd:annotation>
+      <xsd:documentation>One instance for each individual tax rate used</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxTotal' type='TaxTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>Sum of TaxAtRate values from TaxSubTotal records. TaxTotal must be the sum of the TaxSubTotal/TaxAtRate values.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxValue' type='TaxValueType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents amount of tax to be charged on the line.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxableTotal' type='TaxableTotalType'>
+    <xsd:annotation>
+      <xsd:documentation>TaxableTotal must be LineValueTotal less SettlementDiscountTotal.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TaxableValueAtRate' type='TaxableValueAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Goods value to which tax rate is applied. TaxableValueAtRate should be equal to TotalValueAtRate, less SettlementDiscountAtRate.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Telex' type='TelexType'/>
+  <xsd:element name='TermsConditions' type='TermsConditionsType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents text or pointer to the sender's terms and conditions associated with the document. This may be a URL pointing to the sender's web-site or text. This does not include delivery terms.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Test' type='TestStructure'/>
+  <xsd:element name='TestFlag' type='TestFlagStructure'/>
+  <xsd:element name='TotalNumberOfItems' type='TotalNumberOfItemsType'>
+    <xsd:annotation>
+      <xsd:documentation>Total number of eBIS-XML documents in this batch</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TotalValue' type='TotalValueType'>
+    <xsd:annotation>
+      <xsd:documentation>Total line goods value. For example: A = sum of all LineValueTotal from line details for all invoices for this T.P. For orders, use sum of all GoodsValue.  TotalValue has minOccurs of 0 in order to support all batched documents but it should be present and populated wherever possible.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TotalValueAtRate' type='TotalValueAtRateType'>
+    <xsd:annotation>
+      <xsd:documentation>Sum of line-level totals excluding tax charged at this rate. Whether this is NetLineTotal or LineTotal will vary between applications and tax jurisdictions. Note that LineTotal was deprecated from 3.09 in favour of NetLineTotal and GrossLineTotal. Value A in tax calculations.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: Represents the total monetary value of a Tax (at specified band or percentage) on the document.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TradedUnitCode' type='TradedUnitCodeType'>
+    <xsd:annotation>
+      <xsd:documentation>Number conformant to UCC.EAN specification.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Type' type='TypeStructure'>
+    <xsd:annotation>
+      <xsd:documentation>
+        <h2>Percent discount type codes</h2>
+        <p>If
+          <tt>PercentDiscount/Type/@Codelist</tt> is 'BASDA' or not supplied,
+          <tt>PercentDiscount/Type/@Code</tt>, if used, must be one of:
+        </p>
+        <table>
+          <tr>
+            <td>
+              <b>Code</b>
+            </td>
+            <td>
+              <b>Meaning</b>
+            </td>
+          </tr>
+          <tr>
+            <td>SPD</td>
+            <td>Special Discount</td>
+          </tr>
+          <tr>
+            <td>LID</td>
+            <td>Line Discount</td>
+          </tr>
+          <tr>
+            <td>VOD</td>
+            <td>Volume Discount</td>
+          </tr>
+          <tr>
+            <td>ESD</td>
+            <td>Early Settlement Discount</td>
+          </tr>
+          <tr>
+            <td>LPI</td>
+            <td>Late payment interest charge</td>
+          </tr>
+          <tr>
+            <td>RED</td>
+            <td>Recipe Discount - dependent on other items</td>
+          </tr>
+          <tr>
+            <td>TRD</td>
+            <td>Trade Discount</td>
+          </tr>
+        </table>
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='TypeOfSupply' type='TypeOfSupplyType'/>
+  <xsd:element name='UnitPrice' type='UnitPriceType'>
+    <xsd:annotation>
+      <xsd:documentation>eBIS-XML-UKGov: This field represents the price of one unit of the ordered item.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Units' type='UnitsType'/>
+  <xsd:element name='UserID' type='UserIDType'/>
+  <xsd:element name='ValidFrom' type='IssueDateType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the first month that the card is valid.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Version' type='VersionType'>
+    <xsd:annotation>
+      <xsd:documentation>Represents the version of the XML schema with which
+        this document complies. This should be the same as the value of the
+        version attribute in the schema element of the document
+        schema.</xsd:documentation>
+      <xsd:documentation>eBIS-XML-UKGov: This element provided the means of
+        identifying that a message uses the UKGov subset of eBIS-XML. The
+        schema version must be correct: for example
+        3.09-UKGov</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name='Volume' type='VolumeStructure'/>
+  <xsd:element name='Weight' type='WeightStructure'/>
+  <xsd:element name='Width' type='WidthStructure'/>
+</xsd:schema>

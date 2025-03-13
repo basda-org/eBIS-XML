@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Batch xmlns='urn:schemas-basda-org:BatchEnvelope' Date='2001-03-03' DocType='Invoice' Number='100' SupplierName='Solid Oak Timber Co'>
+  <Invoice xmlns='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01'>
+    <InvoiceHead>
+      <Schema>
+        <Version>3.0</Version>
+      </Schema>
+      <Parameters>
+        <Language>en-GB</Language>
+        <DecimalSeparator>.</DecimalSeparator>
+        <Precision>10.3</Precision>
+      </Parameters>
+      <InvoiceType Code='INV'>Commercial Invoice</InvoiceType>
+      <Function Code='PRI'>Provisional Invoice</Function>
+      <InvoiceCurrency>
+        <Currency Code='GBP'>GB Pounds Sterling</Currency>
+        <AlternateCurrency Code='USD'>US Dollar</AlternateCurrency>
+        <Rate CalculationType='M'>1.6</Rate>
+      </InvoiceCurrency>
+      <Intrastat>
+        <CommodityCode>string</CommodityCode>
+        <CommodityDescription>string</CommodityDescription>
+        <NatureOfTransaction Code='10'>string</NatureOfTransaction>
+        <SupplementaryUnits>124</SupplementaryUnits>
+        <CountryOfDestination Code='SE'>Sweden</CountryOfDestination>
+        <ModeOfTransport Code='4'>Air</ModeOfTransport>
+      </Intrastat>
+      <Checksum>52120</Checksum>
+    </InvoiceHead>
+    <InvoiceReferences>
+      <SuppliersInvoiceNumber Preserve='true'>123456/1</SuppliersInvoiceNumber>
+      <BatchNumber>100</BatchNumber>
+    </InvoiceReferences>
+    <InvoiceDate>2000-06-07</InvoiceDate>
+    <Supplier>
+      <SupplierReferences>
+        <BuyersCodeForSupplier>12345678912345</BuyersCodeForSupplier>
+        <TaxNumber>GB123456789</TaxNumber>
+        <GLN>12345678901234</GLN>
+      </SupplierReferences>
+      <Party>Solid Oak Timber Co</Party>
+      <Address>
+        <AddressLine>The Woodyard</AddressLine>
+        <Street>1 The Cut</Street>
+        <City>Reading</City>
+        <State>Berks</State>
+        <PostCode>RG1 1XX</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Fred Smith</Name>
+        <Department>Despatch</Department>
+        <InternalAddress>Back office</InternalAddress>
+        <DDI>12345678901234</DDI>
+        <Switchboard>01234566</Switchboard>
+        <Fax>01234567</Fax>
+        <Telex>3456</Telex>
+        <Email>fred@timber.co.uk</Email>
+        <Mobile>07967 123456</Mobile>
+      </Contact>
+    </Supplier>
+    <Delivery>
+      <DeliverTo>
+        <Party>Stephen Griffiths</Party>
+        <Address>
+          <AddressLine>Room 530</AddressLine>
+          <AddressLine>The Linen Hall</AddressLine>
+          <Street>162-168 Regent Street</Street>
+          <City>London</City>
+          <State>SE England</State>
+          <PostCode>W1R 5TB</PostCode>
+          <Country Code='GBR'>United Kingdom</Country>
+        </Address>
+        <Location>Back Room</Location>
+        <Contact>
+          <Name>Stephen Griffiths</Name>
+          <Department>Technical</Department>
+          <Switchboard>020 7734 7810</Switchboard>
+        </Contact>
+      </DeliverTo>
+      <EarliestAcceptableDate>2000-06-07</EarliestAcceptableDate>
+      <LatestAcceptableDate>2000-06-07</LatestAcceptableDate>
+      <PreferredDate>2000-06-07</PreferredDate>
+      <DeliveryInformation>After 8.00</DeliveryInformation>
+      <Narrative>Parking Problems in Regent Street after 10.00</Narrative>
+    </Delivery>
+    <InvoiceTo>
+      <Party>BASDA Business Services Ltd</Party>
+      <Address>
+        <AddressLine>The Linen Hall</AddressLine>
+        <Street>162-168 Regent Street</Street>
+        <City>London</City>
+        <PostCode>W1R 5TB</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Sarah Fowler</Name>
+        <Department>Admin</Department>
+        <Switchboard>020 7734 7810</Switchboard>
+        <Mobile>0795 67890</Mobile>
+      </Contact>
+    </InvoiceTo>
+    <InvoiceLine Action='Add' TypeCode='GDS' TypeDescription='Goods &amp; Services'>
+      <LineNumber Preserve='true'>1</LineNumber>
+      <InvoiceLineReferences>
+        <OrderLineNumber>1</OrderLineNumber>
+      </InvoiceLineReferences>
+      <Product>
+        <Description>A beautiful oak shelf comprising horizontal mount with decorated vertical bracket attachments</Description>
+        <Properties>
+          <Length UOMCode='MTR' UOMDescription='Metre'>2</Length>
+          <Width UOMCode='CMT' UOMDescription='Centimeters'>50</Width>
+          <Depth UOMCode='MMT' UOMDescription='Millimeters'>20</Depth>
+        </Properties>
+      </Product>
+      <Quantity UOMCode='Pieces' UOMDescription='PCE'>
+        <Packsize>Pack of 10</Packsize>
+        <Amount>2</Amount>
+      </Quantity>
+      <Price UOMCode='PCE' UOMDescription='Piece'>
+        <Units>2</Units>
+        <UnitPrice>100.00</UnitPrice>
+        <SpecialPriceDescription>If purchased in May</SpecialPriceDescription>
+      </Price>
+      <LineTax>
+        <MixedRateIndicator>1</MixedRateIndicator>
+        <TaxRate Code='S'>17.5</TaxRate>
+        <TaxValue>17.50</TaxValue>
+        <TaxRef Code='UKC'>UK Chargeable</TaxRef>
+      </LineTax>
+      <LineTotal>117.50</LineTotal>
+      <InvoiceLineInformation>Colour code 12345</InvoiceLineInformation>
+      <ExtendedDescription>Light Oak with melamine finish - hardwood noses - each side - plastic covers at each end - bubble wrapped</ExtendedDescription>
+      <Narrative>As per telephone conversation</Narrative>
+    </InvoiceLine>
+    <InvoiceLine Action='Add' TypeCode='GDS' TypeDescription='Goods &amp; Services'>
+      <LineNumber Preserve='true'>2</LineNumber>
+      <InvoiceLineReferences>
+        <OrderLineNumber>2</OrderLineNumber>
+      </InvoiceLineReferences>
+      <Product>
+        <Description>Shelf Brackets</Description>
+        <Properties>
+          <Length UOMCode='MTR' UOMDescription='Metre'>3</Length>
+          <Width UOMCode='CMT' UOMDescription='Centimeters'>10</Width>
+          <Depth UOMCode='MMT' UOMDescription='Millimeters'>20</Depth>
+          <Color>Grey</Color>
+        </Properties>
+      </Product>
+      <Quantity UOMCode='PCE' UOMDescription='Pieces'>
+        <Packsize>Pack of 5</Packsize>
+        <Amount>4</Amount>
+      </Quantity>
+      <Price UOMCode='PCE' UOMDescription='Piece'>
+        <Units>4</Units>
+        <UnitPrice>100.00</UnitPrice>
+        <SpecialPriceDescription>May purchase</SpecialPriceDescription>
+      </Price>
+      <LineTax>
+        <MixedRateIndicator>1</MixedRateIndicator>
+        <TaxRate Code='S'>17.5</TaxRate>
+        <TaxValue>70</TaxValue>
+        <TaxRef Code='UKC'>UK Chargeable</TaxRef>
+      </LineTax>
+      <LineTotal>470.00</LineTotal>
+      <ExtendedDescription>Upright slotted brackets in Dove Grey - 20 slots per inch - recessed screw holes - edges trimmed and de-burred - bubblewrap with plastic end covers.</ExtendedDescription>
+      <Narrative>Large brackets for heavy loads</Narrative>
+    </InvoiceLine>
+    <Narrative>Clean Oak - no knots</Narrative>
+    <TaxSubTotal>
+      <TaxRate Code='S'>17.5</TaxRate>
+      <NumberOfLinesAtRate>2</NumberOfLinesAtRate>
+      <TotalValueAtRate>500.00</TotalValueAtRate>
+      <TaxableValueAtRate>500.00</TaxableValueAtRate>
+      <TaxAtRate>87.50</TaxAtRate>
+      <NetPaymentAtRate>587.50</NetPaymentAtRate>
+      <GrossPaymentAtRate>587.50</GrossPaymentAtRate>
+      <TaxCurrency>
+        <Currency Code='GBP'>Great Britain Pounds Sterling</Currency>
+      </TaxCurrency>
+    </TaxSubTotal>
+    <InvoiceTotal>
+      <NumberOfLines>2</NumberOfLines>
+      <NumberOfTaxRates>1</NumberOfTaxRates>
+      <LineValueTotal>500.00</LineValueTotal>
+      <TaxableTotal>500.00</TaxableTotal>
+      <TaxTotal>87.50</TaxTotal>
+      <NetPaymentTotal>587.50</NetPaymentTotal>
+      <GrossPaymentTotal>587.50</GrossPaymentTotal>
+    </InvoiceTotal>
+  </Invoice>
+  <Invoice xmlns='urn:schemas-basda-org:2000:salesInvoice:xdr:3.01'>
+    <InvoiceHead>
+      <Schema>
+        <Version>3.0</Version>
+      </Schema>
+      <Parameters>
+        <Language>en-GB</Language>
+        <DecimalSeparator>.</DecimalSeparator>
+        <Precision>10.3</Precision>
+      </Parameters>
+      <InvoiceType Code='INV'>Commercial Invoice</InvoiceType>
+      <Function Code='PRI'>Provisional Invoice</Function>
+      <InvoiceCurrency>
+        <Currency Code='GBP'>GB Pounds Sterling</Currency>
+        <AlternateCurrency Code='USD'>US Dollar</AlternateCurrency>
+        <Rate CalculationType='M'>1.6</Rate>
+      </InvoiceCurrency>
+      <Checksum>52120</Checksum>
+    </InvoiceHead>
+    <InvoiceReferences>
+      <SuppliersInvoiceNumber Preserve='true'>123456/2</SuppliersInvoiceNumber>
+<!-- BatchNumber will be introduced in eBIS-XML v3.06   -->
+      <BatchNumber>100</BatchNumber>
+    </InvoiceReferences>
+    <InvoiceDate>2000-06-07</InvoiceDate>
+    <Supplier>
+      <SupplierReferences>
+        <BuyersCodeForSupplier>12345678912345</BuyersCodeForSupplier>
+      </SupplierReferences>
+      <Party>Solid Oak Timber Co</Party>
+      <Address>
+        <AddressLine>The Woodyard</AddressLine>
+        <Street>1 The Cut</Street>
+        <City>Reading</City>
+        <State>Berks</State>
+        <PostCode>RG1 1XX</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+      <Contact>
+        <Name>Fred Smith</Name>
+        <Department>Despatch</Department>
+      </Contact>
+    </Supplier>
+    <Delivery>
+      <DeliverTo>
+        <Party>Stephen Griffiths</Party>
+        <Address>
+          <AddressLine>Room 530</AddressLine>
+          <AddressLine>The Linen Hall</AddressLine>
+          <Street>162-168 Regent Street</Street>
+          <City>London</City>
+          <State>SE England</State>
+          <PostCode>W1R 5TB</PostCode>
+          <Country Code='GBR'>United Kingdom</Country>
+        </Address>
+      </DeliverTo>
+    </Delivery>
+    <InvoiceTo>
+      <Party>BASDA Business Services Ltd</Party>
+      <Address>
+        <AddressLine>The Linen Hall</AddressLine>
+        <Street>162-168 Regent Street</Street>
+        <City>London</City>
+        <PostCode>W1R 5TB</PostCode>
+        <Country Code='GBR'>United Kingdom</Country>
+      </Address>
+    </InvoiceTo>
+    <InvoiceLine Action='Add' TypeCode='GDS' TypeDescription='Goods &amp; Services'>
+      <LineNumber Preserve='true'>1</LineNumber>
+      <InvoiceLineReferences>
+        <OrderLineNumber>1</OrderLineNumber>
+      </InvoiceLineReferences>
+      <Product>
+        <Description>A 600mm BBQ stand</Description>
+      </Product>
+      <Quantity>
+        <Amount>1</Amount>
+      </Quantity>
+      <Price UOMCode='PCE' UOMDescription='Piece'>
+        <Units>1</Units>
+        <UnitPrice>100</UnitPrice>
+      </Price>
+      <LineTax>
+        <MixedRateIndicator>1</MixedRateIndicator>
+        <TaxRate Code='S'>17.5</TaxRate>
+        <TaxValue>17.50</TaxValue>
+        <TaxRef Code='UKC'>UK Chargeable</TaxRef>
+      </LineTax>
+      <LineTotal>117.50</LineTotal>
+    </InvoiceLine>
+    <TaxSubTotal>
+      <TaxRate Code='S'>17.5</TaxRate>
+      <NumberOfLinesAtRate>1</NumberOfLinesAtRate>
+      <TotalValueAtRate>100.00</TotalValueAtRate>
+      <TaxableValueAtRate>100.00</TaxableValueAtRate>
+      <TaxAtRate>17.50</TaxAtRate>
+      <NetPaymentAtRate>117.50</NetPaymentAtRate>
+      <GrossPaymentAtRate>117.50</GrossPaymentAtRate>
+      <TaxCurrency>
+        <Currency Code='GBP'>Great Britain Pounds Sterling</Currency>
+      </TaxCurrency>
+    </TaxSubTotal>
+    <InvoiceTotal>
+      <NumberOfLines>1</NumberOfLines>
+      <NumberOfTaxRates>1</NumberOfTaxRates>
+      <LineValueTotal>100.00</LineValueTotal>
+      <TaxableTotal>100.00</TaxableTotal>
+      <TaxTotal>17.50</TaxTotal>
+      <NetPaymentTotal>117.50</NetPaymentTotal>
+      <GrossPaymentTotal>117.50</GrossPaymentTotal>
+    </InvoiceTotal>
+  </Invoice>
+  <TaxBatchTrailer>
+    <TaxRate Code='S' Codelist='BASDA'>17.5</TaxRate>
+    <TotalValueAtRate>600</TotalValueAtRate>
+    <TaxableValueAtRate>600.00</TaxableValueAtRate>
+    <TaxAtRate>95.0</TaxAtRate>
+    <NetPaymentAtRate>695.00</NetPaymentAtRate>
+    <GrossPaymentAtRate>695.00</GrossPaymentAtRate>
+    <NumberOfItemsAtRate>3</NumberOfItemsAtRate>
+    <TaxCurrency>
+      <Currency Code='GBP' Codelist='BASDA'>GBP</Currency>
+      <AlternateCurrency Code='USD' Codelist='BASDA'>American Dollar</AlternateCurrency>
+    </TaxCurrency>
+  </TaxBatchTrailer>
+  <BatchTrailer>
+    <SuppliersCodeForBuyer>DSL001</SuppliersCodeForBuyer>
+    <TotalNumberOfItems>3</TotalNumberOfItems>
+    <TotalValue>600.00</TotalValue>
+    <SettlementDiscountTotal>0.00</SettlementDiscountTotal>
+    <TaxableTotal>600.00</TaxableTotal>
+    <TaxTotal>95.00</TaxTotal>
+    <NetPaymentTotal>695</NetPaymentTotal>
+    <GrossPaymentTotal>695</GrossPaymentTotal>
+    <ItemCurrency>
+      <Currency Code='GBP' Codelist='BASDA'>GBP</Currency>
+      <AlternateCurrency Code='USD' Codelist='BASDA'>American Dollar</AlternateCurrency>
+    </ItemCurrency>
+    <Checksum />
+  </BatchTrailer>
+</Batch>

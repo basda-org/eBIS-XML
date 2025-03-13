@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project>
+	<Folder FolderName="XML Files" ExtStr="xml;cml;math;rdf;smil;svg;wml"/>
+	<Folder FolderName="XSL Files" ExtStr="xsl;xslt"/>
+	<Folder FolderName="XQuery Files" ExtStr="xq;xql;xquery"/>
+	<Folder FolderName="HTML Files" ExtStr="html;htm;xhtml;asp">
+		<File FilePath="documentation\xmlSpy\BatchEnvelope\BatchEnvelope-v3.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\ExtensionGreen\ExtensionGreen.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\ExtensionHire\ExtensionHire.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\ExtensionTemporaryStaff\ExtensionTemporaryStaff.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\ExtensionUtilities\ExtensionUtilities.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\Invoice\Invoice-v3.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\Order\Order-v3.html" HomeFolder="Yes"/>
+		<File FilePath="documentation\xmlSpy\OrderResponse\OrderResponse-v3.html" HomeFolder="Yes"/>
+	</Folder>
+	<Folder FolderName="DTD/Schemas" ExtStr="dtd;dcd;xdr;biz;xsd">
+		<File FilePath="schemas\BatchEnvelope-v3.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\CoreStructures-v3.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\CoreTypes-v3.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\ExtensionGreen.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\ExtensionHire.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\ExtensionTemporaryStaff.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\ExtensionUtilities.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\Invoice-v3.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\Order-v3.xsd" HomeFolder="Yes"/>
+		<File FilePath="schemas\OrderResponse-v3.xsd" HomeFolder="Yes"/>
+	</Folder>
+	<Folder FolderName="Entities" ExtStr="ent"/>
+</Project>

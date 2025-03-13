@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+Schema Valid Sample document
+  
+ Please note that this schema-valid sample is not designed to obey any
+ "business rules". The values of data items represent only an example of what
+ the schema permits and are not necessarily correct in any other sense.
+  -->
+<Batch xmlns='urn:schemas-basda-org:BatchEnvelope' Date='2001-03-03' DocType='Order' Number='10472' SupplierName='Fred&apos;s Cabbages, Ltd.'>
+  <Order xmlns='urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01'>
+    <OrderHead>
+      <Schema>
+        <Version>3.02.1</Version>
+      </Schema>
+      <Stylesheet>
+        <StylesheetOwner>basda.org</StylesheetOwner>
+        <StylesheetName>BasdaEBuildOrder</StylesheetName>
+        <Version>1.00</Version>
+        <StylesheetType>xsl</StylesheetType>
+      </Stylesheet>
+      <Parameters>
+        <Language>en_GB</Language>
+        <DecimalSeparator>.</DecimalSeparator>
+        <Precision>10.3</Precision>
+      </Parameters>
+      <OriginatingSoftware>
+        <SoftwareManufacturer>Basda</SoftwareManufacturer>
+        <SoftwareProduct>Order generator</SoftwareProduct>
+        <SoftwareVersion>1.0</SoftwareVersion>
+      </OriginatingSoftware>
+      <TestFlag TestReference='testRefExample'>
+        <Test ExpectedReply='' Mode=''></Test>
+      </TestFlag>
+      <OrderType Code='CAO' Codelist='BASDA'>Call Off Order</OrderType>
+      <Function Code='String' Codelist='String'>String</Function>
+      <OrderCurrency>
+        <Currency Code='GBP' Codelist='BASDA'>GB Pounds Sterling</Currency>
+        <AlternateCurrency Code='EUR' Codelist='BASDA'>String</AlternateCurrency>
+        <Rate CalculationType='D'>2</Rate>
+      </OrderCurrency>
+      <InvoiceCurrency>
+        <Currency Code='GBP' Codelist='BASDA'>GB Pounds Sterling</Currency>
+        <AlternateCurrency Code='EUR' Codelist='BASDA'>String</AlternateCurrency>
+        <Rate CalculationType='D'>2</Rate>
+      </InvoiceCurrency>
+      <Checksum>1234</Checksum>
+    </OrderHead>
+    <OrderReferences>
+      <ContractOrderReference>String</ContractOrderReference>
+      <CostCentre>String</CostCentre>
+      <BuyersOrderNumber Preserve='true'>1296/0-0162438</BuyersOrderNumber>
+      <Department>Building</Department>
+      <GeneralLedgerCode>String</GeneralLedgerCode>
+      <ProjectCode Preserve='true'>1296</ProjectCode>
+      <ProjectAnalysisCode Preserve='true'>String</ProjectAnalysisCode>
+      <SuppliersOrderReference Preserve='true'>String</SuppliersOrderReference>
+      <CrossReference>String</CrossReference>
+      <ResponseTo>String</ResponseTo>
+      <BatchNumber>10000</BatchNumber>
+    </OrderReferences>
+    <OrderDate>2003-01-03T01:01:01</OrderDate>
+    <Supplier>
+      <SupplierReferences>
+        <BuyersCodeForSupplier>String</BuyersCodeForSupplier>
+        <TaxNumber>String</TaxNumber>
+        <GLN>String</GLN>
+        <DUNS>000123123</DUNS>
+      </SupplierReferences>
+      <Party>Tesco</Party>
+      <Address>
+        <AddressLine>10 The Copses</AddressLine>
+        <Street>High Street</Street>
+        <City>Nodnol</City>
+        <State>Alabama</State>
+        <PostCode>W1A 1AA</PostCode>
+        <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+      </Address>
+      <Contact>
+        <Name>Bob</Name>
+        <Department>Procurement</Department>
+        <InternalAddress>Behind the woodshed</InternalAddress>
+        <DDI>2</DDI>
+        <Switchboard>123456</Switchboard>
+        <Fax>01111 111111</Fax>
+        <Telex>01111 111111</Telex>
+        <Email>fred.flintstone@bedrock.org</Email>
+        <Mobile>07777 777777</Mobile>
+      </Contact>
+    </Supplier>
+    <Buyer>
+      <BuyerReferences>
+        <SuppliersCodeForBuyer>String</SuppliersCodeForBuyer>
+        <BuyersCodeForBuyer>String</BuyersCodeForBuyer>
+        <TaxNumber>String</TaxNumber>
+        <GLN>String</GLN>
+        <DUNS>000123123</DUNS>
+        <Organisation>String</Organisation>
+      </BuyerReferences>
+      <Party>FredcoLarchLever</Party>
+      <Address>
+        <AddressLine>10 The Copses</AddressLine>
+        <Street>High Street</Street>
+        <City>Nodnol</City>
+        <State>Alabama</State>
+        <PostCode>W1A 1AA</PostCode>
+        <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+      </Address>
+      <Contact>
+        <Name>Bob</Name>
+        <Department>Procurement</Department>
+        <Section>Paperclips</Section>
+        <UserID>bob123</UserID>
+        <InternalAddress>Behind the woodshed</InternalAddress>
+        <DDI>2</DDI>
+        <Switchboard>123456</Switchboard>
+        <Fax>01111 111111</Fax>
+        <Telex>01111 111111</Telex>
+        <Email>fred.flintstone@bedrock.org</Email>
+        <Mobile>07777 777777</Mobile>
+      </Contact>
+    </Buyer>
+    <Delivery>
+      <DeliverTo>
+        <DeliverToReferences>
+          <BuyersCodeForDelivery Preserve='true'>String</BuyersCodeForDelivery>
+          <BuyersCodeForLocation>String</BuyersCodeForLocation>
+          <GLN>String</GLN>
+          <DUNS>000123123</DUNS>
+        </DeliverToReferences>
+        <Party>FredcoLarchLever-Oxford</Party>
+        <Address>
+          <AddressLine>10 The Copses</AddressLine>
+          <Street>High Street</Street>
+          <City>Nodnol</City>
+          <State>Alabama</State>
+          <PostCode>W1A 1AA</PostCode>
+          <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+        </Address>
+        <Location>String</Location>
+        <Contact>
+          <Name>Bob</Name>
+          <Department>Procurement</Department>
+          <InternalAddress>Behind the woodshed</InternalAddress>
+          <DDI>2</DDI>
+          <Switchboard>123456</Switchboard>
+          <Fax>01111 111111</Fax>
+          <Telex>01111 111111</Telex>
+          <Email>fred.flintstone@bedrock.org</Email>
+          <Mobile>07777 777777</Mobile>
+        </Contact>
+      </DeliverTo>
+      <DeliverFrom>
+        <DeliverFromReferences>
+          <SuppliersCodeForLocation>String</SuppliersCodeForLocation>
+          <BuyersCodeForLocation>String</BuyersCodeForLocation>
+          <GLN>String</GLN>
+          <DUNS>000123123</DUNS>
+        </DeliverFromReferences>
+        <Party>Tesco-CowleyRoadOxford</Party>
+        <Address>
+          <AddressLine>10 The Copses</AddressLine>
+          <Street>High Street</Street>
+          <City>Nodnol</City>
+          <State>Alabama</State>
+          <PostCode>W1A 1AA</PostCode>
+          <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+        </Address>
+        <Location>String</Location>
+        <Contact>
+          <Name>Bob</Name>
+          <Department>Procurement</Department>
+          <InternalAddress>Behind the woodshed</InternalAddress>
+          <DDI>2</DDI>
+          <Switchboard>123456</Switchboard>
+          <Fax>01111 111111</Fax>
+          <Telex>01111 111111</Telex>
+          <Email>fred.flintstone@bedrock.org</Email>
+          <Mobile>07777 777777</Mobile>
+        </Contact>
+      </DeliverFrom>
+      <Carrier>
+        <CarrierReferences>
+          <BuyersCodeForCarrier>String</BuyersCodeForCarrier>
+          <GLN>String</GLN>
+          <DUNS>000123123</DUNS>
+        </CarrierReferences>
+        <Party>RoyalSnail</Party>
+        <Address>
+          <AddressLine>10 The Copses</AddressLine>
+          <Street>High Street</Street>
+          <City>Nodnol</City>
+          <State>Alabama</State>
+          <PostCode>W1A 1AA</PostCode>
+          <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+        </Address>
+        <Contact>
+          <Name>Bob</Name>
+          <Department>Procurement</Department>
+          <InternalAddress>Behind the woodshed</InternalAddress>
+          <DDI>2</DDI>
+          <Switchboard>123456</Switchboard>
+          <Fax>01111 111111</Fax>
+          <Telex>01111 111111</Telex>
+          <Email>fred.flintstone@bedrock.org</Email>
+          <Mobile>07777 777777</Mobile>
+        </Contact>
+      </Carrier>
+      <Quantity UOMCode='PCE' UOMCodelist='UNECE' UOMDescription='Piece'>
+        <Packsize>1</Packsize>
+        <Amount>80</Amount>
+      </Quantity>
+      <EarliestAcceptableDate>2001-10-20</EarliestAcceptableDate>
+      <LatestAcceptableDate>2001-10-20</LatestAcceptableDate>
+      <PreferredDate>2001-10-20</PreferredDate>
+      <SpecialInstructions>String</SpecialInstructions>
+      <DeliveryInformation>String</DeliveryInformation>
+      <Narrative>String</Narrative>
+    </Delivery>
+    <InvoiceTo>
+      <InvoiceToReferences>
+        <GLN>String</GLN>
+        <DUNS>000123123</DUNS>
+      </InvoiceToReferences>
+      <Party>FredcoLarchLever-London</Party>
+      <Address>
+        <AddressLine>10 The Copses</AddressLine>
+        <Street>High Street</Street>
+        <City>Nodnol</City>
+        <State>Alabama</State>
+        <PostCode>W1A 1AA</PostCode>
+        <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+      </Address>
+      <Contact>
+        <Name>Bob</Name>
+        <Department>Procurement</Department>
+        <Section>Paperclips</Section>
+        <UserID>bob123</UserID>
+        <InternalAddress>Behind the woodshed</InternalAddress>
+        <DDI>2</DDI>
+        <Switchboard>123456</Switchboard>
+        <Fax>01111 111111</Fax>
+        <Telex>01111 111111</Telex>
+        <Email>fred.flintstone@bedrock.org</Email>
+        <Mobile>07777 777777</Mobile>
+      </Contact>
+    </InvoiceTo>
+    <OrderLine Action='Add' TypeCode='NEW' TypeCodelist='BASDA' TypeDescription='New Item'>
+      <LineNumber Preserve='true'>28920</LineNumber>
+      <OrderLineReferences>
+        <ContractOrderReference>String</ContractOrderReference>
+        <CostCentre>String</CostCentre>
+        <GeneralLedgerCode>String</GeneralLedgerCode>
+        <BuyersOrderLineReference Preserve='true'>String</BuyersOrderLineReference>
+        <ProjectCode Preserve='true'>String</ProjectCode>
+        <ProjectAnalysisCode Preserve='true'>String</ProjectAnalysisCode>
+      </OrderLineReferences>
+      <Product>
+        <SuppliersProductCode>String</SuppliersProductCode>
+        <BuyersProductCode>String</BuyersProductCode>
+        <GTIN>2</GTIN>
+        <OtherProductCode Qualifier='String'>String</OtherProductCode>
+        <TradedUnitCode>String</TradedUnitCode>
+        <ConsumerUnitCode>String</ConsumerUnitCode>
+        <Description>String</Description>
+        <Properties>
+          <Quantity UOMCode='PCE' UOMCodelist='UNECE' UOMDescription='Piece'>
+            <Packsize>1</Packsize>
+            <Amount>80</Amount>
+          </Quantity>
+          <Length UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Length>
+          <Width UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Width>
+          <Depth UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Depth>
+          <Weight UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Weight>
+          <Volume UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Volume>
+          <Height UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Height>
+          <Size UOMCode='String' UOMCodelist='String' UOMDescription='String'>2</Size>
+          <Color UOMCode='String' UOMCodelist='String' UOMDescription='String'>String</Color>
+          <Other Description='String' UOMCode='String' UOMCodelist='String' UOMDescription='String'>String</Other>
+        </Properties>
+      </Product>
+      <Quantity UOMCode='PCE' UOMCodelist='UNECE' UOMDescription='Piece'>
+        <Packsize>1</Packsize>
+        <Amount>80</Amount>
+      </Quantity>
+      <Price UOMCode='KGM' UOMCodelist='UNECE' UOMDescription='Kilogram'>
+        <Units>String</Units>
+        <UnitPrice>24.99</UnitPrice>
+        <SpecialPriceDescription>String</SpecialPriceDescription>
+      </Price>
+      <PercentDiscount>
+        <Type Code='String' Codelist='String'>String</Type>
+        <Percentage>2.00</Percentage>
+      </PercentDiscount>
+      <AmountDiscount>
+        <Type Code='String' Codelist='String'>String</Type>
+        <Amount>2.45</Amount>
+      </AmountDiscount>
+      <LineTax>
+        <MixedRateIndicator>String</MixedRateIndicator>
+        <TaxRate Code='E' Codelist='BASDA'>17.50</TaxRate>
+        <TaxValue>2</TaxValue>
+        <TaxRef Code='String' Codelist='String'>String</TaxRef>
+      </LineTax>
+      <LineTotal>2</LineTotal>
+      <Delivery>
+        <DeliverTo>
+          <DeliverToReferences>
+            <BuyersCodeForDelivery Preserve='true'>String</BuyersCodeForDelivery>
+            <BuyersCodeForLocation>String</BuyersCodeForLocation>
+            <GLN>String</GLN>
+            <DUNS>000123123</DUNS>
+          </DeliverToReferences>
+          <Party>FredcoLarchLever-Oxford</Party>
+          <Address>
+            <AddressLine>10 The Copses</AddressLine>
+            <Street>High Street</Street>
+            <City>Nodnol</City>
+            <State>Alabama</State>
+            <PostCode>W1A 1AA</PostCode>
+            <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+          </Address>
+          <Location>String</Location>
+          <Contact>
+            <Name>Bob</Name>
+            <Department>Procurement</Department>
+            <InternalAddress>Behind the woodshed</InternalAddress>
+            <DDI>2</DDI>
+            <Switchboard>123456</Switchboard>
+            <Fax>01111 111111</Fax>
+            <Telex>01111 111111</Telex>
+            <Email>fred.flintstone@bedrock.org</Email>
+            <Mobile>07777 777777</Mobile>
+          </Contact>
+        </DeliverTo>
+        <DeliverFrom>
+          <DeliverFromReferences>
+            <SuppliersCodeForLocation>String</SuppliersCodeForLocation>
+            <BuyersCodeForLocation>String</BuyersCodeForLocation>
+            <GLN>String</GLN>
+            <DUNS>000123123</DUNS>
+          </DeliverFromReferences>
+          <Party>Tesco-CowleyRoadOxford</Party>
+          <Address>
+            <AddressLine>10 The Copses</AddressLine>
+            <Street>High Street</Street>
+            <City>Nodnol</City>
+            <State>Alabama</State>
+            <PostCode>W1A 1AA</PostCode>
+            <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+          </Address>
+          <Location>String</Location>
+          <Contact>
+            <Name>Bob</Name>
+            <Department>Procurement</Department>
+            <InternalAddress>Behind the woodshed</InternalAddress>
+            <DDI>2</DDI>
+            <Switchboard>123456</Switchboard>
+            <Fax>01111 111111</Fax>
+            <Telex>01111 111111</Telex>
+            <Email>fred.flintstone@bedrock.org</Email>
+            <Mobile>07777 777777</Mobile>
+          </Contact>
+        </DeliverFrom>
+        <Carrier>
+          <CarrierReferences>
+            <BuyersCodeForCarrier>String</BuyersCodeForCarrier>
+            <GLN>String</GLN>
+            <DUNS>000123123</DUNS>
+          </CarrierReferences>
+          <Party>RoyalSnail</Party>
+          <Address>
+            <AddressLine>10 The Copses</AddressLine>
+            <Street>High Street</Street>
+            <City>Nodnol</City>
+            <State>Alabama</State>
+            <PostCode>W1A 1AA</PostCode>
+            <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+          </Address>
+          <Contact>
+            <Name>Bob</Name>
+            <Department>Procurement</Department>
+            <InternalAddress>Behind the woodshed</InternalAddress>
+            <DDI>2</DDI>
+            <Switchboard>123456</Switchboard>
+            <Fax>01111 111111</Fax>
+            <Telex>01111 111111</Telex>
+            <Email>fred.flintstone@bedrock.org</Email>
+            <Mobile>07777 777777</Mobile>
+          </Contact>
+        </Carrier>
+        <Quantity UOMCode='PCE' UOMCodelist='UNECE' UOMDescription='Piece'>
+          <Packsize>1</Packsize>
+          <Amount>80</Amount>
+        </Quantity>
+        <EarliestAcceptableDate>2001-10-20</EarliestAcceptableDate>
+        <LatestAcceptableDate>2001-10-20</LatestAcceptableDate>
+        <PreferredDate>2001-10-20</PreferredDate>
+        <SpecialInstructions>String</SpecialInstructions>
+        <DeliveryInformation>String</DeliveryInformation>
+        <Narrative>String</Narrative>
+      </Delivery>
+      <OrderLineInformation>String</OrderLineInformation>
+      <ExtendedDescription>String</ExtendedDescription>
+      <Narrative>String</Narrative>
+    </OrderLine>
+    <PercentDiscount>
+      <Type Code='String' Codelist='String'>String</Type>
+      <Percentage>2.00</Percentage>
+    </PercentDiscount>
+    <AmountDiscount>
+      <Type Code='String' Codelist='String'>String</Type>
+      <Amount>2.45</Amount>
+    </AmountDiscount>
+    <SpecialInstructions>String</SpecialInstructions>
+    <Narrative>String</Narrative>
+    <Settlement>
+      <CardDetails CardType='Charge'>
+        <Issuer>VISA</Issuer>
+        <Party>Buyer</Party>
+        <Address>
+          <AddressLine>10 The Copses</AddressLine>
+          <Street>High Street</Street>
+          <City>Nodnol</City>
+          <State>Alabama</State>
+          <PostCode>W1A 1AA</PostCode>
+          <Country Code='' Codelist='IS03166-1/3'>UK</Country>
+        </Address>
+        <IssueDate>2001-10-20</IssueDate>
+        <ExpiryDate>2001-10-20</ExpiryDate>
+        <IssueNumber>2</IssueNumber>
+        <CardNumber>1234567812345678</CardNumber>
+        <AuthorisationCode>25107</AuthorisationCode>
+        <SecurityCode>123</SecurityCode>
+      </CardDetails>
+    </Settlement>
+    <OrderTotal>
+      <GoodsValue>2</GoodsValue>
+      <FreightCharges>2</FreightCharges>
+      <MiscCharges>2</MiscCharges>
+      <TaxTotal>2</TaxTotal>
+      <GrossValue>2</GrossValue>
+      <AmountPaid>2</AmountPaid>
+      <AmountOutstanding>2</AmountOutstanding>
+    </OrderTotal>
+  </Order>
+  <TaxBatchTrailer>
+    <TaxRate Code='S' Codelist='BASDA'>20</TaxRate>
+    <TotalValueAtRate>50000</TotalValueAtRate>
+    <SettlementDiscountAtRate>50000</SettlementDiscountAtRate>
+    <TaxableValueAtRate>50000</TaxableValueAtRate>
+    <TaxAtRate>50000</TaxAtRate>
+    <NetPaymentAtRate>50000</NetPaymentAtRate>
+    <GrossPaymentAtRate>50000</GrossPaymentAtRate>
+    <NumberOfItemsAtRate>10</NumberOfItemsAtRate>
+    <TaxCurrency>
+      <Currency Code='GBP' Codelist='BASDA'>GBP</Currency>
+      <AlternateCurrency Code='EUR' Codelist='BASDA'>GBP</AlternateCurrency>
+      <Rate CalculationType='D'>2</Rate>
+    </TaxCurrency>
+  </TaxBatchTrailer>
+  <BatchTrailer>
+    <SuppliersCodeForBuyer>DSL001</SuppliersCodeForBuyer>
+    <TotalNumberOfItems>25</TotalNumberOfItems>
+    <TotalValue>50000</TotalValue>
+    <SettlementDiscountTotal>50000</SettlementDiscountTotal>
+    <TaxableTotal>50000</TaxableTotal>
+    <TaxTotal>50000</TaxTotal>
+    <NetPaymentTotal>50000</NetPaymentTotal>
+    <GrossPaymentTotal>50000</GrossPaymentTotal>
+    <ItemCurrency>
+      <Currency Code='GBP' Codelist='BASDA'>GBP</Currency>
+      <AlternateCurrency Code='EUR' Codelist='BASDA'>GBP</AlternateCurrency>
+      <Rate CalculationType='D'>2</Rate>
+    </ItemCurrency>
+    <Checksum>2</Checksum>
+  </BatchTrailer>
+</Batch>

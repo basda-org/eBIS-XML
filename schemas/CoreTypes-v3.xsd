@@ -1,0 +1,668 @@
+<?xml version="1.0"?>
+<xsd:schema version='3.10' elementFormDefault='qualified' attributeFormDefault='unqualified' id='eBIS-XML_CoreTypes' xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:doc='urn:schemas-basda-org:schema-extensions:documentation'>
+  <xsd:annotation>
+    <xsd:appinfo>
+      <doc:Metadata>
+        <doc:Title>eBIS-XML Core Types</doc:Title>
+        <doc:Subject>eBIS-XML Component Library (types)</doc:Subject>
+        <doc:Version>
+          <doc:Number>3.10</doc:Number>
+          <doc:Status>Production</doc:Status>
+        </doc:Version>
+        <doc:Author>R J Duncan</doc:Author>
+        <doc:ModificationDate>7 Apr 12</doc:ModificationDate>
+        <doc:Note>This is the eBIS-XML Component Library of types. This schema provides the simple types used by the eBIS-XML Component Library of structures.</doc:Note>
+        <doc:Note>Messages conformant to eBIS-XML v3.08 will conform to the superset definitions based on these libraries.</doc:Note>
+        <doc:Note>Message definitions can be derived from these components by referencing them and using XML Schema redefine where necessary. Please see the literature and http://basda.net for further information.</doc:Note>
+      </doc:Metadata>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:simpleType name='AccountNameType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ActionAttrType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='Add' />
+      <xsd:enumeration value='Change' />
+      <xsd:enumeration value='Delete' />
+      <xsd:enumeration value='Original' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='ActualDeliveryDateType'>
+    <xsd:restriction base='DateTimeOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AddressLineType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AlternateCurrencyType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AmountOutstandingType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AmountPaidType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AmountType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AttachmentDataType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='AuthorisationCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BankCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BankNameType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BankReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BatchNumberType'>
+    <xsd:restriction base='xsd:integer' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BestBeforeDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForBuyerType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForCarrierType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForDeliveryType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForInvoiceToType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForLocationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersCodeForSupplierType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersOrderLineReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersOrderNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='BuyersProductCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CRItype'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='[0-9a-zA-Z]{1,16}' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='CardNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CardTypeAttrType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='Charge' />
+      <xsd:enumeration value='Credit' />
+      <xsd:enumeration value='Debit' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='CityType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CodelistType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ColorType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CommodityClassType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='\d{2}( \d{2})?( \d{2})?( \d{2})?' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='CommodityCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CommodityDescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ConsumerUnitCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ContractOrderReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CostCentreType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CountryType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CrossReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='CurrencyType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DDIType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DUNStype'>
+    <xsd:restriction base='xsd:integer'>
+      <xsd:pattern value='\d{9}' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='DateTime'>
+    <xsd:restriction base='DateTimeOrEmptyType'>
+      <xsd:pattern value='.+' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='DateTimeOrEmptyType'>
+    <xsd:union memberTypes='xsd:date xsd:dateTime EmptyStringType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DaysFromDeliveryType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DaysFromInvoiceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DaysFromMonthEndType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DecimalOrEmptyType'>
+    <xsd:union memberTypes='xsd:decimal EmptyStringType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DecimalSeparatorType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value=',' />
+      <xsd:enumeration value='.' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='DeliveryDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DeliveryInformationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DeliveryNoteLineNumberType'>
+    <xsd:restriction base='xsd:integer' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DeliveryNoteNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DeliveryTermsType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DepartmentType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DepthType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DespatchDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='DoubleOrEmptyType'>
+    <xsd:union memberTypes='xsd:double EmptyStringType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='EarliestAcceptableDateType'>
+    <xsd:restriction base='DateTimeOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='EmailType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='.*@.*\..*' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='EmptyStringType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:maxLength value='0' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='ExpectedDeliveryDateType'>
+    <xsd:restriction base='DateTimeOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ExpectedReplyType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ExpiryDateType'>
+    <xsd:restriction base='xsd:date' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ExtendedDescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='FaxType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='FreightChargesType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='FileNameType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='FunctionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GLNType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GTINType'>
+    <xsd:restriction base='xsd:integer' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GUIDType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='[a-zA-Z0-9]{8}\-[a-zA-Z0-9]{4}\-[a-zA-Z0-9]{4}\-[a-zA-Z0-9]{4}\-[a-zA-Z0-9]{12}' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='GeneralLedgerCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GoodsValueType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GrossLineTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GrossPaymentAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GrossPaymentTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='GrossValueType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='HeightType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='IntegerOrEmptyType'>
+    <xsd:union memberTypes='xsd:integer EmptyStringType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='InternalAddressType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='InvoiceDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='InvoiceLineInformationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='InvoiceTypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='IssueDateElementType'>
+    <xsd:restriction base='xsd:date' />
+  </xsd:simpleType>
+  <xsd:simpleType name='IssueDateType'>
+    <xsd:annotation>
+      <xsd:documentation>Month represented as a month number and a 2-4 digit year with a separator, such as is used on credit cards.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='\d{2}[\-/. ]\d{2,4}' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='IssueNumberType'>
+    <xsd:restriction base='xsd:int' />
+  </xsd:simpleType>
+  <xsd:simpleType name='IssuerType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LanguageCodeType'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='[a-z]{2}([_\-][A-Z]{2})?' />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name='LatestAcceptableDateType'>
+    <xsd:restriction base='DateTimeOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LengthType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LineNumberType'>
+    <xsd:restriction base='xsd:int' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LineTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LineValueTotalType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LocationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LogoURLType'>
+    <xsd:restriction base='xsd:anyURI' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LotSerialNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='LotSerialTypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='MiscChargesType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='MixedRateIndicatorType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='MobileType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ModeOfTransportType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ModeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NameType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NarrativeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NatureOfTransactionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NetLineTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NetPaymentAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NetPaymentTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NumberOfItemsAtRateType'>
+    <xsd:restriction base='xsd:integer' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NumberOfLinesAtRateType'>
+    <xsd:restriction base='IntegerOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NumberOfLinesType'>
+    <xsd:restriction base='IntegerOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='NumberOfTaxRatesType'>
+    <xsd:restriction base='IntegerOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OnSaleByDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderLineInformationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderLineNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderResponseDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderResponseNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderResponseTypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrderTypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OrganisationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OriginalLineNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OriginalOrderDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OtherProductCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='OtherUOMType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PacksizeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PaidDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PartyType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PayByDateType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PercentageType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PostCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PrecisionType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PreferredDateType'>
+    <xsd:restriction base='DateTimeOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='PreserveType'>
+    <xsd:restriction base='xsd:boolean' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ProjectAnalysisCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ProjectCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='QualifierType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='RegisteredInType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='RegistrationNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ResponseToType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SectionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SecurityCodeType'>
+    <xsd:restriction base='xsd:int' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SellByDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SettlementDiscountAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SettlementDiscountTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SettlementMethodType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='ShelfLifeDateType'>
+    <xsd:restriction base='DateTime' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SizeType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SoftwareManufacturerType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SoftwareProductType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SoftwareSystemIDType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SoftwareVersionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SpecialInstructionsType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SpecialPriceDescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StateType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StatusType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StreetType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StylesheetNameType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StylesheetOwnerType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='StylesheetTypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SupplementaryUnitsType'>
+    <xsd:restriction base='IntegerOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersCodeForBuyerType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersCodeForInvoiceToType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersCodeForLocationType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersInvoiceNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersOrderReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SuppliersProductCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='SwitchboardType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxNumberType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxPointDateType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxRateType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxRefType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxValueType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxableTotalType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TaxableValueAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TelexType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TermsConditionsType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TestReferenceType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TotalNumberOfItemsType'>
+    <xsd:restriction base='xsd:integer' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TotalValueAtRateType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TotalValueType'>
+    <xsd:restriction base='xsd:decimal' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TradedUnitCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TypeCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TypeCodelistType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TypeDescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TypeOfSupplyType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='TypeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMCodeType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMCodelistType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMDescriptionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMlength'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMnumeric'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMvolume'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UOMweight'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UnitPriceType'>
+    <xsd:restriction base='DecimalOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UnitsType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='UserIDType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='VersionType'>
+    <xsd:restriction base='xsd:string' />
+  </xsd:simpleType>
+  <xsd:simpleType name='VolumeType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='WeightType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+  <xsd:simpleType name='WidthType'>
+    <xsd:restriction base='DoubleOrEmptyType' />
+  </xsd:simpleType>
+</xsd:schema>
